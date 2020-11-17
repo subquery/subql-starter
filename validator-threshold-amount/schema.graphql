@@ -1,0 +1,11 @@
+
+type ValidatorThreshold @entity {
+  # block height
+  id: ID!
+
+  validator: String!
+
+  selfBonded: BigInt!
+
+  totalBonded: BigInt!
+}

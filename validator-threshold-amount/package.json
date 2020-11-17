@@ -1,0 +1,17 @@
+{
+  "name": "validator-threshold-amount",
+  "version": "1.0.0",
+  "description": "this subquery will index and visualize the minimal amount to become a validator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@polkadot/api": "^2.3.1",
+    "axios": "^0.20.0"
+  },
+  "devDependencies": {
+  }
+}

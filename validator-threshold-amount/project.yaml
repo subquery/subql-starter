@@ -1,0 +1,28 @@
+specVersion = "0.0.2"
+description = "Uniswap is a decentralized protocol for automated token exchange on Ethereum."
+repository = "https://github.com/Uniswap/uniswap-v2-subgraph"
+
+schema:
+  file: "./schema.graphql"
+
+endpoint: "wss://rpc.polkadot.io"
+apiSdk:
+  package: "@polkadot/api"
+  version: "~0.1.1"
+dataSources:
+  - name: Vt
+    kind: substrate/Runtime
+    source:
+      startBlock: 1
+    mapping:
+      kind: substrate/events
+      apiVersion: 0.0.3
+      language: wasm/assemblyscript
+      file: ./src/mappings/factory.ts
+      entities:
+        - ValidatorThreshold
+      blockHandlers:
+        - handler: handleBlock
+
+
+
