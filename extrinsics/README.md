@@ -1,3 +1,3 @@
-# SubQuery - Validator Threshold Amount
+# SubQuery - Extrinsic
 
-this subquery will index and visualize the minimal amount to become a validator 
+this subquery will index and count the number of extrinsic in a specific block
