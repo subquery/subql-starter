@@ -1,0 +1,9 @@
+
+type Extrinsic @entity {
+
+  id: ID!
+
+  NumExtrinsic: Int!
+
+
+}
