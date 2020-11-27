@@ -1,5 +1,5 @@
 {
-  "name": "validator-threshold-amount",
+  "name": "extrinsic-count",
   "version": "1.0.0",
   "description": "this subquery will index and count the number of extrinsic in a specific block",
   "main": "index.js",
@@ -15,7 +15,8 @@
     "@babel/core": "^7.12.7",
     "@babel/preset-env": "^7.12.7",
     "@babel/preset-typescript": "^7.12.7",
-    "@polkadot/api": "^2.7.1",
+    "@subql/types": "file:///Users/ian/Workspace/onfinality/polkagraph-node/packages/types",
+    "@polkadot/api": "^2.8.1",
     "app-module-path": "^2.2.0",
     "babel-jest": "^26.6.3",
     "jest": "^26.6.3"

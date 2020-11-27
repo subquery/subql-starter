@@ -1,6 +1,5 @@
-
-import {Extrinsic} from "../types/extrinsic/Extrinsic";
 import {SignedBlock} from "@polkadot/types/interfaces";
+import {Extrinsic} from "../types/models/Extrinsic";
 
 export async function handleBlock(thisBlock: SignedBlock): Promise<void> {
     const blockNum = thisBlock.block.header.number.toString();

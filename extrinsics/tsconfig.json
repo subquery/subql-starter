@@ -6,12 +6,12 @@
     "declaration": true,
     "importHelpers": true,
     "module": "commonjs",
-    "outDir": "lib",
+    "outDir": "dist",
     "rootDir": "src",
     "target": "es2017"
   },
   "include": [
     "src/**/*",
-    "src/global.d.ts"
+    "node_modules/@subql/types/dist/global.d.ts"
   ]
 }
