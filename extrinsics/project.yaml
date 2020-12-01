@@ -1,28 +1,37 @@
-specVersion = "0.0.2"
-description = "Uniswap is a decentralized protocol for automated token exchange on Ethereum."
-repository = "https://github.com/Uniswap/uniswap-v2-subgraph"
+specVersion: "0.0.1"
+description: ""
+repository: "https://github.com/onfinality-io/examples"
 
-schema:
-  file: "./schema.graphql"
+schema: "./schema.graphql"
 
 endpoint: "wss://rpc.polkadot.io"
-apiSdk:
-  package: "@polkadot/api"
-  version: "~0.1.1"
+
 dataSources:
-  - name: Vt
+  - name: main
     kind: substrate/Runtime
-    source:
-      startBlock: 1
+    startBlock: 1
     mapping:
-      kind: substrate/block
-      apiVersion: 0.0.3
-      language: wasm/assemblyscript
       file: ./src/mappings/Extrinsic.ts
-      entities:
-        - Extrinsic
-      blockHandlers:
-        - handler: handleBlock
+      handlers:
+        - name: handleBlock
+          kind: substrate/BlockHandler
+          filter:
+            module: balance
+        - handler: handleEvent
+          kind: substrate/CallHandler
+          filter:
+            module: balance
+            name: xxx
+        - handler: handleEvent
+          kind: substrate/EventHandler
+          filter:
+            module: balance
+            name: xxx
+  - name: contract
+    kind: substrate/Ink!
+  - name: contract2
+    kind: substrate/EVM
+
 
 
 
