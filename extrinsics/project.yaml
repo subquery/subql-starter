@@ -13,7 +13,7 @@ dataSources:
     mapping:
       file: ./src/mappings/Extrinsic.ts
       handlers:
-        - name: handleBlock
+        - handler: handleBlock
           kind: substrate/BlockHandler
           filter:
             module: balance

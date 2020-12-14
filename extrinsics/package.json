@@ -2,23 +2,34 @@
   "name": "extrinsic-count",
   "version": "1.0.0",
   "description": "this subquery will index and count the number of extrinsic in a specific block",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
+    "prepack": "rm -rf dist && tsc -b",
     "test": "jest"
   },
+  "files": [
+    "dist",
+    "schema.graphql",
+    "project.yaml"
+  ],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-  },
   "devDependencies": {
-    "@jest/globals": "^26.6.2",
     "@babel/core": "^7.12.7",
     "@babel/preset-env": "^7.12.7",
     "@babel/preset-typescript": "^7.12.7",
-    "@subql/types": "file:///Users/ian/Workspace/onfinality/polkagraph-node/packages/types",
+    "@jest/globals": "^26.6.2",
     "@polkadot/api": "^2.8.1",
+    "@subql/cli": "*",
+    "@subql/types": "*",
     "app-module-path": "^2.2.0",
     "babel-jest": "^26.6.3",
     "jest": "^26.6.3"
+  },
+  "resolutions": {
+    "@subql/cli": "portal:/Users/jiatwork/subql/subql/packages/cli",
+    "@subql/common": "portal:/Users/jiatwork/subql/subql/packages/common",
+    "@subql/node": "portal:/Users/jiatwork/subql/subql/packages/node",
+    "@subql/types": "portal:/Users/jiatwork/subql/subql/packages/types"
   }
 }
