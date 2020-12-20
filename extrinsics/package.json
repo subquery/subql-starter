@@ -20,7 +20,7 @@
     "@babel/preset-typescript": "^7.12.7",
     "@jest/globals": "^26.6.2",
     "@polkadot/api": "^2.8.1",
-    "@subql/types": "*",
+    "@subql/types": "^0.1.0",
     "app-module-path": "^2.2.0",
     "babel-jest": "^26.6.3",
     "jest": "^26.6.3"
