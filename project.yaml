@@ -4,7 +4,8 @@ repository: "https://github.com/onfinality-io/subql-starter"
 
 schema: "./schema.graphql"
 
-endpoint: "wss://rpc.polkadot.io"
+network:
+  endpoint: "wss://polkadot.api.onfinality.io/public-ws"
 
 dataSources:
   - name: main
