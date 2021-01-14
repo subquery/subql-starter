@@ -1,7 +1,7 @@
 {
-  "name": "extrinsic-count",
-  "version": "1.0.0",
-  "description": "this subquery will index and count the number of extrinsic in a specific block",
+  "name": "subquery-starter",
+  "version": "0.0.1",
+  "description": "This project can be use as a starting point for developing your SubQuery project",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc -b",
@@ -13,11 +13,11 @@
     "schema.graphql",
     "project.yaml"
   ],
-  "author": "Ian He",
+  "author": "Ian He & Jay Ji",
   "license": "Apache-2.0",
   "devDependencies": {
     "@polkadot/api": "^3",
-    "@subql/types": "^0.3.0",
+    "@subql/types": "^0.4.0",
     "typescript": "^4.1.3"
   }
 }

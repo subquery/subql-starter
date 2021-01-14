@@ -1,9 +1,14 @@
+type starterEntity @entity {
 
-type Extrinsic @entity {
+  id: ID! #id is a required field
 
-  id: ID!
+  field1: Int!
 
-  NumExtrinsic: Int!
+  field2: String #filed2 is an optional field
+
+  field3: BigInt
+
+  field4: Date
 
 
 }

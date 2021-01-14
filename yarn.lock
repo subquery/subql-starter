@@ -223,10 +223,10 @@
     "@types/websocket" "^1.0.1"
     websocket "^1.0.33"
 
-"@subql/types@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@subql/types/-/types-0.3.0.tgz#a0fd723fa801c71fe1b086dc06b8e755a19b55cb"
-  integrity sha512-TBPrtjS/W7nEhxnWWS0+pFqH+zzwMYHLNtXZ2MCx8YzDZBFP/RUtTN3zIyI2eXD8ymvPTDcv0iMdTFFU8Lci3Q==
+"@subql/types@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@subql/types/-/types-0.4.0.tgz#8f80b662ccbff981b698d8bb72f52c79a7c93dbf"
+  integrity sha512-BFf8xGPeu0bbARDZXipg0AFgCPSXf86J7V0gny0efhXIpnq/7ilQabhk2pFpljDudIDI0z0YMEIsCoY5r4WECA==
 
 "@types/bn.js@^4.11.6":
   version "4.11.6"
