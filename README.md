@@ -94,7 +94,7 @@ Run this command under the project directory.
 $yarn build
 ````
 
-#### Run a SubQuery indexer in docker
+#### Run required systems in docker
 
 Then, under the project directory run following command:
 
@@ -108,8 +108,13 @@ With the SubQuery project above deployed successfully, now in your docker contai
 
 Open your browser and head to `http://localhost:8080/console`.
 
-Under the `DATA` tab, on the left top corner select the schema you just created, it usually formatted like `subquery_xx`.
+Under the `DATA` tab, on the left top corner select the schema you just created, it usually named `public`.
 Then you can see the table is currently untracked, click on the `Track` button.
 
 Finally, head to the `GRAPHQL` tab, in the explorer you should see the table is ready to query.
 
+##Redeploy a project
+
+If any changes to your SubQuery project require SubQuery node to reindex, it is necessary to repeat the above steps in [Configure your project](#configure-your-project).
+And reindex again starting with the genesis block.
+Also, restore a clean schema will ensure data stored correctly, go to Hasura console and under the `DATA` tab, select the corresponding schema and remove it.

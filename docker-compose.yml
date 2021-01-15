@@ -28,15 +28,10 @@ services:
       # HASURA_GRAPHQL_ADMIN_SECRET: myadminsecretkey
 
   subquery-node:
-    image: onfinality/subql-node:v0.4.0
-    ports:
-      - '8000:8000'
-      - '8001:8001'
-      - '8020:8020'
-      - '8030:8030'
-      - '8040:8040'
+    image: onfinality/subql-node:v0.5.0
     depends_on:
       - "postgres"
+    restart: always
     environment:
       DB_USER: postgres
       DB_PASS: postgres
@@ -45,5 +40,8 @@ services:
       DB_POST: 5432
     volumes:
       - ./:/app
-    command: ['-f','/app']
+    command:
+      - '-f'
+      - '/app'
+      - '--local'
 
