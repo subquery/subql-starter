@@ -77,7 +77,7 @@ under mapping.handlers, create an exported function of the same name.
 Next, run codegen command under your project root directory.
 
 ```
-$subql codegen
+$yarn codegen
 ```
 - This will create a new directory `src/types` which contains all generate entities in AssemblyScript.
 - Generate entity class for each type you have defined previously in `schema.graphql`. These classes provide type-safe 
