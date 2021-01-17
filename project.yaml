@@ -15,7 +15,13 @@ dataSources:
       handlers:
         - handler: handleBlock
           kind: substrate/BlockHandler
-
+        - handler: handleEvent
+          kind: substrate/EventHandler
+          filter: #Filter is optional
+            module: balances
+            method: Deposit
+        - handler: handleCall
+          kind: substrate/CallHandler
 
 
 

@@ -1,1 +1,2 @@
-export {handleBlock} from './mappings/Extrinsic'
+//Exports all handler functions
+export * from './mappings/mappingHandlers'
