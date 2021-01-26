@@ -28,7 +28,7 @@ services:
       # HASURA_GRAPHQL_ADMIN_SECRET: myadminsecretkey
 
   subquery-node:
-    image: onfinality/subql-node:v0.6.1
+    image: onfinality/subql-node:v0.7.0
     depends_on:
       - "postgres"
     restart: always

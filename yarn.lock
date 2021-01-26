@@ -1035,25 +1035,25 @@
     "@types/websocket" "^1.0.1"
     websocket "^1.0.33"
 
-"@subql/cli@^0.6.1":
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/@subql/cli/-/cli-0.6.1.tgz#4790988cc7bc3e0f58feb8ad91c86cd1ee764d34"
-  integrity sha512-R3AHwSOQ0/Ty7U6fGB87h8hc2pEwOLE34lENdHBjET4mHpSdSe1Sp/E6l2RXRckO7GmwdD8RNjZgLz0FWlb76g==
+"@subql/cli@^0.7.0":
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/@subql/cli/-/cli-0.7.0.tgz#22572afc602156dd700230276d6d7232f222a894"
+  integrity sha512-enpxKTE/WDwD+Az7PM/UfQDVlE0+fbyLY8xxXbK5Yrb/w6tqCQ2ryu4VAHHx/JX53SNIZul77rRGniHycMLruA==
   dependencies:
     "@oclif/command" "^1.8.0"
     "@oclif/config" "^1.17.0"
     "@oclif/plugin-help" "^3.2.1"
-    "@subql/common" "0.5.1"
+    "@subql/common" "0.6.0"
     "@types/ejs" "^3.0.5"
     ejs "^3.1.5"
     rimraf "^3.0.2"
     simple-git "^2.27.0"
     tslib "^2.0.3"
 
-"@subql/common@0.5.1":
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/@subql/common/-/common-0.5.1.tgz#0b66127ae843839067b84af5fe4c9b0730964370"
-  integrity sha512-OQCU94utGDMVIZb+Cq38e1lesyDfCZcgQ4SptGVefqVkpAEwz3yj9mEqCc1XYwjY6Nf4WAXfs6c+FEieiRZ9oA==
+"@subql/common@0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@subql/common/-/common-0.6.0.tgz#56112da78dff7aef17624e0cd76d7c712826c95e"
+  integrity sha512-3Rv4jgG5jsEzwIR7hlDI4YWNW9w5rApuBpmsFdUIm9VECQNMiEpsVfvEIykf/U3m+q73p/HCAOigrQu7Jvh2Lw==
   dependencies:
     class-transformer "0.3.1"
     class-validator "^0.12.2"
@@ -1063,10 +1063,10 @@
     js-yaml "^3.14.1"
     reflect-metadata "^0.1.13"
 
-"@subql/types@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@subql/types/-/types-0.5.0.tgz#cc61c0a9e2ea8a22d46f03d8b84447a941b2b0ad"
-  integrity sha512-v/G+czdbUEcwL46zRv8NR8GXbzWIvBwytnArHzz6bB7ZfqtnitwIPOBKJkqcVXwn4EiZg36ueDKJxq8hG57KXw==
+"@subql/types@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@subql/types/-/types-0.6.0.tgz#abe4331b4830365f847006e5dee7ccfb860475a4"
+  integrity sha512-y0ZyEVcG8ZT3/w7FTS/rjpplMfOMU04XhJ4T6GyxqCSgG2Mr8z0Uf5UT6/AchOHMaGhr55nMnBsqZtfU2+WU6g==
 
 "@types/bn.js@^4.11.6":
   version "4.11.6"
