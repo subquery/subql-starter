@@ -1063,10 +1063,10 @@
     js-yaml "^3.14.1"
     reflect-metadata "^0.1.13"
 
-"@subql/types@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@subql/types/-/types-0.5.0.tgz#cc61c0a9e2ea8a22d46f03d8b84447a941b2b0ad"
-  integrity sha512-v/G+czdbUEcwL46zRv8NR8GXbzWIvBwytnArHzz6bB7ZfqtnitwIPOBKJkqcVXwn4EiZg36ueDKJxq8hG57KXw==
+"@subql/types@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@subql/types/-/types-0.6.0.tgz#abe4331b4830365f847006e5dee7ccfb860475a4"
+  integrity sha512-y0ZyEVcG8ZT3/w7FTS/rjpplMfOMU04XhJ4T6GyxqCSgG2Mr8z0Uf5UT6/AchOHMaGhr55nMnBsqZtfU2+WU6g==
 
 "@types/bn.js@^4.11.6":
   version "4.11.6"
