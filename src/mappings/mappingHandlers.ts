@@ -2,9 +2,10 @@ import {SignedBlock} from "@polkadot/types/interfaces";
 import {SubstrateExtrinsic,SubstrateEvent} from "@subql/types";
 import {starterEntity} from "../types/models/starterEntity";
 import {Balance} from "@polkadot/types/interfaces";
+import {SubstrateBlock} from "@subql/types";
 
 
-export async function handleBlock(block: SignedBlock): Promise<void> {
+export async function handleBlock(block: SubstrateBlock): Promise<void> {
     //Create a new starterEntity with ID using block hash
     let record = new starterEntity(block.block.header.hash.toString());
     //Record block number
