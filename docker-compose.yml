@@ -41,8 +41,7 @@ services:
       DB_DATABASE: postgres
       DB_HOST: postgres
       DB_PORT: 5432
-      NODE_OPTIONS: "-r dotenv/config"
     command:
       - '--name'
-      - 'subql-starter'
+      - 'subql-starter' #Same as your project name
       - '--playground'
