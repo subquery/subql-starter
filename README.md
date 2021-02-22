@@ -74,6 +74,14 @@ yarn build
 
 #### Run required systems in docker
 
+First open `docker-compose.yml`, in the `graphql-engine` section and make sure the project name is identical to you have provided previously .
+````yaml
+command:
+  - '--name'
+  - 'subql-starter' #Same as your project name
+  - '--playground'
+````
+
 Then, under the project directory run following command:
 
 ```
@@ -81,10 +89,22 @@ docker-compose up
 ```
 #### Query the project
 
-Open your browser and head to `http://localhost:8080/console`.
+Open your browser and head to `http://localhost:3000`.
 
-Under the `DATA` tab, on the left top corner select the schema you just created, it usually named `public`.
-Then you can see the table is currently untracked, click on the `Track` button.
+Finally, you should see a GraphQL playground is showing in the explorer and the schemas that ready to query.
 
-Finally, head to the `GRAPHQL` tab, in the explorer you should see the table is ready to query.
+For the `subql-starter` project, you can try to query with the following code to get a taste of how it works.
 
+````graphql
+{
+  query{
+    starterEntities(first:10){
+      nodes{
+        field1,
+        field2,
+        field3
+      }
+    }
+  }
+}
+````
