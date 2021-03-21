@@ -27,6 +27,8 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
     const record = await starterEntity.get(extrinsic.block.block.header.hash.toString());
     //Date type timestamp
     record.field4 = extrinsic.block.timestamp;
+    //Boolean tyep
+    record.field5 = true;
     await record.save();
 }
 
