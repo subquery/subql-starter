@@ -74,18 +74,11 @@ yarn build
 
 #### Run required systems in docker
 
-First open `docker-compose.yml`, in the `graphql-engine` section and make sure the project name is identical to you have provided previously .
-````yaml
-command:
-  - '--name'
-  - 'subql-starter' #Same as your project name
-  - '--playground'
-````
 
-Then, under the project directory run following command:
+Under the project directory run following command:
 
 ```
-docker-compose up
+docker-compose pull && docker-compose up
 ```
 #### Query the project
 
