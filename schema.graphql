@@ -1,4 +1,4 @@
-type starterEntity @entity {
+type StarterEntity @entity {
 
   id: ID! #id is a required field
 
