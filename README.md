@@ -15,11 +15,10 @@ A SubQuery package defines which data The SubQuery will index from the Substrate
 
 #### Install the SubQuery CLI
 
-Install SubQuery CLI globally on your terminal by using Yarn or NPM:
+Install SubQuery CLI globally on your terminal by using NPM:
 
 ```
 npm install -g @subql/cli
-yarn global add @subql/cli
 ```
 
 Run help to see available commands and usage provide by CLI
