@@ -24,7 +24,3 @@ dataSources:
             method: Deposit
         - handler: handleCall
           kind: substrate/CallHandler
-
-
-
-

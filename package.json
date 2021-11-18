@@ -18,7 +18,7 @@
     "project.yaml"
   ],
   "author": "Ian He & Jay Ji",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "devDependencies": {
     "@polkadot/api": "^6",
     "@subql/types": "latest",
