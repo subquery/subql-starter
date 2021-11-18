@@ -53,3 +53,5 @@ Thumbs.db
 *.mov
 *.wmv
 
+# Local DataBase files
+.data/
