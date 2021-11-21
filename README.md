@@ -107,4 +107,4 @@ For the `subql-starter` project, you can try to query with the following code to
 
 - If you would like to contribute you can create a pull request into one of these.
 
-- For more information on creating a pull request or raising issues view https://github.com/subquery/subql/blob/main/contributing.md
+- For our guidelines on creating a pull requests or raising issues view https://github.com/subquery/subql/blob/main/contributing.md
