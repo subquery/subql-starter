@@ -22,7 +22,7 @@
   "devDependencies": {
     "@polkadot/api": "^6",
     "@subql/types": "latest",
-    "typescript": "4.4.4",
+    "typescript": "4.5.2",
     "@subql/cli": "latest"
   }
 }
