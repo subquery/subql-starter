@@ -5,7 +5,7 @@ A SubQuery package defines which data The SubQuery will index from the Substrate
 
 ## Contributing
 
-For subql-starter the two main branches to note are [v0.0.1](https://github.com/subquery/subql-starter/tree/v0.0.1) and [v0.2.0](https://github.com/subquery/subql-starter/tree/v0.0.1), which reference the mainfest (project.yaml) specVersion's avaliable.
+For subql-starter the two main branches to note are [v0.0.1](https://github.com/subquery/subql-starter/tree/v0.0.1) and [v0.2.0](https://github.com/subquery/subql-starter/tree/v0.0.1), which reference the manifest (project.yaml) specVersion's avaliable.
 
 - If you would like to contribute, you can create a pull request into one of these.
 
