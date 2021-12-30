@@ -33,7 +33,7 @@ services:
       - -f=/app
       - --db-schema=app
     healthcheck:
-      test: ["CMD-SHELL", "if curl -f http://subquery-node:3000/query -ne 7; then exit 0; else exit 1; fi"]
+      test: ["CMD", "curl", "-f", "http://subquery-node:3000/ready"]
       interval: 2s
       timeout: 5s
       retries: 10
@@ -43,8 +43,8 @@ services:
     ports:
       - 3000:3000
     depends_on:
-      "postgres"
-    depends_on:
+      "postgres":
+        condition: service_healthy
       "subquery-node":
         condition: service_healthy
     restart: always
