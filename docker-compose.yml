@@ -25,7 +25,7 @@ services:
       - ./:/app
     command:
       - -f=/app
-      - --subquery-name=app
+      - --db-schema=app
 
   graphql-engine:
     image: onfinality/subql-query:latest
