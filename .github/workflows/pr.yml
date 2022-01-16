@@ -14,7 +14,7 @@ jobs:
       with:
         node-version: 16
     - run: yarn
-    - name: codegen
+    - name: Codegen
       run: yarn codegen
-    - name: build
+    - name: Build
       run: yarn build
