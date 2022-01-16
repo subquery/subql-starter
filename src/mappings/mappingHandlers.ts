@@ -1,3 +1,4 @@
+import "@polkadot/api-augment"
 import {SubstrateExtrinsic,SubstrateEvent,SubstrateBlock} from "@subql/types";
 import {StarterEntity} from "../types";
 import {Balance} from "@polkadot/types/interfaces";
