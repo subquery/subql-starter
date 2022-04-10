@@ -1,6 +1,6 @@
 {
   "name": "subquery-starter",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "This project can be use as a starting point for developing your SubQuery project",
   "main": "dist/index.js",
   "scripts": {
