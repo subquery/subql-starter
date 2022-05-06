@@ -20,9 +20,12 @@
   "author": "Ian He & Jay Ji",
   "license": "MIT",
   "devDependencies": {
-    "@polkadot/api": "^7",
+    "@polkadot/api": "^8",
     "@subql/types": "latest",
     "typescript": "^4.1.3",
     "@subql/cli": "latest"
+  },
+  "resolutions": {
+    "ipfs-unixfs":"6.0.6"
   }
 }
