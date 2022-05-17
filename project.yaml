@@ -4,10 +4,10 @@ version: 0.0.4
 runner:
   node:
     name: '@subql/node'
-    version: ^0.33.0
+    version: '>=1.0.0'
   query:
     name: '@subql/query'
-    version: 0.24.0
+    version: '*'
 description: ''
 repository: https://github.com/subquery/subql-starter
 schema:
