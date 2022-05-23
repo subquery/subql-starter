@@ -7,7 +7,8 @@
     "build": "tsc -b",
     "prepack": "rm -rf dist && npm run build",
     "test": "jest",
-    "codegen": "./node_modules/.bin/subql codegen"
+    "codegen": "./node_modules/.bin/subql codegen",
+    "start:docker": "docker-compose pull && docker-compose up"
   },
 
   "homepage": "https://github.com/subquery/subql-starter",
