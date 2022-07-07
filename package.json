@@ -4,7 +4,7 @@
   "description": "This project can be used as a starting point for developing your SubQuery project",
   "main": "dist/index.js",
   "scripts": {
-    "build": "./node_modules/.bin/subql build",
+    "build": "subql build",
     "prepack": "rm -rf dist && npm run build",
     "test": "jest",
     "codegen": "./node_modules/.bin/subql codegen",
