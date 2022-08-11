@@ -1,0 +1,37 @@
+specVersion: 1.0.0
+name: moonbeam-alpha-starter
+version: 0.0.5
+runner:
+  node:
+    name: '@subql/node'
+    version: '*'
+  query:
+    name: '@subql/query'
+    version: '*'
+description: >-
+  This SubQuery project can be use as a starting point for Moonbeam alpha
+  network
+repository: 'https://github.com/subquery/moonbeam-alpha-subql-starter'
+schema:
+  file: ./schema.graphql
+network:
+  chainId: '0x91bc6e169807aaa54802737e1c504b2577d4fafedd5a02c10293b1cd60e39527'
+  endpoint: 'wss://moonbeam-alpha.api.onfinality.io/public-ws'
+  dictionary: 'https://sz.api.subquery.network/sq/subquery/moonbase-alpha-dictionary'
+  chaintypes:
+    file: ./dist/chaintypes.js
+dataSources:
+  - kind: substrate/Runtime
+    startBlock: 1
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleBlock
+          kind: substrate/BlockHandler
+        - handler: handleEvent
+          kind: substrate/EventHandler
+          filter:
+            module: balances
+            method: Deposit
+        - handler: handleCall
+          kind: substrate/CallHandler

@@ -1,0 +1,35 @@
+specVersion: 1.0.0
+name: contextfree-starter
+version: 0.0.5
+runner:
+  node:
+    name: '@subql/node'
+    version: '*'
+  query:
+    name: '@subql/query'
+    version: '*'
+description: This SubQuery project can be use as a starting point for Contextfree network
+repository: 'https://github.com/subquery/contextfree-subql-starter'
+schema:
+  file: ./schema.graphql
+network:
+  chainId: '0x6254c948b5eb7199a112cb308be3385c39c8c942625540ac749c77fe2aebc299'
+  endpoint: 'wss://contextfree.api.onfinality.io/public-ws'
+  dictionary: 'https://api.subquery.network/sq/subquery/contextfree-dictionary'
+  chaintypes:
+    file: ./dist/chaintypes.js
+dataSources:
+  - kind: substrate/Runtime
+    startBlock: 1
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleBlock
+          kind: substrate/BlockHandler
+        - handler: handleEvent
+          kind: substrate/EventHandler
+          filter:
+            module: balances
+            method: Deposit
+        - handler: handleCall
+          kind: substrate/CallHandler

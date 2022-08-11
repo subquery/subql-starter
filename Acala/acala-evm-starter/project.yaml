@@ -1,0 +1,45 @@
+specVersion: 1.0.0
+name: acala-evm-starter
+version: 0.0.0
+runner:
+  node:
+    name: '@subql/node'
+    version: '*'
+  query:
+    name: '@subql/query'
+    version: '*'
+description: A basic Acala EVM example
+repository: 'https://github.com/subquery/acala-evm-starter'
+schema:
+  file: ./schema.graphql
+network:
+  chainId: '0xfc41b9bd8ef8fe53d58c7ea67c794c7ec9a73daf05e6d54b14ff6342c99ba64c'
+  endpoint: 'wss://acala-polkadot.api.onfinality.io/public-ws'
+  chaintypes:
+    file: ./dist/chaintypes.js
+dataSources:
+  - kind: substrate/AcalaEvm
+    startBlock: 1000000
+    processor:
+      file: ./dist/acalaEvm.js
+      options:
+        abi: erc20
+        address: '0x0000000000000000000100000000000000000000'
+    assets:
+      erc20:
+        file: ./erc20.abi.json
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleAcalaEvmEvent
+          kind: substrate/AcalaEvmEvent
+          filter:
+            topics:
+              - 'Transfer(address indexed from,address indexed to,uint256 value)'
+              - null
+              - null
+              - null
+        - handler: handleAcalaEvmCall
+          kind: substrate/AcalaEvmCall
+          filter:
+            function: 'approve(address to,uint256 value)'

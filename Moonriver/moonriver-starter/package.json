@@ -1,0 +1,41 @@
+{
+  "name": "moonriver-starter",
+  "version": "1.0.0",
+  "description": "A basic Frontier EVM example project with an event and call handler. Read more about this at https://university.subquery.network/build/substrate-evm.html. This project can be use as a starting point for developing your SubQuery project",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "subql build",
+    "prepack": "rm -rf dist && npm build",
+    "test": "jest",
+    "codegen": "./node_modules/.bin/subql codegen",
+    "start:docker": "docker-compose pull && docker-compose up --remove-orphans"
+  },
+  "homepage": "https://github.com/subquery/tutorials-frontier-evm-starter",
+  "repository": "github:subquery/tutorials-frontier-evm-starter",
+  "files": [
+    "dist",
+    "schema.graphql",
+    "project.yaml"
+  ],
+  "author": "SubQuery Team",
+  "license": "Apache-2.0",
+  "resolutions": {
+    "@polkadot/api": "8.8.2",
+    "@polkadot/types": "8.8.2",
+    "@polkadot/util": "9.4.1",
+    "ipfs-unixfs": "6.0.6"
+  },
+  "dependencies": {
+    "moonbeam-types-bundle": "^2.0.7"
+  },
+  "devDependencies": {
+    "@polkadot/api": "8.8.2",
+    "@subql/cli": "latest",
+    "@subql/frontier-evm-processor": "latest",
+    "@subql/types": "^1.1.0",
+    "typescript": "^4.6.2"
+  },
+  "exports": {
+    "chaintypes": "src/chaintypes.ts"
+  }
+}

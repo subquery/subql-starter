@@ -1,6 +1,6 @@
 specVersion: 1.0.0
-name: subquery-starter
-version: 0.0.4
+name: polkadot-starter
+version: 1.0.0
 runner:
   node:
     name: '@subql/node'
@@ -8,8 +8,10 @@ runner:
   query:
     name: '@subql/query'
     version: '*'
-description: ''
-repository: https://github.com/subquery/subql-starter
+description: >-
+  This project can be used as a starting point for developing your SubQuery
+  project
+repository: 'https://github.com/subquery/subql-starter'
 schema:
   file: ./schema.graphql
 network:
@@ -20,7 +22,7 @@ dataSources:
   - kind: substrate/Runtime
     startBlock: 1
     mapping:
-      file: "./dist/index.js"
+      file: ./dist/index.js
       handlers:
         - handler: handleBlock
           kind: substrate/BlockHandler

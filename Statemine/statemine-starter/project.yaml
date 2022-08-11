@@ -1,0 +1,33 @@
+specVersion: 1.0.0
+name: statemine-starter
+version: 0.0.4
+runner:
+  node:
+    name: '@subql/node'
+    version: '*'
+  query:
+    name: '@subql/query'
+    version: '*'
+description: This SubQuery project can be use as a starting point for Statemint network
+repository: 'https://github.com/subquery/statemint-subql-starter'
+schema:
+  file: ./schema.graphql
+network:
+  chainId: '0x48239ef607d7928874027a43a67689209727dfb3d3dc5e5b03a39bdc2eda771a'
+  endpoint: 'wss://statemine.api.onfinality.io/public-ws'
+  dictionary: 'https://api.subquery.network/sq/subquery/statemine-dictionary'
+dataSources:
+  - kind: substrate/Runtime
+    startBlock: 1
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleBlock
+          kind: substrate/BlockHandler
+        - handler: handleEvent
+          kind: substrate/EventHandler
+          filter:
+            module: balances
+            method: Deposit
+        - handler: handleCall
+          kind: substrate/CallHandler

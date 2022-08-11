@@ -1,0 +1,27 @@
+{
+  "name": "westend-starter",
+  "version": "0.0.5",
+  "description": "This SubQuery project can be use as a starting point for westend network",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "subql build",
+    "prepack": "rm -rf dist && npm build",
+    "test": "jest",
+    "codegen": "./node_modules/.bin/subql codegen"
+  },
+  "homepage": "https://github.com/subquery/westend-subql-starter",
+  "repository": "github:subquery/westend-subql-starter",
+  "files": [
+    "dist",
+    "schema.graphql",
+    "project.yaml"
+  ],
+  "author": "SubQuery Network",
+  "license": "MIT",
+  "devDependencies": {
+    "@polkadot/api": "^8",
+    "@subql/types": "latest",
+    "typescript": "^4.1.3",
+    "@subql/cli": "latest"
+  }
+}
