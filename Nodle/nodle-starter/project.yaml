@@ -13,9 +13,9 @@ repository: 'https://github.com/subquery/nodle-subql-starter'
 schema:
   file: ./schema.graphql
 network:
-  chainId: '0xa3d114c2b8d0627c1aa9b134eafcf7d05ca561fdc19fb388bb9457f81809fb23'
-  endpoint: 'wss://nodle.api.onfinality.io/public-ws'
-  dictionary: 'https://api.subquery.network/sq/subquery/nodle-dictionary'
+  chainId: '0x97da7ede98d7bad4e36b4d734b6055425a3be036da2a332ea5a7037656427a21'
+  endpoint: 'wss://nodle-parachain.api.onfinality.io/public-ws'
+  dictionary: 'https://api.subquery.network/sq/subquery/nodle-parachain-dictionary'
   chaintypes:
     file: ./dist/chaintypes.js
 dataSources:
