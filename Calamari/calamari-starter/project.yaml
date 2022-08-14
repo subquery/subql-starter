@@ -1,0 +1,28 @@
+specVersion: 0.2.0
+name: calamari-subql-starter
+version: 0.0.4
+description: This project can be use as a starting point for calamari network.
+repository: https://github.com/subquery/calamari-subql-starter
+schema:
+  file: ./schema.graphql
+network:
+  endpoint: wss://calamari.api.onfinality.io/public-ws
+  genesisHash: '0x4ac80c99289841dd946ef92765bf659a307d39189b3ce374a92b5f0415ee17a1'
+  dictionary: https://api.subquery.network/sq/subquery/calamari-dictionary
+  chaintypes:
+    file: ./dist/chaintypes.js
+dataSources:
+  - kind: substrate/Runtime
+    startBlock: 1
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleBlock
+          kind: substrate/BlockHandler
+        - handler: handleEvent
+          kind: substrate/EventHandler
+          filter:
+            module: balances
+            method: Deposit
+        - handler: handleCall
+          kind: substrate/CallHandler

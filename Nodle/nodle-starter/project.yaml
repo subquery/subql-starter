@@ -1,0 +1,35 @@
+specVersion: 1.0.0
+name: nodle-subql-starter
+version: 0.0.5
+runner:
+  node:
+    name: '@subql/node'
+    version: '*'
+  query:
+    name: '@subql/query'
+    version: '*'
+description: This project can be use as a starting point for nodle network.
+repository: 'https://github.com/subquery/nodle-subql-starter'
+schema:
+  file: ./schema.graphql
+network:
+  chainId: '0x97da7ede98d7bad4e36b4d734b6055425a3be036da2a332ea5a7037656427a21'
+  endpoint: 'wss://nodle-parachain.api.onfinality.io/public-ws'
+  dictionary: 'https://api.subquery.network/sq/subquery/nodle-parachain-dictionary'
+  chaintypes:
+    file: ./dist/chaintypes.js
+dataSources:
+  - kind: substrate/Runtime
+    startBlock: 1
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleBlock
+          kind: substrate/BlockHandler
+        - handler: handleEvent
+          kind: substrate/EventHandler
+          filter:
+            module: balances
+            method: Deposit
+        - handler: handleCall
+          kind: substrate/CallHandler

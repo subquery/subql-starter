@@ -1,0 +1,35 @@
+specVersion: 1.0.0
+name: parallel-starter
+version: 0.0.4
+runner:
+  node:
+    name: '@subql/node'
+    version: '*'
+  query:
+    name: '@subql/query'
+    version: '*'
+description: This SubQuery project can be use as a starting point for Parallel network
+repository: 'https://github.com/subquery/parallel-subql-starter'
+schema:
+  file: ./schema.graphql
+network:
+  chainId: '0xe61a41c53f5dcd0beb09df93b34402aada44cb05117b71059cce40a2723a4e97'
+  endpoint: 'wss://parallel.api.onfinality.io/public-ws'
+  dictionary: 'https://api.subquery.network/sq/subquery/parallel-dictionary'
+  chaintypes:
+    file: ./dist/chaintypes.js
+dataSources:
+  - kind: substrate/Runtime
+    startBlock: 1
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleBlock
+          kind: substrate/BlockHandler
+        - handler: handleEvent
+          kind: substrate/EventHandler
+          filter:
+            module: balances
+            method: Deposit
+        - handler: handleCall
+          kind: substrate/CallHandler

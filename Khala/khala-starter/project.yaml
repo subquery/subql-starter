@@ -1,0 +1,35 @@
+specVersion: 1.0.0
+name: khala-starter
+version: 0.0.5
+runner:
+  node:
+    name: '@subql/node'
+    version: '*'
+  query:
+    name: '@subql/query'
+    version: '*'
+description: This SubQuery project can be use as a starting point for Khala network
+repository: 'https://github.com/subquery/khala-subql-starter'
+schema:
+  file: ./schema.graphql
+network:
+  chainId: '0xd43540ba6d3eb4897c28a77d48cb5b729fea37603cbbfc7a86a73b72adb3be8d'
+  endpoint: 'wss://khala.api.onfinality.io/public-ws'
+  dictionary: 'https://api.subquery.network/sq/subquery/khala-dictionary'
+  chaintypes:
+    file: ./dist/chaintypes.js
+dataSources:
+  - kind: substrate/Runtime
+    startBlock: 1
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleBlock
+          kind: substrate/BlockHandler
+        - handler: handleEvent
+          kind: substrate/EventHandler
+          filter:
+            module: balances
+            method: Deposit
+        - handler: handleCall
+          kind: substrate/CallHandler

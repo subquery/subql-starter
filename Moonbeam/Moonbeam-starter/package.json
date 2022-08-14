@@ -1,0 +1,35 @@
+{
+  "name": "moonbeam-starter",
+  "version": "0.0.4",
+  "description": "This SubQuery project can be use as a starting point for Moonbeam network",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "subql build",
+    "prepack": "rm -rf dist && npm build",
+    "test": "jest",
+    "codegen": "./node_modules/.bin/subql codegen",
+    "start:docker": "docker-compose pull && docker-compose up --remove-orphans"
+  },
+  "homepage": "https://github.com/subquery/moonbeam-subql-starter",
+  "repository": "github:subquery/moonbeam-subql-starter",
+  "files": [
+    "dist",
+    "schema.graphql",
+    "project.yaml"
+  ],
+  "author": "SubQuery Team",
+  "license": "MIT",
+  "resolutions": {
+    "ipfs-unixfs": "6.0.6"
+  },
+  "devDependencies": {
+    "@polkadot/api": "^8",
+    "@subql/types": "latest",
+    "typescript": "4.3.2",
+    "@subql/cli": "latest",
+    "moonbeam-types-bundle": "^2.0.3"
+  },
+  "exports": {
+    "chaintypes": "src/chaintypes.ts"
+  }
+}

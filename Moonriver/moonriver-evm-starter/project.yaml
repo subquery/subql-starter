@@ -1,0 +1,51 @@
+specVersion: 1.0.0
+name: moonriver-evm-starter
+version: 1.0.0
+runner:
+  node:
+    name: '@subql/node'
+    version: '>=0.35.0'
+  query:
+    name: '@subql/query'
+    version: '>=0.16.0'
+description: >-
+  A basic Frontier EVM example project with an event and call handler. Read more
+  about this at https://university.subquery.network/build/substrate-evm.html.
+  This project can be use as a starting point for developing your SubQuery
+  project
+repository: 'https://github.com/subquery/tutorials-frontier-evm-starter'
+schema:
+  file: ./schema.graphql
+network:
+  chainId: '0x401a1f9dca3da46f5c4091016c8a2f26dcea05865116b286f60f668207d1474b'
+  endpoint: 'https://moonriver.api.onfinality.io/public'
+  dictionary: 'https://api.subquery.network/sq/subquery/moonriver-dictionary'
+  chaintypes:
+    file: ./dist/chaintypes.js
+dataSources:
+  - kind: substrate/FrontierEvm
+    startBlock: 752073
+    processor:
+      file: ./node_modules/@subql/frontier-evm-processor/dist/index.js
+      options:
+        abi: erc20
+        address: '0x6bd193ee6d2104f14f94e2ca6efefae561a4334b'
+    assets:
+      erc20:
+        file: ./erc20.abi.json
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleFrontierEvmEvent
+          kind: substrate/FrontierEvmEvent
+          filter:
+            topics:
+              - 'Transfer(address indexed from,address indexed to,uint256 value)'
+              - null
+              - null
+              - null
+        - handler: handleFrontierEvmCall
+          kind: substrate/FrontierEvmCall
+          filter:
+            function: 'approve(address to,uint256 value)'
+            from: '0x6bd193ee6d2104f14f94e2ca6efefae561a4334b'
