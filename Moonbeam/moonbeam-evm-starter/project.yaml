@@ -1,5 +1,5 @@
 specVersion: 1.0.0
-name: moonriver-evm-starter
+name: moonbeam-evm-starter
 version: 1.0.0
 runner:
   node:
