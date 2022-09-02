@@ -7,7 +7,9 @@
     "build": "tsc -b",
     "prepack": "rm -rf dist && npm build",
     "test": "jest",
-    "codegen": "./node_modules/.bin/subql codegen"
+    "codegen": "./node_modules/.bin/subql codegen",
+    "start:docker": "cd docker/ && docker-compose pull && docker-compose up --remove-orphans"
+
   },
   "homepage": "https://github.com/subquery/quartz-subql-starter",
   "repository": "github:subquery/quartz-subql-starter",
@@ -19,7 +21,7 @@
   "author": "SubQuery Network",
   "license": "MIT",
   "devDependencies": {
-    "@polkadot/api": "^7",
+    "@polkadot/api": "^9",
     "@subql/types": "latest",
     "typescript": "^4.1.3",
     "@subql/cli": "latest",

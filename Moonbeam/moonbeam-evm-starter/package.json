@@ -8,7 +8,7 @@
     "prepack": "rm -rf dist && npm build",
     "test": "jest",
     "codegen": "./node_modules/.bin/subql codegen",
-    "start:docker": "docker-compose pull && docker-compose up --remove-orphans"
+    "start:docker": "cd docker/ && docker-compose pull && docker-compose up --remove-orphans"
   },
   "homepage": "https://github.com/subquery/tutorials-frontier-evm-starter",
   "repository": "github:subquery/tutorials-frontier-evm-starter",
@@ -20,16 +20,13 @@
   "author": "SubQuery Team",
   "license": "Apache-2.0",
   "resolutions": {
-    "@polkadot/api": "8.8.2",
-    "@polkadot/types": "8.8.2",
-    "@polkadot/util": "9.4.1",
     "ipfs-unixfs": "6.0.6"
   },
   "dependencies": {
     "moonbeam-types-bundle": "^2.0.7"
   },
   "devDependencies": {
-    "@polkadot/api": "8.8.2",
+    "@polkadot/api": "^9",
     "@subql/cli": "latest",
     "@subql/frontier-evm-processor": "latest",
     "@subql/types": "^1.1.0",
