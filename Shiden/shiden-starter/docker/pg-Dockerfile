@@ -6,4 +6,4 @@ ENV POSTGRES_USER 'postgres'
 ENV POSTGRES_PASSWORD 'postgres'
 
 # Copy in the load-extensions script
-COPY load-extensions.sh /docker-entrypoint-initdb.d/
+COPY docker/load-extensions.sh /docker-entrypoint-initdb.d/
