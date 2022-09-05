@@ -21,7 +21,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@acala-network/type-definitions": "^4.1.1",
-    "@subql/acala-evm-processor": "^0.0.3-6",
+    "@subql/acala-evm-processor": "^0.1.2",
     "abab": "^2.0.6"
   },
   "devDependencies": {
