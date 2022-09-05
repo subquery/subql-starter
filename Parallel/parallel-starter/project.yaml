@@ -14,6 +14,7 @@ schema:
   file: ./schema.graphql
 network:
   chainId: '0xe61a41c53f5dcd0beb09df93b34402aada44cb05117b71059cce40a2723a4e97'
+  #  This endpoint might not be publicly available
   endpoint: 'wss://parallel.api.onfinality.io/public-ws'
   dictionary: 'https://api.subquery.network/sq/subquery/parallel-dictionary'
   chaintypes:

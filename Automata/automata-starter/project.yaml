@@ -14,6 +14,7 @@ schema:
   file: ./schema.graphql
 network:
   chainId: '0xc8eda34601b5a48c73f47ee39a3a86a858c34f044185b17dc7d5ad155813dc63'
+  #  This endpoint might not be publicly available
   endpoint: 'wss://automata.api.onfinality.io/public-ws'
   dictionary: 'https://api.subquery.network/sq/subquery/automata-dictionary'
   chaintypes:

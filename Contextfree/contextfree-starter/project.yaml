@@ -14,6 +14,7 @@ schema:
   file: ./schema.graphql
 network:
   chainId: '0x6254c948b5eb7199a112cb308be3385c39c8c942625540ac749c77fe2aebc299'
+  #  This endpoint might not be publicly available
   endpoint: 'wss://contextfree.api.onfinality.io/public-ws'
   dictionary: 'https://api.subquery.network/sq/subquery/contextfree-dictionary'
   chaintypes:

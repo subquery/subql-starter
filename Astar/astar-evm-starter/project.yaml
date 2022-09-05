@@ -17,6 +17,7 @@ schema:
   file: ./schema.graphql
 network:
   chainId: '0x9eb76c5184c4ab8679d2d5d819fdf90b9c001403e9e17da2e14b6d8aec4029c6'
+  #  This endpoint might not be publicly available
   endpoint: 'wss://astar.api.onfinality.io/public-ws'
   dictionary: 'https://api.subquery.network/sq/subquery/astar-dictionary'
   chaintypes:

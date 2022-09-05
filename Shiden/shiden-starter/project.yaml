@@ -14,6 +14,7 @@ schema:
   file: ./schema.graphql
 network:
   chainId: '0xf1cf9022c7ebb34b162d5b5e34e705a5a740b2d0ecc1009fb89023e62a488108'
+  #  This endpoint might not be publicly available
   endpoint: 'wss://shiden.api.onfinality.io/public-wss'
   dictionary: 'https://api.subquery.network/sq/subquery/shiden-dictionary'
   chaintypes:

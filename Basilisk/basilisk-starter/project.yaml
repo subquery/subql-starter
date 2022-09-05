@@ -14,6 +14,7 @@ schema:
   file: ./schema.graphql
 network:
   chainId: '0xa85cfb9b9fd4d622a5b28289a02347af987d8f73fa3108450e2b4a11c1ce5755'
+  #  This endpoint might be publicly available
   endpoint: 'wss://basilisk.api.onfinality.io/public-ws'
   dictionary: 'https://api.subquery.network/sq/subquery/basilisk-dictionary'
   chaintypes:

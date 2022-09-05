@@ -14,6 +14,7 @@ schema:
   file: ./schema.graphql
 network:
   chainId: '0xbaf5aabe40646d11f0ee8abbdc64f4a4b7674925cba08e4a05ff9ebed6e2126b'
+  #  This endpoint might not be publicly available
   endpoint: 'wss://karura.api.onfinality.io/public-ws'
   dictionary: 'https://api.subquery.network/sq/subquery/karura-dictionary'
   chaintypes:

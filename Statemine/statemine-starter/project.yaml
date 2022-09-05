@@ -14,6 +14,7 @@ schema:
   file: ./schema.graphql
 network:
   chainId: '0x48239ef607d7928874027a43a67689209727dfb3d3dc5e5b03a39bdc2eda771a'
+  #  This endpoint might not be publicly available
   endpoint: 'wss://statemine.api.onfinality.io/public-ws'
   dictionary: 'https://api.subquery.network/sq/subquery/statemine-dictionary'
 dataSources:
