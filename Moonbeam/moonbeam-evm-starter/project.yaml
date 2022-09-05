@@ -26,7 +26,7 @@ dataSources:
   - kind: substrate/FrontierEvm
     startBlock: 752073
     processor:
-      file: ./node_modules/@subql/frontier-evm-processor/dist/index.js
+      file: ./node_modules/@subql/frontier-evm-processor/dist/bundle.js
       options:
         abi: erc20
         address: '0x6bd193ee6d2104f14f94e2ca6efefae561a4334b'

@@ -7,7 +7,8 @@
     "build": "subql build",
     "prepack": "rm -rf dist && npm build",
     "test": "jest",
-    "codegen": "./node_modules/.bin/subql codegen"
+    "codegen": "./node_modules/.bin/subql codegen",
+    "start:docker": "docker-compose pull && docker-compose up --remove-orphans"
   },
   "homepage": "https://github.com/subquery/tutorials-frontier-evm-starter",
   "repository": "github:subquery/tutorials-frontier-evm-starter",
@@ -20,16 +21,15 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@acala-network/type-definitions": "^4.1.1",
-    "@subql/acala-evm-processor": "^0.0.1-0"
+    "@subql/acala-evm-processor": "^0.1.2"
   },
   "devDependencies": {
-    "@polkadot/api": "^8",
+    "@polkadot/api": "9.1.1",
     "@subql/cli": "latest",
     "@subql/types": "latest",
     "typescript": "^4.4.4"
   },
   "exports": {
-    "acalaEvm": "./node_modules/@subql/acala-evm-processor/dist/index.js",
     "chaintypes": "./src/chaintypes.ts"
   }
 }

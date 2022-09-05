@@ -20,11 +20,10 @@
   "author": "SubQuery Team",
   "license": "Apache-2.0",
   "resolutions": {
-    "@polkadot/api": "^8",
     "ipfs-unixfs": "6.0.6"
   },
   "devDependencies": {
-    "@polkadot/api": "^8",
+    "@polkadot/api": "^9",
     "@subql/cli": "latest",
     "@subql/frontier-evm-processor": "latest",
     "@subql/types": "^1.1.0",

@@ -20,18 +20,15 @@
   "author": "SubQuery Team",
   "license": "Apache-2.0",
   "resolutions": {
-    "@polkadot/api": "8.8.2",
-    "@polkadot/types": "8.8.2",
-    "@polkadot/util": "9.4.1",
     "ipfs-unixfs": "6.0.6"
   },
   "dependencies": {
     "moonbeam-types-bundle": "^2.0.7"
   },
   "devDependencies": {
-    "@polkadot/api": "8.8.2",
+    "@polkadot/api": "^9",
     "@subql/cli": "latest",
-    "@subql/frontier-evm-processor": "latest",
+    "@subql/frontier-evm-processor": "0.1.2",
     "@subql/types": "^1.1.0",
     "typescript": "^4.6.2"
   },

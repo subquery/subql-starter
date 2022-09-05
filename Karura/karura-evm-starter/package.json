@@ -7,7 +7,8 @@
     "build": "subql build",
     "prepack": "rm -rf dist && npm build",
     "test": "jest",
-    "codegen": "./node_modules/.bin/subql codegen"
+    "codegen": "./node_modules/.bin/subql codegen",
+    "start:docker": "docker-compose pull && docker-compose up --remove-orphans"
   },
   "homepage": "https://github.com/subquery/tutorials-frontier-evm-starter",
   "repository": "github:subquery/tutorials-frontier-evm-starter",
@@ -23,7 +24,7 @@
     "@subql/acala-evm-processor": "^0.0.1-0"
   },
   "devDependencies": {
-    "@polkadot/api": "^8",
+    "@polkadot/api": "^9",
     "@subql/cli": "latest",
     "@subql/types": "latest",
     "typescript": "^4.4.4"

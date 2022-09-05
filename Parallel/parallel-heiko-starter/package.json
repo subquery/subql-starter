@@ -7,7 +7,8 @@
     "build": "subql build",
     "prepack": "rm -rf dist && npm build",
     "test": "jest",
-    "codegen": "./node_modules/.bin/subql codegen"
+    "codegen": "./node_modules/.bin/subql codegen",
+    "start:docker": "docker-compose pull && docker-compose up --remove-orphans"
   },
   "homepage": "https://github.com/subquery/parallel-heiko-subql-starter",
   "repository": "github:subquery/parallel-heiko-subql-starter",
@@ -19,7 +20,7 @@
   "author": "SubQuery Network",
   "license": "MIT",
   "devDependencies": {
-    "@polkadot/api": "^8",
+    "@polkadot/api": "^9",
     "@subql/types": "latest",
     "typescript": "^4.1.3",
     "@subql/cli": "latest",

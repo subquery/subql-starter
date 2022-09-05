@@ -2,7 +2,9 @@ version: "3"
 
 services:
   postgres:
-    image: postgres:12-alpine
+    build:
+      context: .
+      dockerfile: ./docker/pg-Dockerfile
     ports:
       - 5432:5432
     volumes:
@@ -32,6 +34,7 @@ services:
     command:
       - -f=/app
       - --db-schema=app
+      - --disable-historical=false
     healthcheck:
       test: ["CMD", "curl", "-f", "http://subquery-node:3000/ready"]
       interval: 3s
