@@ -21,7 +21,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@acala-network/type-definitions": "^4.1.1",
-    "@subql/acala-evm-processor": "^0.0.1-0",
+    "@subql/acala-evm-processor": "^0.0.3-6",
     "abab": "^2.0.6"
   },
   "devDependencies": {
@@ -31,7 +31,6 @@
     "typescript": "^4.4.4"
   },
   "exports": {
-    "acalaEvm": "./node_modules/@subql/acala-evm-processor/dist/index.js",
     "chaintypes": "./src/chaintypes.ts"
   },
   "resolutions": {

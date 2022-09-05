@@ -21,7 +21,7 @@ dataSources:
   - kind: substrate/AcalaEvm
     startBlock: 1000000
     processor:
-      file: ./dist/acalaEvm.js
+      file: ./node_modules/@subql/acala-evm-processor/dist/bundle.js
       options:
         abi: erc20
         address: '0x0000000000000000000100000000000000000000'

@@ -28,7 +28,7 @@
   "devDependencies": {
     "@polkadot/api": "^9",
     "@subql/cli": "latest",
-    "@subql/frontier-evm-processor": "latest",
+    "@subql/frontier-evm-processor": "0.0.3-4",
     "@subql/types": "^1.1.0",
     "typescript": "^4.6.2"
   },
