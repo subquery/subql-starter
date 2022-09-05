@@ -10,7 +10,6 @@
     "codegen": "./node_modules/.bin/subql codegen",
     "start:docker": "docker-compose pull && docker-compose up"
   },
-
   "homepage": "https://github.com/subquery/subql-starter",
   "repository": "github:subquery/subql-starter",
   "files": [
@@ -27,6 +26,6 @@
     "@subql/cli": "latest"
   },
   "resolutions": {
-    "ipfs-unixfs":"6.0.6"
+    "ipfs-unixfs": "6.0.6"
   }
 }
