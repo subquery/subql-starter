@@ -3,20 +3,20 @@ name: kusama-starter
 version: 0.0.4
 runner:
   node:
-    name: '@subql/node'
-    version: '*'
+    name: "@subql/node"
+    version: "*"
   query:
-    name: '@subql/query'
-    version: '*'
+    name: "@subql/query"
+    version: "*"
 description: This SubQuery project can be use as a starting point for Kusama network
-repository: 'https://github.com/subquery/kusama-subql-starters'
+repository: "https://github.com/subquery/kusama-subql-starters"
 schema:
   file: ./schema.graphql
 network:
-  chainId: '0xb0a8d493285c2df73290dfb7e61f870f17b41801197a149ca93654499ea3dafe'
+  chainId: "0xb0a8d493285c2df73290dfb7e61f870f17b41801197a149ca93654499ea3dafe"
   #  This endpoint might not be publicly available
-  endpoint: 'wss://kusama.api.onfinality.io/public-ws'
-  dictionary: 'https://api.subquery.network/sq/subquery/kusama-dictionary'
+  endpoint: "wss://kusama.api.onfinality.io/public-ws"
+  dictionary: "https://api.subquery.network/sq/subquery/kusama-dictionary"
 dataSources:
   - kind: substrate/Runtime
     startBlock: 1

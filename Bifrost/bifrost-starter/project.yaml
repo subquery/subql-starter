@@ -3,20 +3,20 @@ name: bifrost-starter
 version: 0.0.5
 runner:
   node:
-    name: '@subql/node'
-    version: '*'
+    name: "@subql/node"
+    version: "*"
   query:
-    name: '@subql/query'
-    version: '*'
+    name: "@subql/query"
+    version: "*"
 description: This SubQuery project can be use as a starting point for Bifrost network
-repository: 'https://github.com/subquery/bifrost-subql-starter'
+repository: "https://github.com/subquery/bifrost-subql-starter"
 schema:
   file: ./schema.graphql
 network:
-  chainId: '0x9f28c6a68e0fc9646eff64935684f6eeeece527e37bbe1f213d22caa1d9d6bed'
+  chainId: "0x9f28c6a68e0fc9646eff64935684f6eeeece527e37bbe1f213d22caa1d9d6bed"
   #  This endpoint might not be publicly available
-  endpoint: 'wss://bifrost-parachain.api.onfinality.io/public-ws'
-  dictionary: 'https://api.subquery.network/sq/subquery/bifrost-parachain-dictionary'
+  endpoint: "wss://bifrost-parachain.api.onfinality.io/public-ws"
+  dictionary: "https://api.subquery.network/sq/subquery/bifrost-parachain-dictionary"
   chaintypes:
     file: ./dist/chaintypes.js
 dataSources:

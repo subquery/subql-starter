@@ -3,20 +3,20 @@ name: nodle-subql-starter
 version: 0.0.5
 runner:
   node:
-    name: '@subql/node'
-    version: '*'
+    name: "@subql/node"
+    version: "*"
   query:
-    name: '@subql/query'
-    version: '*'
+    name: "@subql/query"
+    version: "*"
 description: This project can be use as a starting point for nodle network.
-repository: 'https://github.com/subquery/nodle-subql-starter'
+repository: "https://github.com/subquery/nodle-subql-starter"
 schema:
   file: ./schema.graphql
 network:
-  chainId: '0x97da7ede98d7bad4e36b4d734b6055425a3be036da2a332ea5a7037656427a21'
+  chainId: "0x97da7ede98d7bad4e36b4d734b6055425a3be036da2a332ea5a7037656427a21"
   #  This endpoint might not be publicly available
-  endpoint: 'wss://nodle-parachain.api.onfinality.io/public-ws'
-  dictionary: 'https://api.subquery.network/sq/subquery/nodle-parachain-dictionary'
+  endpoint: "wss://nodle-parachain.api.onfinality.io/public-ws"
+  dictionary: "https://api.subquery.network/sq/subquery/nodle-parachain-dictionary"
   chaintypes:
     file: ./dist/chaintypes.js
 dataSources:

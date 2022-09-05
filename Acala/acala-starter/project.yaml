@@ -3,20 +3,20 @@ name: acala-starter
 version: 0.0.4
 runner:
   node:
-    name: '@subql/node'
-    version: '*'
+    name: "@subql/node"
+    version: "*"
   query:
-    name: '@subql/query'
-    version: '*'
+    name: "@subql/query"
+    version: "*"
 description: This SubQuery project can be use as a starting point for Acala network
-repository: 'https://github.com/subquery/acala-subql-starter'
+repository: "https://github.com/subquery/acala-subql-starter"
 schema:
   file: ./schema.graphql
 network:
-  chainId: '0xfc41b9bd8ef8fe53d58c7ea67c794c7ec9a73daf05e6d54b14ff6342c99ba64c'
+  chainId: "0xfc41b9bd8ef8fe53d58c7ea67c794c7ec9a73daf05e6d54b14ff6342c99ba64c"
   #  This endpoint might not be publicly available
-  endpoint: 'wss://acala-polkadot.api.onfinality.io/public-ws'
-  dictionary: 'https://api.subquery.network/sq/subquery/acala-dictionary'
+  endpoint: "wss://acala-polkadot.api.onfinality.io/public-ws"
+  dictionary: "https://api.subquery.network/sq/subquery/acala-dictionary"
   chaintypes:
     file: ./dist/chaintypes.js
 dataSources:

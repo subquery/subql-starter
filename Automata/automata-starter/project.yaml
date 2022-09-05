@@ -3,20 +3,20 @@ name: automata-starter
 version: 0.0.5
 runner:
   node:
-    name: '@subql/node'
-    version: '*'
+    name: "@subql/node"
+    version: "*"
   query:
-    name: '@subql/query'
-    version: '*'
+    name: "@subql/query"
+    version: "*"
 description: This SubQuery project can be use as a starting point for Automata network
-repository: 'https://github.com/subquery/automata-subql-starter'
+repository: "https://github.com/subquery/automata-subql-starter"
 schema:
   file: ./schema.graphql
 network:
-  chainId: '0xc8eda34601b5a48c73f47ee39a3a86a858c34f044185b17dc7d5ad155813dc63'
+  chainId: "0xc8eda34601b5a48c73f47ee39a3a86a858c34f044185b17dc7d5ad155813dc63"
   #  This endpoint might not be publicly available
-  endpoint: 'wss://automata.api.onfinality.io/public-ws'
-  dictionary: 'https://api.subquery.network/sq/subquery/automata-dictionary'
+  endpoint: "wss://automata.api.onfinality.io/public-ws"
+  dictionary: "https://api.subquery.network/sq/subquery/automata-dictionary"
   chaintypes:
     file: ./dist/chaintypes.js
 dataSources:

@@ -1,4 +1,4 @@
-import type { OverrideBundleDefinition } from '@polkadot/types/types';
+import type { OverrideBundleDefinition } from "@polkadot/types/types";
 
 /* eslint-disable sort-keys */
 
@@ -8,25 +8,19 @@ const definitions: OverrideBundleDefinition = {
       // on all versions
       minmax: [0, undefined],
       types: {
-        ParachainAccountIdOf: 'AccountId',
+        ParachainAccountIdOf: "AccountId",
         Proof: {
-          leafHash: 'Hash',
-          sortedHashes: 'Vec<Hash>'
+          leafHash: "Hash",
+          sortedHashes: "Vec<Hash>",
         },
         ProxyType: {
-          _enum: [
-            'Any',
-            'NonTransfer',
-            'Governance',
-            '_Staking',
-            'NonProxy'
-          ]
+          _enum: ["Any", "NonTransfer", "Governance", "_Staking", "NonProxy"],
         },
-        RelayChainAccountId: 'AccountId',
-        RootHashOf: 'Hash'
-      }
-    }
-  ]
+        RelayChainAccountId: "AccountId",
+        RootHashOf: "Hash",
+      },
+    },
+  ],
 };
 
-export default { typesBundle: { spec: { altair: definitions }}};
+export default { typesBundle: { spec: { altair: definitions } } };

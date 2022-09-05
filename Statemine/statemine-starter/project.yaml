@@ -3,20 +3,20 @@ name: statemine-starter
 version: 0.0.4
 runner:
   node:
-    name: '@subql/node'
-    version: '*'
+    name: "@subql/node"
+    version: "*"
   query:
-    name: '@subql/query'
-    version: '*'
+    name: "@subql/query"
+    version: "*"
 description: This SubQuery project can be use as a starting point for Statemint network
-repository: 'https://github.com/subquery/statemint-subql-starter'
+repository: "https://github.com/subquery/statemint-subql-starter"
 schema:
   file: ./schema.graphql
 network:
-  chainId: '0x48239ef607d7928874027a43a67689209727dfb3d3dc5e5b03a39bdc2eda771a'
+  chainId: "0x48239ef607d7928874027a43a67689209727dfb3d3dc5e5b03a39bdc2eda771a"
   #  This endpoint might not be publicly available
-  endpoint: 'wss://statemine.api.onfinality.io/public-ws'
-  dictionary: 'https://api.subquery.network/sq/subquery/statemine-dictionary'
+  endpoint: "wss://statemine.api.onfinality.io/public-ws"
+  dictionary: "https://api.subquery.network/sq/subquery/statemine-dictionary"
 dataSources:
   - kind: substrate/Runtime
     startBlock: 1

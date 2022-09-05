@@ -6,7 +6,7 @@ repository: https://github.com/subquery/acala-evm-starter
 schema:
   file: ./schema.graphql
 network:
-  genesisHash: '0xfc41b9bd8ef8fe53d58c7ea67c794c7ec9a73daf05e6d54b14ff6342c99ba64c'
+  genesisHash: "0xfc41b9bd8ef8fe53d58c7ea67c794c7ec9a73daf05e6d54b14ff6342c99ba64c"
   endpoint: wss://acala-polkadot.api.onfinality.io/public-ws
   dictionary: https://api.subquery.network/sq/subquery/moonriver-dictionary
   chaintypes:
@@ -18,7 +18,7 @@ dataSources:
       file: ./dist/acalaEvm.js
       options:
         abi: erc20
-        address: '0x6bd193ee6d2104f14f94e2ca6efefae561a4334b'
+        address: "0x6bd193ee6d2104f14f94e2ca6efefae561a4334b"
     assets:
       erc20:
         file: ./erc20.abi.json
@@ -37,4 +37,4 @@ dataSources:
           kind: substrate/AcalaEvmCall
           filter:
             function: approve(address to,uint256 value)
-            from: '0x6bd193ee6d2104f14f94e2ca6efefae561a4334b'
+            from: "0x6bd193ee6d2104f14f94e2ca6efefae561a4334b"

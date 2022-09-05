@@ -1,4 +1,4 @@
-import type { OverrideBundleDefinition } from '@polkadot/types/types';
+import type { OverrideBundleDefinition } from "@polkadot/types/types";
 
 // structs need to be in order
 /* eslint-disable sort-keys */
@@ -9,41 +9,41 @@ const definitions: OverrideBundleDefinition = {
       // on all versions
       minmax: [0, undefined],
       types: {
-        Keys: 'AccountId',
-        Address: 'MultiAddress',
-        LookupSource: 'MultiAddress',
-        AmountOf: 'Amount',
-        Amount: 'i128',
+        Keys: "AccountId",
+        Address: "MultiAddress",
+        LookupSource: "MultiAddress",
+        AmountOf: "Amount",
+        Amount: "i128",
         SmartContract: {
           _enum: {
-            Evm: 'H160',
-            Wasm: 'AccountId'
-          }
+            Evm: "H160",
+            Wasm: "AccountId",
+          },
         },
         EraStakingPoints: {
-          total: 'Balance',
-          stakers: 'BTreeMap<AccountId, Balance>',
-          formerStakedEra: 'EraIndex',
-          claimedRewards: 'Balance'
+          total: "Balance",
+          stakers: "BTreeMap<AccountId, Balance>",
+          formerStakedEra: "EraIndex",
+          claimedRewards: "Balance",
         },
         PalletDappsStakingEraStakingPoints: {
-          total: 'Balance',
-          stakers: 'BTreeMap<AccountId, Balance>',
-          formerStakedEra: 'EraIndex',
-          claimedRewards: 'Balance'
+          total: "Balance",
+          stakers: "BTreeMap<AccountId, Balance>",
+          formerStakedEra: "EraIndex",
+          claimedRewards: "Balance",
         },
         EraRewardAndStake: {
-          rewards: 'Balance',
-          staked: 'Balance'
+          rewards: "Balance",
+          staked: "Balance",
         },
         PalletDappsStakingEraRewardAndStake: {
-          rewards: 'Balance',
-          staked: 'Balance'
+          rewards: "Balance",
+          staked: "Balance",
         },
-        EraIndex: 'u32'
-      }
-    }
-  ]
+        EraIndex: "u32",
+      },
+    },
+  ],
 };
 
-export default { typesBundle: { spec: { shiden: definitions }}};
+export default { typesBundle: { spec: { shiden: definitions } } };

@@ -3,20 +3,20 @@ name: basilisk-subql-starter
 version: 0.0.5
 runner:
   node:
-    name: '@subql/node'
-    version: '*'
+    name: "@subql/node"
+    version: "*"
   query:
-    name: '@subql/query'
-    version: '*'
+    name: "@subql/query"
+    version: "*"
 description: This project can be use as a starting point for Basilisk network.
-repository: 'https://github.com/subquery/basilisk-subql-starter'
+repository: "https://github.com/subquery/basilisk-subql-starter"
 schema:
   file: ./schema.graphql
 network:
-  chainId: '0xa85cfb9b9fd4d622a5b28289a02347af987d8f73fa3108450e2b4a11c1ce5755'
+  chainId: "0xa85cfb9b9fd4d622a5b28289a02347af987d8f73fa3108450e2b4a11c1ce5755"
   #  This endpoint might be publicly available
-  endpoint: 'wss://basilisk.api.onfinality.io/public-ws'
-  dictionary: 'https://api.subquery.network/sq/subquery/basilisk-dictionary'
+  endpoint: "wss://basilisk.api.onfinality.io/public-ws"
+  dictionary: "https://api.subquery.network/sq/subquery/basilisk-dictionary"
   chaintypes:
     file: ./dist/chaintypes.js
 dataSources:

@@ -3,20 +3,20 @@ name: clover-starter
 version: 0.0.4
 runner:
   node:
-    name: '@subql/node'
-    version: '*'
+    name: "@subql/node"
+    version: "*"
   query:
-    name: '@subql/query'
-    version: '*'
+    name: "@subql/query"
+    version: "*"
 description: This SubQuery project can be use as a starting point for Clover network
-repository: 'https://github.com/subquery/clover-subql-starters'
+repository: "https://github.com/subquery/clover-subql-starters"
 schema:
   file: ./schema.graphql
 network:
-  chainId: '0x5c7bd13edf349b33eb175ffae85210299e324d852916336027391536e686f267'
+  chainId: "0x5c7bd13edf349b33eb175ffae85210299e324d852916336027391536e686f267"
   #  This endpoint might not be publicly available
-  endpoint: 'wss://clover.api.onfinality.io/public-ws'
-  dictionary: 'https://api.subquery.network/sq/subquery/clover-dictionary'
+  endpoint: "wss://clover.api.onfinality.io/public-ws"
+  dictionary: "https://api.subquery.network/sq/subquery/clover-dictionary"
   chaintypes:
     file: ./dist/chaintypes.js
 dataSources:

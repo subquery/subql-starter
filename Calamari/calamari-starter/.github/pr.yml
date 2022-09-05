@@ -2,7 +2,7 @@ name: PR
 on:
   pull_request:
     paths-ignore:
-      - '.github/workflows/**'
+      - ".github/workflows/**"
 jobs:
   pr:
     name: pr

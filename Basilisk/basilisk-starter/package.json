@@ -9,7 +9,6 @@
     "test": "jest",
     "codegen": "./node_modules/.bin/subql codegen",
     "start:docker": "docker-compose pull && docker-compose up --remove-orphans"
-
   },
   "homepage": "https://github.com/subquery/basilisk-subql-starter",
   "repository": "github:subquery/basilisk-subql-starter",

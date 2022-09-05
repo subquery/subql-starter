@@ -3,19 +3,19 @@ name: karura-evm-starter
 version: 0.0.0
 runner:
   node:
-    name: '@subql/node'
-    version: '*'
+    name: "@subql/node"
+    version: "*"
   query:
-    name: '@subql/query'
-    version: '*'
+    name: "@subql/query"
+    version: "*"
 description: A basic Acala EVM example
-repository: 'https://github.com/subquery/acala-evm-starter'
+repository: "https://github.com/subquery/acala-evm-starter"
 schema:
   file: ./schema.graphql
 network:
-  chainId: '0xbaf5aabe40646d11f0ee8abbdc64f4a4b7674925cba08e4a05ff9ebed6e2126b'
+  chainId: "0xbaf5aabe40646d11f0ee8abbdc64f4a4b7674925cba08e4a05ff9ebed6e2126b"
   #  This endpoint might not be publicly available
-  endpoint: 'wss://karura.api.onfinality.io/public-ws'
+  endpoint: "wss://karura.api.onfinality.io/public-ws"
   chaintypes:
     file: ./dist/chaintypes.js
 dataSources:
@@ -25,7 +25,7 @@ dataSources:
       file: ./dist/acalaEvm.js
       options:
         abi: erc20
-        address: '0x0000000000000000000100000000000000000000'
+        address: "0x0000000000000000000100000000000000000000"
     assets:
       erc20:
         file: ./erc20.abi.json
@@ -36,12 +36,12 @@ dataSources:
           kind: substrate/AcalaEvmEvent
           filter:
             topics:
-              - 'Transfer(address indexed from,address indexed to,uint256 value)'
+              - "Transfer(address indexed from,address indexed to,uint256 value)"
               - null
               - null
               - null
         - handler: handleAcalaEvmCall
           kind: substrate/AcalaEvmCall
           filter:
-            function: 'approve(address to,uint256 value)'
-            from: '0x6bd193ee6d2104f14f94e2ca6efefae561a4334b'
+            function: "approve(address to,uint256 value)"
+            from: "0x6bd193ee6d2104f14f94e2ca6efefae561a4334b"

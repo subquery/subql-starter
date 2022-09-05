@@ -3,20 +3,20 @@ name: shiden-starter
 version: 0.0.5
 runner:
   node:
-    name: '@subql/node'
-    version: '*'
+    name: "@subql/node"
+    version: "*"
   query:
-    name: '@subql/query'
-    version: '*'
+    name: "@subql/query"
+    version: "*"
 description: This SubQuery project can be use as a starting point for shiden network
-repository: 'https://github.com/subquery/shiden-subql-starter'
+repository: "https://github.com/subquery/shiden-subql-starter"
 schema:
   file: ./schema.graphql
 network:
-  chainId: '0xf1cf9022c7ebb34b162d5b5e34e705a5a740b2d0ecc1009fb89023e62a488108'
+  chainId: "0xf1cf9022c7ebb34b162d5b5e34e705a5a740b2d0ecc1009fb89023e62a488108"
   #  This endpoint might not be publicly available
-  endpoint: 'wss://shiden.api.onfinality.io/public-wss'
-  dictionary: 'https://api.subquery.network/sq/subquery/shiden-dictionary'
+  endpoint: "wss://shiden.api.onfinality.io/public-wss"
+  dictionary: "https://api.subquery.network/sq/subquery/shiden-dictionary"
   chaintypes:
     file: ./dist/chaintypes.js
 dataSources:

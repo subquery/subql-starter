@@ -3,20 +3,20 @@ name: karura-starter
 version: 0.0.5
 runner:
   node:
-    name: '@subql/node'
-    version: '*'
+    name: "@subql/node"
+    version: "*"
   query:
-    name: '@subql/query'
-    version: '*'
+    name: "@subql/query"
+    version: "*"
 description: This SubQuery project can be use as a starting point for Karura network
-repository: 'https://github.com/subquery/karura-subql-starter'
+repository: "https://github.com/subquery/karura-subql-starter"
 schema:
   file: ./schema.graphql
 network:
-  chainId: '0xbaf5aabe40646d11f0ee8abbdc64f4a4b7674925cba08e4a05ff9ebed6e2126b'
+  chainId: "0xbaf5aabe40646d11f0ee8abbdc64f4a4b7674925cba08e4a05ff9ebed6e2126b"
   #  This endpoint might not be publicly available
-  endpoint: 'wss://karura.api.onfinality.io/public-ws'
-  dictionary: 'https://api.subquery.network/sq/subquery/karura-dictionary'
+  endpoint: "wss://karura.api.onfinality.io/public-ws"
+  dictionary: "https://api.subquery.network/sq/subquery/karura-dictionary"
   chaintypes:
     file: ./dist/chaintypes.js
 dataSources:
