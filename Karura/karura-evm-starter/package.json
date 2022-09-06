@@ -1,0 +1,36 @@
+{
+  "name": "karura-evm-starter",
+  "version": "0.0.0",
+  "description": "A basic Acala EVM example",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "subql build",
+    "prepack": "rm -rf dist && npm build",
+    "test": "jest",
+    "codegen": "./node_modules/.bin/subql codegen",
+    "start:docker": "docker-compose pull && docker-compose up --remove-orphans"
+  },
+  "homepage": "https://github.com/subquery/tutorials-frontier-evm-starter",
+  "repository": "github:subquery/tutorials-frontier-evm-starter",
+  "files": [
+    "dist",
+    "schema.graphql",
+    "project.yaml"
+  ],
+  "author": "SubQuery Pte. Limited",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@acala-network/type-definitions": "^4.1.1",
+    "@subql/acala-evm-processor": "^0.0.1-0"
+  },
+  "devDependencies": {
+    "@polkadot/api": "^9",
+    "@subql/cli": "latest",
+    "@subql/types": "latest",
+    "typescript": "^4.4.4"
+  },
+  "exports": {
+    "acalaEvm": "./node_modules/@subql/acala-evm-processor/dist/index.js",
+    "chaintypes": "./src/chaintypes.ts"
+  }
+}

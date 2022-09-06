@@ -1,0 +1,56 @@
+specVersion: 1.0.0
+name: astar-evm-starter
+version: 0.0.1
+runner:
+  node:
+    name: "@subql/node"
+    version: "*"
+  query:
+    name: "@subql/query"
+    version: "*"
+description: >-
+  A basic Frontier EVM example project with an event and call handler. Read more
+  about this at https://university.subquery.network/create/frontier/. This
+  project can be use as a starting point for developing your SubQuery project
+repository: "https://github.com/subquery/tutorials-frontier-evm-starter"
+schema:
+  file: ./schema.graphql
+network:
+  # The genesis hash of the network (hash of block 0)
+  chainId: "0x9eb76c5184c4ab8679d2d5d819fdf90b9c001403e9e17da2e14b6d8aec4029c6"
+  # This endpoint must be a public non-pruned archive node
+  # Public nodes may be rate limited, which can affect indexing speed
+  # When developing your project we suggest getting a private API key
+  # You can get them from OnFinality for free https://app.onfinality.io
+  # https://documentation.onfinality.io/support/the-enhanced-api-service
+  endpoint: "wss://astar.api.onfinality.io/public-ws"
+  # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
+  dictionary: "https://api.subquery.network/sq/subquery/astar-dictionary"
+  chaintypes:
+    file: ./dist/chaintypes.js
+dataSources:
+  - kind: substrate/FrontierEvm
+    startBlock: 1
+    processor:
+      file: ./node_modules/@subql/frontier-evm-processor/dist/index.js
+      options:
+        abi: erc20
+    assets:
+      erc20:
+        file: ./erc20.abi.json
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleFrontierEvmEvent
+          kind: substrate/FrontierEvmEvent
+          filter:
+            topics:
+              - "Transfer(address indexed from,address indexed to,uint256 value)"
+              - null
+              - null
+              - null
+        - handler: handleFrontierEvmCall
+          kind: substrate/FrontierEvmCall
+          filter:
+            function: "approve(address to,uint256 value)"
+            from: "0x6bd193ee6d2104f14f94e2ca6efefae561a4334b"

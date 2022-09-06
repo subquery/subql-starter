@@ -1,0 +1,40 @@
+specVersion: 1.0.0
+name: westend-starter
+version: 0.0.1
+runner:
+  node:
+    name: "@subql/node"
+    version: "*"
+  query:
+    name: "@subql/query"
+    version: "*"
+description: This SubQuery project can be use as a starting point for westend network
+repository: "https://github.com/subquery/westend-subql-starter"
+schema:
+  file: ./schema.graphql
+network:
+  # The genesis hash of the network (hash of block 0)
+  chainId: "0xe143f23803ac50e8f6f8e62695d1ce9e4e1d68aa36c1cd2cfd15340213f3423e"
+  # This endpoint must be a public non-pruned archive node
+  # Public nodes may be rate limited, which can affect indexing speed
+  # When developing your project we suggest getting a private API key
+  # You can get them from OnFinality for free https://app.onfinality.io
+  # https://documentation.onfinality.io/support/the-enhanced-api-service
+  endpoint: "wss://westend.api.onfinality.io/public-ws"
+  # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
+  dictionary: "https://api.subquery.network/sq/subquery/westend-dictionary"
+dataSources:
+  - kind: substrate/Runtime
+    startBlock: 1
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleBlock
+          kind: substrate/BlockHandler
+        - handler: handleEvent
+          kind: substrate/EventHandler
+          filter:
+            module: balances
+            method: Deposit
+        - handler: handleCall
+          kind: substrate/CallHandler

@@ -1,0 +1,31 @@
+{
+  "name": "polkadot-starter",
+  "version": "1.0.0",
+  "description": "This project can be used as a starting point for developing your SubQuery project",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "subql build",
+    "prepack": "rm -rf dist && npm run build",
+    "test": "jest",
+    "codegen": "./node_modules/.bin/subql codegen",
+    "start:docker": "docker-compose pull && docker-compose up --remove-orphans"
+  },
+  "homepage": "https://github.com/subquery/subql-starter",
+  "repository": "github:subquery/subql-starter",
+  "files": [
+    "dist",
+    "schema.graphql",
+    "project.yaml"
+  ],
+  "author": "Ian He & Jay Ji",
+  "license": "MIT",
+  "devDependencies": {
+    "@polkadot/api": "^9",
+    "@subql/types": "latest",
+    "typescript": "^4.1.3",
+    "@subql/cli": "latest"
+  },
+  "resolutions": {
+    "ipfs-unixfs": "6.0.6"
+  }
+}
