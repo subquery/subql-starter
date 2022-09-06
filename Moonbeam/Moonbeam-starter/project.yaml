@@ -14,7 +14,11 @@ schema:
   file: ./schema.graphql
 network:
   chainId: "0xfe58ea77779b7abda7da4ec526d14db9b1e9cd40a217c34892af80a9b332b76d"
-  #  This endpoint might not be publicly available
+  # This endpoint must be a public non-pruned archive node
+  # Public nodes may be rate limited, which can affect indexing speed
+  # When developing your project we suggest getting a private API key
+  # You can get them from OnFinality for free https://app.onfinality.io
+  # https://documentation.onfinality.io/support/the-enhanced-api-service
   endpoint: "wss://moonbeam.api.onfinality.io/public-ws"
   dictionary: "https://api.subquery.network/sq/subquery/moonbeam-dictionary"
   chaintypes:

@@ -1,6 +1,6 @@
 specVersion: 1.0.0
 name: contextfree-starter
-version: 0.0.5
+version: 0.0.1
 runner:
   node:
     name: "@subql/node"
@@ -13,9 +13,15 @@ repository: "https://github.com/subquery/contextfree-subql-starter"
 schema:
   file: ./schema.graphql
 network:
+  # The genesis hash of the network (hash of block 0)
   chainId: "0x6254c948b5eb7199a112cb308be3385c39c8c942625540ac749c77fe2aebc299"
-  #  This endpoint might not be publicly available
+  # This endpoint must be a public non-pruned archive node
+  # Public nodes may be rate limited, which can affect indexing speed
+  # When developing your project we suggest getting a private API key
+  # You can get them from OnFinality for free https://app.onfinality.io
+  # https://documentation.onfinality.io/support/the-enhanced-api-service
   endpoint: "wss://contextfree.api.onfinality.io/public-ws"
+  # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
   dictionary: "https://api.subquery.network/sq/subquery/contextfree-dictionary"
   chaintypes:
     file: ./dist/chaintypes.js
