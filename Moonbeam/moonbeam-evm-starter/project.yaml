@@ -24,7 +24,7 @@ network:
   # When developing your project we suggest getting a private API key
   # You can get them from OnFinality for free https://app.onfinality.io
   # https://documentation.onfinality.io/support/the-enhanced-api-service
-  endpoint: "https://moonriver.api.onfinality.io/public"
+  endpoint: "wss://moonriver.api.onfinality.io/public-ws"
   # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
   dictionary: "https://api.subquery.network/sq/subquery/moonriver-dictionary"
   chaintypes:
@@ -55,4 +55,3 @@ dataSources:
           kind: substrate/FrontierEvmCall
           filter:
             function: "approve(address to,uint256 value)"
-            from: "0x6bd193ee6d2104f14f94e2ca6efefae561a4334b"
