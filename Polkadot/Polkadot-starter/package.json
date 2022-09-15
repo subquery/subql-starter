@@ -23,7 +23,8 @@
     "@polkadot/api": "^9",
     "@subql/types": "latest",
     "typescript": "^4.1.3",
-    "@subql/cli": "latest"
+    "@subql/cli": "latest",
+    "node-fetch": "2.6.7"
   },
   "resolutions": {
     "ipfs-unixfs": "6.0.6"
