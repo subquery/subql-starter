@@ -1,7 +1,7 @@
 {
-  "name": "moonriver-evm-starter",
+  "name": "moonbeam-evm-starter",
   "version": "1.0.0",
-  "description": "A basic Frontier EVM example project with an event and call handler. Read more about this at https://university.subquery.network/build/substrate-evm.html. This project can be use as a starting point for developing your SubQuery project",
+  "description": "A basic Frontier EVM example project with an event and call handler. Read more about this at https://academy.subquery.network/build/substrate-evm.html. This project can be use as a starting point for developing your SubQuery project",
   "main": "dist/index.js",
   "scripts": {
     "build": "subql build",
@@ -28,7 +28,7 @@
   "devDependencies": {
     "@polkadot/api": "^9",
     "@subql/cli": "latest",
-    "@subql/frontier-evm-processor": "0.1.2",
+    "@subql/frontier-evm-processor": "latest",
     "@subql/types": "^1.1.0",
     "typescript": "^4.6.2"
   },

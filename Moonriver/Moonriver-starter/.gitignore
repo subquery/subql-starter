@@ -6,7 +6,6 @@
 # Node artifact files
 node_modules/
 dist/
-.data/
 
 # lock files
 yarn.lock
@@ -54,4 +53,3 @@ Thumbs.db
 *.mov
 *.wmv
 
-.data/*
