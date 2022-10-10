@@ -1,5 +1,5 @@
 specVersion: 1.0.0
-name: astar-evm-starter
+name: astar-wasm-starter
 version: 0.0.1
 runner:
   node:
@@ -9,7 +9,7 @@ runner:
     name: "@subql/query"
     version: "*"
 description: >-
-  A basic Frontier EVM example project with an event and call handler. Read more
+  A basic Substrate WSSM example project with an event and call handler. Read more
   about this at https://university.subquery.network/create/frontier/. This
   project can be use as a starting point for developing your SubQuery project
 repository: "https://github.com/subquery/subql-starter"
@@ -29,28 +29,27 @@ network:
   chaintypes:
     file: ./dist/chaintypes.js
 dataSources:
-  - kind: substrate/FrontierEvm
-    startBlock: 1
+  - kind: substrate/Wasm
+    startBlock: 970733
     processor:
-      file: ./node_modules/@subql/frontier-evm-processor/dist/bundle.js
+      file: ./node_modules/@subql/substrate-wasm-processor/dist/bundle.js
       options:
         abi: erc20
+        contract: "a6Yrf6jAPUwjoi5YvvoTE4ES5vYAMpV55ZCsFHtwMFPDx7H"
     assets:
       erc20:
-        file: ./erc20.abi.json
+        file: ./erc20Metadata.json
     mapping:
       file: ./dist/index.js
       handlers:
-        - handler: handleFrontierEvmEvent
-          kind: substrate/FrontierEvmEvent
+        - handler: handleSubstrateWasmEvent
+          kind: substrate/WasmEvent
           filter:
-            topics:
-              - "Transfer(address indexed from,address indexed to,uint256 value)"
-              - null
-              - null
-              - null
-        - handler: handleFrontierEvmCall
-          kind: substrate/FrontierEvmCall
+            # from: 'xxxx'
+            contract: "a6Yrf6jAPUwjoi5YvvoTE4ES5vYAMpV55ZCsFHtwMFPDx7H"
+            identifier: "Transfer"
+        - handler: handleSubstrateCall
+          kind: substrate/WasmCall
           filter:
-            function: "approve(address to,uint256 value)"
-            from: "0x6bd193ee6d2104f14f94e2ca6efefae561a4334b"
+            selector: "0x681266a0"
+            method: "approve"
