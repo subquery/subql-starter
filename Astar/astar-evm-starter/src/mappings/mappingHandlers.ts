@@ -16,28 +16,30 @@ type ApproveCallArgs = [string, BigNumber] & {
   _value: BigNumber;
 };
 
-export async function handleFrontierEvmEvent(
+export async function handleEvmEvent(
   event: FrontierEvmEvent<TransferEventArgs>
 ): Promise<void> {
-  const transaction = new Transaction(event.transactionHash);
-
-  transaction.value = event.args.value.toBigInt();
-  transaction.from = event.args.from;
-  transaction.to = event.args.to;
-  transaction.contractAddress = event.address;
+  const transaction = Transaction.create({
+    id: event.transactionHash,
+    value: event.args.value.toBigInt(),
+    from: event.args.from,
+    to: event.args.to,
+    contractAddress: event.address,
+  });
 
   await transaction.save();
 }
 
-export async function handleFrontierEvmCall(
+export async function handleEvmCall(
   event: FrontierEvmCall<ApproveCallArgs>
 ): Promise<void> {
-  const approval = new Approval(event.hash);
-
-  approval.owner = event.from;
-  approval.value = event.args._value.toBigInt();
-  approval.spender = event.args._spender;
-  approval.contractAddress = event.to;
+  const approval = Approval.create({
+    id: event.hash,
+    owner: event.from,
+    value: event.args._value.toBigInt(),
+    spender: event.args._spender,
+    contractAddress: event.to,
+  });
 
   await approval.save();
 }

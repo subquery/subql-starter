@@ -13,6 +13,7 @@ export async function handleWasmCall(
   const approval = new Approval(`${call.blockNumber}-${call.idx}`);
   approval.hash = call.hash;
   approval.owner = call.from.toString();
+  approval.contractAddress = call.dest.toString();
   if (typeof call.data !== "string") {
     const [spender, value] = call.data.args;
     approval.spender = spender.toString();
@@ -20,21 +21,21 @@ export async function handleWasmCall(
   } else {
     logger.info(`Decode call failed ${call.hash}`);
   }
-  approval.contractAddress = call.dest.toString();
   await approval.save();
 }
 
-export async function handleSubstrateWasmEvent(
+export async function handleWasmEvent(
   event: WasmEvent<TransferEventArgs>
 ): Promise<void> {
   const [from, to, value] = event.args;
-  const transaction = new Transaction(
-    `${event.blockNumber}-${event.eventIndex}`
-  );
-  transaction.transactionHash = event.transactionHash;
-  transaction.value = value.toBigInt();
-  transaction.from = from.toString();
-  transaction.to = to.toString();
-  transaction.contractAddress = event.contract.toString();
+  const transaction = Transaction.create({
+    id: `${event.blockNumber}-${event.eventIndex}`,
+    transactionHash: event.transactionHash,
+    value: value.toBigInt(),
+    from: from.toString(),
+    to: to.toString(),
+    contractAddress: event.contract.toString(),
+  });
+
   await transaction.save();
 }

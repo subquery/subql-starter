@@ -41,7 +41,7 @@ dataSources:
     mapping:
       file: ./dist/index.js
       handlers:
-        - handler: handleFrontierEvmEvent
+        - handler: handleEvmEvent
           kind: substrate/FrontierEvmEvent
           filter:
             topics:
@@ -49,7 +49,7 @@ dataSources:
               - null
               - null
               - null
-        - handler: handleFrontierEvmCall
+        - handler: handleEvmCall
           kind: substrate/FrontierEvmCall
           filter:
             function: "approve(address to,uint256 value)"

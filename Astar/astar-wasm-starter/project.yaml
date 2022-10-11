@@ -42,13 +42,13 @@ dataSources:
     mapping:
       file: ./dist/index.js
       handlers:
-        - handler: handleSubstrateWasmEvent
+        - handler: handleWasmEvent
           kind: substrate/WasmEvent
           filter:
             # from: 'xxxx'
             contract: "a6Yrf6jAPUwjoi5YvvoTE4ES5vYAMpV55ZCsFHtwMFPDx7H"
             identifier: "Transfer"
-        - handler: handleSubstrateCall
+        - handler: handleWasmCall
           kind: substrate/WasmCall
           filter:
             selector: "0x681266a0"
