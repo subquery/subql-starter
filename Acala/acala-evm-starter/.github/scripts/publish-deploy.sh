@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#wss://polkadot.api.onfinality.io/ws?apikey=fdebdc53-f4a6-4820-a0f2-3703992d99c2
-
 while getopts p:o:e: flag
 do
     case "${flag}" in
