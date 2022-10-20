@@ -6,7 +6,7 @@ do
         e) ENDPOINT=${OPTARG};;
         p) PROJECTNAME=${OPTARG};;
         o) ORG=${OPTARG};;
-        *) echo "Usage: $0 [-p projectname] [-o org]" && exit 1;;
+        *) echo "Usage: $0 [-p projectname] [-o org] [-e endpoint]" && exit 1;;
     esac
 done
 
