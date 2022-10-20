@@ -31,4 +31,4 @@ jobs:
         run: echo ${{github.repository}}
       - name: Publish and Deploy
         run: |
-          sh .github/workflows/scripts/publish-deploy.sh -o ${{github.repository}} -p ${{github.event.inputs.projectName}} -e ${{secrets.ENDPOINT}} -e ${{secrets.ENDPOINT}}
+          sh .github/workflows/scripts/publish-deploy.sh -o ${{github.repository}} -p ${{github.event.inputs.projectName}} -e ${{secrets.ENDPOINT}}
