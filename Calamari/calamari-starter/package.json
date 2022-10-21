@@ -7,7 +7,7 @@
     "build": "tsc -b",
     "prepack": "rm -rf dist && npm build",
     "test": "jest",
-    "codegen": "./node_modules/.bin/subql codegen",
+    "codegen": "subql codegen",
     "start:docker": "docker-compose pull && docker-compose up --remove-orphans"
   },
   "homepage": "https://github.com/subquery/calamari-subql-starter",
