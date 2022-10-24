@@ -17,7 +17,7 @@
     "schema.graphql",
     "project.yaml"
   ],
-  "author": "SubQuery Network",
+  "author": "SubQuery Team",
   "license": "MIT",
   "devDependencies": {
     "@polkadot/api": "^9",
