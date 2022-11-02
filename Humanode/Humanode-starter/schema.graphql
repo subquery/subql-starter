@@ -8,3 +8,10 @@ type BioauthNewAuthentication @entity {
   validatorPublicKey: String!
   timestamp: Date!
 }
+
+type ImOnlineSomeOffline @entity {
+  id: ID!
+  blockNumber: Int!
+  accountIds: [String]!
+  timestamp: Date!
+}

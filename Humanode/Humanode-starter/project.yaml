@@ -31,12 +31,13 @@ dataSources:
     mapping:
       file: ./dist/index.js
       handlers:
-        - handler: handleBlock
-          kind: substrate/BlockHandler
-        - handler: handleEvent
+        - handler: handleBioauthNewAuthenticationEvent
           kind: substrate/EventHandler
           filter:
             module: bioauth
             method: NewAuthentication
-        - handler: handleCall
-          kind: substrate/CallHandler
+        - handler: handleImonlineSomeOfflineEvent
+          kind: substrate/EventHandler
+          filter:
+            module: imOnline
+            method: SomeOffline
