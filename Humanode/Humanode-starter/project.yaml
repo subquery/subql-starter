@@ -36,7 +36,7 @@ dataSources:
         - handler: handleEvent
           kind: substrate/EventHandler
           filter:
-            module: balances
-            method: Deposit
+            module: bioauth
+            method: NewAuthentication
         - handler: handleCall
           kind: substrate/CallHandler
