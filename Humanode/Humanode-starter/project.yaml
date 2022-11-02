@@ -16,13 +16,13 @@ schema:
   file: ./schema.graphql
 network:
   # The genesis hash of the network (hash of block 0)
-  chainId: "0x54f8483c71e0bd9fa1b1f654bcdd91b35df07a08ecc4e859b465926ceef91a49"
+  chainId: "0xb10e573169aaaa74d14931e98d414a8a631dd3bc6dda31101061ed3b7c2cb343"
   # This endpoint must be a public non-pruned archive node
   # Public nodes may be rate limited, which can affect indexing speed
   # When developing your project we suggest getting a private API key
   # You can get them from OnFinality for free https://app.onfinality.io
   # https://documentation.onfinality.io/support/the-enhanced-api-service
-  endpoint: "wss://explorer-rpc-ws.testnet3.stages.humanode.io"
+  endpoint: "wss://explorer-rpc-ws.testnet4.stages.humanode.io"
   # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
   # dictionary:
 dataSources:
