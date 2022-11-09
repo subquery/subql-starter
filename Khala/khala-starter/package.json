@@ -4,11 +4,11 @@
   "description": "This SubQuery project can be use as a starting point for Khala network",
   "main": "dist/index.js",
   "scripts": {
-    "codegen": "subql codegen",
     "build": "subql build",
+    "codegen": "subql codegen",
     "start:docker": "docker-compose pull && docker-compose up --remove-orphans",
-    "dev": "yarn codegen && yarn build && docker-compose pull && docker-compose up --remove-orphans",
-    "prepack": "rm -rf dist && npm build",
+    "dev": "subql codegen && subql build && docker-compose pull && docker-compose up --remove-orphans",
+    "prepack": "rm -rf dist && npm run build",
     "test": "jest"
   },
   "homepage": "https://github.com/subquery/khala-subql-starter",

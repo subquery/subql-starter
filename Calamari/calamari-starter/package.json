@@ -4,11 +4,12 @@
   "description": "This SubQuery project can be use as a starting point for Calamari network",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc -b",
-    "prepack": "rm -rf dist && npm build",
-    "test": "jest",
+    "build": "subql build",
     "codegen": "subql codegen",
-    "start:docker": "docker-compose pull && docker-compose up --remove-orphans"
+    "start:docker": "docker-compose pull && docker-compose up --remove-orphans",
+    "dev": "subql codegen && subql build && docker-compose pull && docker-compose up --remove-orphans",
+    "prepack": "rm -rf dist && npm run build",
+    "test": "jest"
   },
   "homepage": "https://github.com/subquery/calamari-subql-starter",
   "repository": "github:subquery/calamari-subql-starter",
