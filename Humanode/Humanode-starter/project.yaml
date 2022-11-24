@@ -16,13 +16,13 @@ schema:
   file: ./schema.graphql
 network:
   # The genesis hash of the network (hash of block 0)
-  chainId: "0x54f8483c71e0bd9fa1b1f654bcdd91b35df07a08ecc4e859b465926ceef91a49"
+  chainId: "0xc56fa32442b2dad76f214b3ae07998e4ca09736e4813724bfb0717caae2c8bee"
   # This endpoint must be a public non-pruned archive node
   # Public nodes may be rate limited, which can affect indexing speed
   # When developing your project we suggest getting a private API key
   # You can get them from OnFinality for free https://app.onfinality.io
   # https://documentation.onfinality.io/support/the-enhanced-api-service
-  endpoint: "wss://explorer-rpc-ws.testnet3.stages.humanode.io"
+  endpoint: "wss://explorer-rpc-ws.mainnet.stages.humanode.io"
   # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
   # dictionary:
 dataSources:
@@ -31,12 +31,13 @@ dataSources:
     mapping:
       file: ./dist/index.js
       handlers:
-        - handler: handleBlock
-          kind: substrate/BlockHandler
-        - handler: handleEvent
+        - handler: handleBioauthNewAuthenticationEvent
           kind: substrate/EventHandler
           filter:
-            module: balances
-            method: Deposit
-        - handler: handleCall
-          kind: substrate/CallHandler
+            module: bioauth
+            method: NewAuthentication
+        - handler: handleImonlineSomeOfflineEvent
+          kind: substrate/EventHandler
+          filter:
+            module: imOnline
+            method: SomeOffline
