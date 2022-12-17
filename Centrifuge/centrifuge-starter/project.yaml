@@ -9,7 +9,7 @@ runner:
     name: "@subql/query"
     version: "*"
 description: This SubQuery project can be use as a starting point for Centrifuge network
-repository: "https://github.com/subquery/altair-subql-starter"
+repository: "https://github.com/subquery/subql-starter/tree/main/Centrifuge/centrifuge-starter"
 schema:
   file: ./schema.graphql
 network:
