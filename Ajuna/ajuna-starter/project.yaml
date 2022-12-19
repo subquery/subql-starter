@@ -14,13 +14,13 @@ schema:
   file: ./schema.graphql
 network:
   # The genesis hash of the network (hash of block 0)
-  chainId: "0xaa3876c1dc8a1afcc2e9a685a49ff7704cfd36ad8c90bf2702b9d1b00cc40011"
+  chainId: "0xe358eb1d11b31255a286c12e44fe6780b7edb171d657905a97e39f71d9c6c3ee"
   # This endpoint must be a public non-pruned archive node
   # Public nodes may be rate limited, which can affect indexing speed
   # When developing your project we suggest getting a private API key
   # You can get them from OnFinality for free https://app.onfinality.io
   # https://documentation.onfinality.io/support/the-enhanced-api-service
-  endpoint: "wss://altair.api.onfinality.io/public-ws"
+  endpoint: "wss://rpc-parachain.ajuna.network"
   # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
   # dictionary: "https://api.subquery.network/sq/subquery/altair-dictionary"
   chaintypes:
