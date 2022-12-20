@@ -11,8 +11,8 @@
     "prepack": "rm -rf dist && npm run build",
     "test": "jest"
   },
-  "homepage": "https://github.com/subquery/altair-subql-starter",
-  "repository": "github:subquery/altair-subql-starter",
+  "homepage": "https://github.com/subquery/subql-starter",
+  "repository": "github:subquery/subql-starter",
   "files": [
     "dist",
     "schema.graphql",
