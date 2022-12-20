@@ -1,0 +1,42 @@
+specVersion: 1.0.0
+name: efinity-starter
+version: 0.0.1
+runner:
+  node:
+    name: "@subql/node"
+    version: "*"
+  query:
+    name: "@subql/query"
+    version: "*"
+description: This SubQuery project can be use as a starting point for Efinity network
+repository: "https://github.com/subquery/subql-starter"
+schema:
+  file: ./schema.graphql
+network:
+  # The genesis hash of the network (hash of block 0)
+  chainId: "0x335369975fced3fc22e23498da306a712f4fd964c957364d53c49cea9db8bc2f"
+  # This endpoint must be a public non-pruned archive node
+  # Public nodes may be rate limited, which can affect indexing speed
+  # When developing your project we suggest getting a private API key
+  # You can get them from OnFinality for free https://app.onfinality.io
+  # https://documentation.onfinality.io/support/the-enhanced-api-service
+  endpoint: "wss://efinity.api.onfinality.io/public-ws"
+  # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
+  #dictionary: "https://api.subquery.network/sq/subquery/efinity-dictionary"
+  chaintypes:
+    file: ./dist/chaintypes.js
+dataSources:
+  - kind: substrate/Runtime
+    startBlock: 1
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleBlock
+          kind: substrate/BlockHandler
+        - handler: handleEvent
+          kind: substrate/EventHandler
+          filter:
+            module: balances
+            method: Deposit
+        - handler: handleCall
+          kind: substrate/CallHandler
