@@ -1,26 +1,17 @@
 import type { OverrideBundleDefinition } from "@polkadot/types/types";
+import { options } from "@frequency-chain/api-augment";
 
 /* eslint-disable sort-keys */
 
 const definitions: OverrideBundleDefinition = {
+  ...options,
   types: [
     {
       // on all versions
       minmax: [0, undefined],
-      types: {
-        ParachainAccountIdOf: "AccountId",
-        Proof: {
-          leafHash: "Hash",
-          sortedHashes: "Vec<Hash>",
-        },
-        ProxyType: {
-          _enum: ["Any", "NonTransfer", "Governance", "_Staking", "NonProxy"],
-        },
-        RelayChainAccountId: "AccountId",
-        RootHashOf: "Hash",
-      },
+      types: options.types,
     },
   ],
 };
 
-export default { typesBundle: { spec: { altair: definitions } } };
+export default { typesBundle: { spec: { frequency: { definitions } } } };
