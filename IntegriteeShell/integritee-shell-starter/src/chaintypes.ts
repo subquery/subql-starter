@@ -8,19 +8,22 @@ const definitions: OverrideBundleDefinition = {
       // on all versions
       minmax: [0, undefined],
       types: {
-        ParachainAccountIdOf: "AccountId",
-        Proof: {
-          leafHash: "Hash",
-          sortedHashes: "Vec<Hash>",
+        Address: 'MultiAddress',
+        Enclave: {
+          mrenclave: 'Hash',
+          pubkey: 'AccountId',
+          timestamp: 'u64',
+          url: 'Text'
         },
-        ProxyType: {
-          _enum: ["Any", "NonTransfer", "Governance", "_Staking", "NonProxy"],
+        LookupSource: 'MultiAddress',
+        Request: {
+          cyphertext: 'Vec<u8>',
+          shard: 'ShardIdentifier'
         },
-        RelayChainAccountId: "AccountId",
-        RootHashOf: "Hash",
-      },
-    },
-  ],
+        ShardIdentifier: 'Hash'
+      }
+    }
+  ]
 };
 
-export default { typesBundle: { spec: { altair: definitions } } };
+export default { typesBundle: { spec: { integritee: definitions } } };

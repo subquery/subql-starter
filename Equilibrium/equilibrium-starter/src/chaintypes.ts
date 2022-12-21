@@ -3,24 +3,40 @@ import type { OverrideBundleDefinition } from "@polkadot/types/types";
 /* eslint-disable sort-keys */
 
 const definitions: OverrideBundleDefinition = {
+  derives: {
+    ...equilibrium.instances.balances.reduce(
+      (all, cur) => ({
+        ...all,
+        [cur]: {
+          customAccount: createCustomAccount(cur, (currency: string, api?: ApiInterfaceRx) => {
+            let assetsEnabled = true;
+
+            try {
+              api?.registry.createType('AssetIdInnerType' as any);
+            } catch (_) {
+              assetsEnabled = false;
+            }
+
+            return assetsEnabled ? { 0: u64FromCurrency(currency) } : currency;
+          })
+        }
+      }),
+      {}
+    )
+  },
+
+  instances: equilibrium.instances,
+
   types: [
     {
-      // on all versions
-      minmax: [0, undefined],
-      types: {
-        ParachainAccountIdOf: "AccountId",
-        Proof: {
-          leafHash: "Hash",
-          sortedHashes: "Vec<Hash>",
-        },
-        ProxyType: {
-          _enum: ["Any", "NonTransfer", "Governance", "_Staking", "NonProxy"],
-        },
-        RelayChainAccountId: "AccountId",
-        RootHashOf: "Hash",
-      },
+      minmax: [0, 264],
+      types: equilibrium.types
     },
-  ],
+    {
+      minmax: [265, undefined],
+      types: equilibriumNext.types
+    }
+  ]
 };
 
-export default { typesBundle: { spec: { altair: definitions } } };
+export default { typesBundle: { spec: { equilibrum: definitions } } };

@@ -23,4 +23,4 @@ const definitions: OverrideBundleDefinition = {
   ],
 };
 
-export default { typesBundle: { spec: { altair: definitions } } };
+export default { typesBundle: { spec: { darwinia: definitions } } };
