@@ -93,7 +93,7 @@ For the `subql-starter` project, you can try to query with the following code to
   query {
 		transactions(filter:{
       	blockHeight:{ equalTo:"970733"} 
-      	transaction:{equalTo:"0x1f7fa8dab8359d650d8d5525a6d40672412fa27cec33c6665b21232043aad894"}
+      	transactionHash:{equalTo:"0x1f7fa8dab8359d650d8d5525a6d40672412fa27cec33c6665b21232043aad894"}
     	} first:20){
       totalCount
       nodes{
