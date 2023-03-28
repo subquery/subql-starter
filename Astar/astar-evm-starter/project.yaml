@@ -30,7 +30,7 @@ network:
     file: ./dist/chaintypes.js
 dataSources:
   - kind: substrate/FrontierEvm
-    startBlock: 1
+    startBlock: 970733
     processor:
       file: ./node_modules/@subql/frontier-evm-processor/dist/bundle.js
       options:
@@ -45,7 +45,7 @@ dataSources:
           kind: substrate/FrontierEvmEvent
           filter:
             topics:
-              - "Transfer(address indexed from,address indexed to,uint256 value)"
+              - "Transfer(address, address,uint256)"
               - null
               - null
               - null
@@ -53,4 +53,4 @@ dataSources:
           kind: substrate/FrontierEvmCall
           filter:
             function: "approve(address to,uint256 value)"
-            from: "0x6bd193ee6d2104f14f94e2ca6efefae561a4334b"
+            #from: "0x6bd193ee6d2104f14f94e2ca6efefae561a4334b"

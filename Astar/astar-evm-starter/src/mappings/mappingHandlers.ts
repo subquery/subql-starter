@@ -11,6 +11,7 @@ type TransferEventArgs = [string, string, BigNumber] & {
   to: string;
   value: BigNumber;
 };
+
 type ApproveCallArgs = [string, BigNumber] & {
   _spender: string;
   _value: BigNumber;
@@ -20,13 +21,14 @@ export async function handleEvmEvent(
   event: FrontierEvmEvent<TransferEventArgs>
 ): Promise<void> {
   const transaction = Transaction.create({
-    id: event.transactionHash,
-    value: event.args.value.toBigInt(),
-    from: event.args.from,
-    to: event.args.to,
+    id: `${event.blockNumber}-${event.transactionHash}-${event.logIndex}`,
+    value: event.args?.value.toBigInt(),
+    from: event.args?.from,
+    to: event.args?.to,
+    blockHeight: event.blockNumber.toString(),
     contractAddress: event.address,
+    transaction: event.transactionHash
   });
-
   await transaction.save();
 }
 
