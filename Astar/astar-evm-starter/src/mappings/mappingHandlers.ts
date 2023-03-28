@@ -27,7 +27,7 @@ export async function handleEvmEvent(
     to: event.args?.to,
     blockHeight: event.blockNumber.toString(),
     contractAddress: event.address,
-    transaction: event.transactionHash
+    transactionHash: event.transactionHash
   });
   await transaction.save();
 }
