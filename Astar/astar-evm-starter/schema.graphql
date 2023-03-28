@@ -1,9 +1,9 @@
 type Transaction @entity {
   id: ID! # Transaction hash
-  transaction: String
+  transaction: String!
   value: BigInt
-  to: String!
-  from: String!
+  to: String
+  from: String
   blockHeight: String
   contractAddress: String!
 
