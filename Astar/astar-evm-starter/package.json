@@ -24,7 +24,7 @@
     "ipfs-unixfs": "6.0.6"
   },
   "devDependencies": {
-    "@polkadot/api": "^9",
+    "@polkadot/api": "^10",
     "@subql/cli": "latest",
     "@subql/frontier-evm-processor": "latest",
     "@subql/types": "^1.1.0",
