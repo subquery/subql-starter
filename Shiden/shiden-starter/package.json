@@ -25,7 +25,8 @@
     "@subql/types": "latest",
     "typescript": "^4.1.3",
     "@subql/cli": "latest",
-    "@unique-nft/types": "latest"
+    "@unique-nft/types": "latest",
+    "@subql/testing": "latest"
   },
   "exports": {
     "chaintypes": "src/chaintypes.ts"

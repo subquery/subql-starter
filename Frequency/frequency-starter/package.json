@@ -25,7 +25,8 @@
     "@subql/types": "latest",
     "typescript": "^4.1.3",
     "@subql/cli": "latest",
-    "@frequency-chain/api-augment": "latest"
+    "@frequency-chain/api-augment": "latest",
+    "@subql/testing": "latest"
   },
   "exports": {
     "chaintypes": "src/chaintypes.ts"

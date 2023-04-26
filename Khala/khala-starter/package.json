@@ -25,7 +25,8 @@
     "@subql/types": "latest",
     "typescript": "^4.1.3",
     "@subql/cli": "latest",
-    "@phala/typedefs": "latest"
+    "@phala/typedefs": "latest",
+    "@subql/testing": "latest"
   },
   "exports": {
     "chaintypes": "src/chaintypes.ts"

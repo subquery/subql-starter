@@ -25,7 +25,8 @@
     "@subql/types": "latest",
     "typescript": "^4.1.3",
     "@subql/cli": "latest",
-    "@parallel-finance/type-definitions": "latest"
+    "@parallel-finance/type-definitions": "latest",
+    "@subql/testing": "latest"
   },
   "exports": {
     "chaintypes": "src/chaintypes.ts"
