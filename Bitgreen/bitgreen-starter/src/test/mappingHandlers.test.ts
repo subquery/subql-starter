@@ -7,8 +7,8 @@ subqlTest(
     [],
     [
       StarterEntity.create({
-        id: '0x44e94d2e22be8f915c19e18d221260232516c40db63553d8e2d9c5ff63aae9c1', 
-        field1: 172,
+        id: '0x01b00d81d0df5dab7b9947995c5ecd33cedfb9d344211e3913d1efb1d790602a', 
+        field1: 483250,
       }),
     ],
     'handleBlock',

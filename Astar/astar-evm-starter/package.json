@@ -29,7 +29,8 @@
     "@subql/frontier-evm-processor": "latest",
     "@subql/types": "^1.1.0",
     "typescript": "^4.6.2",
-    "@subql/testing": "latest"
+    "@subql/testing": "latest",
+    "@subql/node": "latest"
   },
   "exports": {
     "chaintypes": "src/chaintypes.ts"

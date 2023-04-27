@@ -34,7 +34,6 @@ services:
     command: 
       - ${SUB_COMMAND} # set SUB_COMMAND env variable to "test" to run tests
       - -f=/app
-      - --disable-historical
       - --db-schema=app
     healthcheck:
       test: ["CMD", "curl", "-f", "http://subquery-node:3000/ready"]

@@ -28,7 +28,8 @@
     "@subql/cli": "latest",
     "@subql/types": "^1.1.0",
     "typescript": "^4.6.2",
-    "@subql/testing": "latest"
+    "@subql/testing": "latest",
+    "@subql/node": "latest"
   },
   "dependencies": {
     "@subql/substrate-wasm-processor": "latest"

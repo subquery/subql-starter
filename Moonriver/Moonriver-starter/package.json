@@ -29,7 +29,8 @@
     "typescript": "4.3.2",
     "@subql/cli": "latest",
     "moonbeam-types-bundle": "^2.0.3",
-    "@subql/testing": "latest"
+    "@subql/testing": "latest",
+    "@subql/node": "latest"
   },
   "exports": {
     "chaintypes": "src/chaintypes.ts"

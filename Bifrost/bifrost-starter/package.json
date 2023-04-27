@@ -26,7 +26,8 @@
     "typescript": "^4.1.3",
     "@subql/cli": "latest",
     "@bifrost-finance/type-definitions": "latest",
-    "@subql/testing": "latest"
+    "@subql/testing": "latest",
+    "@subql/node": "latest"
   },
   "exports": {
     "chaintypes": "src/chaintypes.ts"

@@ -32,7 +32,8 @@
     "@subql/cli": "latest",
     "@subql/types": "latest",
     "typescript": "^4.6.2",
-    "@subql/testing": "latest"
+    "@subql/testing": "latest",
+    "@subql/node": "latest"
   },
   "exports": {
     "chaintypes": "./src/chaintypes.ts"

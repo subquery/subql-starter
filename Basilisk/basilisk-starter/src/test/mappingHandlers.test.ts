@@ -7,7 +7,7 @@ subqlTest(
     [],
     [
       StarterEntity.create({
-        id: '0x44e94d2e22be8f915c19e18d221260232516c40db63553d8e2d9c5ff63aae9c1', 
+        id: '0x3d051f90fa46b942ab1025f56f61e56b030c4af44d8cd3fd914267dd6804ebb3', 
         field1: 320,
       }),
     ],
