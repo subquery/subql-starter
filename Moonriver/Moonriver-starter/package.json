@@ -9,7 +9,7 @@
     "start:docker": "docker-compose pull && docker-compose up --remove-orphans",
     "dev": "subql codegen && subql build && docker-compose pull && docker-compose up --remove-orphans",
     "prepack": "rm -rf dist && npm run build",
-    "test": "jest"
+    "test": "subql build && subql-node test"
   },
   "homepage": "https://github.com/subquery/moonbeam-subql-starter",
   "repository": "github:subquery/moonbeam-subql-starter",
@@ -28,7 +28,9 @@
     "@subql/types": "latest",
     "typescript": "4.3.2",
     "@subql/cli": "latest",
-    "moonbeam-types-bundle": "^2.0.3"
+    "moonbeam-types-bundle": "^2.0.3",
+    "@subql/testing": "latest",
+    "@subql/node": "latest"
   },
   "exports": {
     "chaintypes": "src/chaintypes.ts"

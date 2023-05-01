@@ -9,7 +9,7 @@
     "start:docker": "docker-compose pull && docker-compose up --remove-orphans",
     "dev": "subql codegen && subql build && docker-compose pull && docker-compose up --remove-orphans",
     "prepack": "rm -rf dist && npm run build",
-    "test": "jest"
+    "test": "subql build && subql-node test"
   },
   "homepage": "https://github.com/subquery/subql-starter",
   "repository": "github:subquery/subql-starter",
@@ -28,7 +28,9 @@
     "@subql/cli": "latest",
     "@subql/frontier-evm-processor": "latest",
     "@subql/types": "^1.1.0",
-    "typescript": "^4.6.2"
+    "typescript": "^4.6.2",
+    "@subql/testing": "latest",
+    "@subql/node": "latest"
   },
   "exports": {
     "chaintypes": "src/chaintypes.ts"
