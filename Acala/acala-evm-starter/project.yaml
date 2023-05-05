@@ -20,7 +20,11 @@ network:
   # When developing your project we suggest getting a private API key
   # You can get them from OnFinality for free https://app.onfinality.io
   # https://documentation.onfinality.io/support/the-enhanced-api-service
-  endpoint: "wss://acala-polkadot.api.onfinality.io/public-ws"
+  endpoint:
+    [
+      "wss://acala-polkadot.api.onfinality.io/public-ws",
+      "wss://acala-rpc-0.aca-api.network",
+    ]
   # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
   dictionary: https://explorer.subquery.network/subquery/subquery/acala-dictionary
   chaintypes:

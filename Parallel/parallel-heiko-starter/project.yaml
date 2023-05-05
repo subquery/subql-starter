@@ -22,7 +22,11 @@ network:
   # When developing your project we suggest getting a private API key
   # You can get them from OnFinality for free https://app.onfinality.io
   # https://documentation.onfinality.io/support/the-enhanced-api-service
-  endpoint: "wss://parallel-heiko.api.onfinality.io/public-ws"
+  endpoint:
+    {
+      "wss://parallel-heiko.api.onfinality.io/public-ws",
+      "wss://heiko-rpc.parallel.fi",
+    }
   # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
   dictionary: "https://api.subquery.network/sq/subquery/parallel-dictionary"
   chaintypes:

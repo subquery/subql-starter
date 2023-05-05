@@ -24,7 +24,11 @@ network:
   # When developing your project we suggest getting a private API key
   # You can get them from OnFinality for free https://app.onfinality.io
   # https://documentation.onfinality.io/support/the-enhanced-api-service
-  endpoint: "wss://moonriver.api.onfinality.io/public-ws"
+  endpoint:
+    [
+      "wss://moonriver.api.onfinality.io/public-ws",
+      "wss://wss.api.moonriver.moonbeam.network",
+    ]
   # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
   dictionary: "https://api.subquery.network/sq/subquery/moonriver-dictionary"
   chaintypes:
