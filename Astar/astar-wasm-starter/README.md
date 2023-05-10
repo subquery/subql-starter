@@ -90,12 +90,14 @@ For the `subql-starter` project, you can try to query with the following code to
 
 ```graphql
 query {
-	transactions{
+  transactions(first:5 orderBy:BLOCK_HEIGHT_ASC){
     totalCount
     nodes{
+      blockHeight
+      timestamp
       transactionHash
+      blockHash
       contractAddress
-      to
       from
       value
     }
