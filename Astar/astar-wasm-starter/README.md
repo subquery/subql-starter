@@ -90,7 +90,7 @@ For the `subql-starter` project, you can try to query with the following code to
 
 ```graphql
 query {
-	transactions(first:5 orderBy:BLOCK_HEIGHT_ASC){
+  transactions(first:3 orderBy:BLOCK_HEIGHT_ASC){
     totalCount
     nodes{
       blockHeight
