@@ -31,12 +31,13 @@ network:
     file: ./dist/chaintypes.js
 dataSources:
   - kind: substrate/Wasm
-    startBlock: 970733
+    startBlock: 3281780
     processor:
       file: ./node_modules/@subql/substrate-wasm-processor/dist/bundle.js
       options:
         abi: erc20
-        contract: "a6Yrf6jAPUwjoi5YvvoTE4ES5vYAMpV55ZCsFHtwMFPDx7H"
+        #contract: "a6Yrf6jAPUwjoi5YvvoTE4ES5vYAMpV55ZCsFHtwMFPDx7H" Shibuya
+        contract: "bZ2uiFGTLcYyP8F88XzXa13xu5Mmp13VLiaW1gGn7rzxktc" #Mainnet
     assets:
       erc20:
         file: ./erc20Metadata.json
@@ -46,11 +47,5 @@ dataSources:
         - handler: handleWasmEvent
           kind: substrate/WasmEvent
           filter:
-            # from: 'xxxx'
-            contract: "a6Yrf6jAPUwjoi5YvvoTE4ES5vYAMpV55ZCsFHtwMFPDx7H"
-            identifier: "Transfer"
-        - handler: handleWasmCall
-          kind: substrate/WasmCall
-          filter:
-            selector: "0x681266a0"
-            method: "approve"
+            #contract: "a6Yrf6jAPUwjoi5YvvoTE4ES5vYAMpV55ZCsFHtwMFPDx7H" Shibuya
+            contract: "bZ2uiFGTLcYyP8F88XzXa13xu5Mmp13VLiaW1gGn7rzxktc" #Mainnet

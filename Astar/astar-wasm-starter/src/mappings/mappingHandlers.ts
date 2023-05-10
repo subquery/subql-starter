@@ -7,11 +7,10 @@ import { Option } from "@polkadot/types-codec";
 type ApproveCallArgs = [AccountId, Balance];
 type TransferEventArgs = [Option<AccountId>, Option<AccountId>, Balance];
 
-export async function handleWasmCall(
-  call: WasmCall<ApproveCallArgs>
-): Promise<void> {
+export async function handleWasmCall(call: WasmCall<ApproveCallArgs>): Promise<void> {
   const approval = new Approval(`${call.blockNumber}-${call.idx}`);
   approval.hash = call.hash;
+  approval.blockHeight = BigInt(call.blockNumber),
   approval.owner = call.from.toString();
   approval.contractAddress = call.dest.toString();
   if (typeof call.data !== "string") {
@@ -24,16 +23,17 @@ export async function handleWasmCall(
   await approval.save();
 }
 
-export async function handleWasmEvent(
-  event: WasmEvent<TransferEventArgs>
-): Promise<void> {
-  const [from, to, value] = event.args;
+export async function handleWasmEvent(event: WasmEvent<TransferEventArgs>): Promise<void> {
+  logger.info("Event payload is: " + JSON.stringify (event))
+  const [arg, value] = event.args;
   const transaction = Transaction.create({
     id: `${event.blockNumber}-${event.eventIndex}`,
     transactionHash: event.transactionHash,
-    value: value.toBigInt(),
-    from: from.toString(),
-    to: to.toString(),
+    blockHash: event.blockHash,
+    timestamp: event.timestamp,
+    blockHeight: BigInt(event.blockNumber),
+    from: event.from.toString(),
+    value: BigInt(value.toString()),
     contractAddress: event.contract.toString(),
   });
 
