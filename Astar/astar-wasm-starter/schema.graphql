@@ -10,6 +10,7 @@ type Transaction @entity {
   timestamp: Date
   value: BigInt
   from: String!
+  to: String!
   contractAddress: String!
 }
 
@@ -21,4 +22,18 @@ type Approval @entity {
   owner: String!
   spender: String!
   contractAddress: String!
+}
+
+type DApp @entity {
+  id: ID! #EVM is a required field
+  accountID: String!
+  totalStake: BigInt!
+}
+
+type DAppReward @entity {
+  id: ID!
+  dApp: DApp!
+  accountID: String!
+  eraIndex: Int!
+  balanceOf: BigInt!
 }

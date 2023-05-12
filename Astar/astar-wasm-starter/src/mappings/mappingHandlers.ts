@@ -1,16 +1,19 @@
-import { Approval, Transaction } from "../types";
+import { Approval, DApp, DAppReward, Transaction } from "../types";
 import { WasmCall, WasmEvent } from "@subql/substrate-wasm-processor";
 import { Balance, AccountId } from "@polkadot/types/interfaces/runtime";
 import { Option } from "@polkadot/types-codec";
+import { SubstrateEvent } from "@subql/types";
 
 // Setup types from ABI
 type ApproveCallArgs = [AccountId, Balance];
 type TransferEventArgs = [Option<AccountId>, Option<AccountId>, Balance];
 
-export async function handleWasmCall(call: WasmCall<ApproveCallArgs>): Promise<void> {
+export async function handleWasmCall(
+  call: WasmCall<ApproveCallArgs>
+): Promise<void> {
+  logger.info(`Processing WASM Call at ${call.blockNumber}`);
   const approval = new Approval(`${call.blockNumber}-${call.idx}`);
   approval.hash = call.hash;
-  approval.blockHeight = BigInt(call.blockNumber),
   approval.owner = call.from.toString();
   approval.contractAddress = call.dest.toString();
   if (typeof call.data !== "string") {
@@ -23,19 +26,109 @@ export async function handleWasmCall(call: WasmCall<ApproveCallArgs>): Promise<v
   await approval.save();
 }
 
-export async function handleWasmEvent(event: WasmEvent<TransferEventArgs>): Promise<void> {
-  logger.info("Event payload is: " + JSON.stringify (event))
-  const [arg, value] = event.args;
+export async function handleWasmEvent(
+  event: WasmEvent<TransferEventArgs>
+): Promise<void> {
+  logger.info(`Processing WASM Even at ${event.blockNumber}`);
+  const [from, to, value] = event.args;
   const transaction = Transaction.create({
     id: `${event.blockNumber}-${event.eventIndex}`,
     transactionHash: event.transactionHash,
-    blockHash: event.blockHash,
-    timestamp: event.timestamp,
-    blockHeight: BigInt(event.blockNumber),
-    from: event.from.toString(),
-    value: BigInt(value.toString()),
+    value: value.toBigInt(),
+    from: from.toString(),
+    to: to.toString(),
     contractAddress: event.contract.toString(),
   });
 
   await transaction.save();
+}
+
+export async function handleNewContract(event: SubstrateEvent): Promise<void> {
+  logger.info(
+    `Processing new Dapp Staking Contract event at ${event.block.block.header.number}`
+  );
+  const {
+    event: {
+      data: [accountId, smartContract],
+    },
+  } = event;
+  // Retrieve the record by its ID
+  let dapp: DApp = await DApp.get(smartContract.toString());
+  if (!dapp) {
+    dapp = DApp.create({
+      id: smartContract.toString(),
+      accountID: accountId.toString(),
+      totalStake: BigInt(0),
+    });
+
+    await dapp.save();
+  }
+}
+
+export async function handleBondAndStake(event: SubstrateEvent): Promise<void> {
+  logger.info(
+    `Processing new Dapp Staking Bond and Stake event at ${event.block.block.header.number}`
+  );
+  const {
+    event: {
+      data: [accountId, smartContract, balanceOf],
+    },
+  } = event;
+  // Retrieve the dapp by its ID
+  let dapp: DApp = await DApp.get(smartContract.toString());
+  if (!dapp) {
+    dapp = DApp.create({
+      id: smartContract.toString(),
+      accountID: accountId.toString(),
+      totalStake: BigInt(0),
+    });
+  }
+
+  dapp.totalStake += (balanceOf as Balance).toBigInt();
+  await dapp.save();
+}
+
+export async function handleUnbondAndUnstake(
+  event: SubstrateEvent
+): Promise<void> {
+  logger.info(
+    `Processing new Dapp Staking Bond and Unstake event at ${event.block.block.header.number}`
+  );
+  const {
+    event: {
+      data: [accountId, smartContract, balanceOf],
+    },
+  } = event;
+  // Retrieve the dapp by its ID
+  let dapp: DApp = await DApp.get(smartContract.toString());
+  if (!dapp) {
+    dapp = DApp.create({
+      id: smartContract.toString(),
+      accountID: accountId.toString(),
+      totalStake: BigInt(0),
+    });
+  }
+
+  dapp.totalStake -= (balanceOf as Balance).toBigInt();
+  await dapp.save();
+}
+
+export async function handleReward(event: SubstrateEvent): Promise<void> {
+  logger.info(
+    `Processing new Dapp Staking Reward event at ${event.block.block.header.number}`
+  );
+  const {
+    event: {
+      data: [accountID, smartContract, eraIndex, balanceOf],
+    },
+  } = event;
+  // Retrieve the record by its ID
+  const dAppReward: DAppReward = DAppReward.create({
+    id: `${event.block.block.header.number.toNumber()}-${event.idx}`,
+    dAppId: smartContract.toString(),
+    accountID: accountID.toString(),
+    eraIndex: parseInt(eraIndex.toString()),
+    balanceOf: (balanceOf as Balance).toBigInt(),
+  });
+  await dAppReward.save();
 }

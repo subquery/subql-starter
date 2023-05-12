@@ -31,21 +31,54 @@ network:
     file: ./dist/chaintypes.js
 dataSources:
   - kind: substrate/Wasm
+    # This is the datasource for Astar's Wasm processor
     startBlock: 3281780
     processor:
       file: ./node_modules/@subql/substrate-wasm-processor/dist/bundle.js
       options:
         abi: erc20
-        #contract: "a6Yrf6jAPUwjoi5YvvoTE4ES5vYAMpV55ZCsFHtwMFPDx7H" Shibuya
-        contract: "bZ2uiFGTLcYyP8F88XzXa13xu5Mmp13VLiaW1gGn7rzxktc" #Mainnet
+        # contract: "a6Yrf6jAPUwjoi5YvvoTE4ES5vYAMpV55ZCsFHtwMFPDx7H" # Shibuya
+        contract: "bZ2uiFGTLcYyP8F88XzXa13xu5Mmp13VLiaW1gGn7rzxktc" # Mainnet
     assets:
       erc20:
-        file: ./erc20Metadata.json
+        file: ./abis/erc20Metadata.json
     mapping:
       file: ./dist/index.js
       handlers:
         - handler: handleWasmEvent
           kind: substrate/WasmEvent
           filter:
-            #contract: "a6Yrf6jAPUwjoi5YvvoTE4ES5vYAMpV55ZCsFHtwMFPDx7H" Shibuya
-            contract: "bZ2uiFGTLcYyP8F88XzXa13xu5Mmp13VLiaW1gGn7rzxktc" #Mainnet
+            # contract: "a6Yrf6jAPUwjoi5YvvoTE4ES5vYAMpV55ZCsFHtwMFPDx7H" # Shibuya
+            contract: "bZ2uiFGTLcYyP8F88XzXa13xu5Mmp13VLiaW1gGn7rzxktc" # Mainnet
+            identifier: "Transfer"
+        - handler: handleWasmCall
+          kind: substrate/WasmCall
+          filter:
+            selector: "0x681266a0"
+            method: "approve"
+  - kind: substrate/Runtime
+    # This is the datasource for Astar's Native Substrate processor
+    startBlock: 1
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleNewContract
+          kind: substrate/EventHandler
+          filter:
+            module: dappsStaking
+            method: NewContract
+        - handler: handleBondAndStake
+          kind: substrate/EventHandler
+          filter:
+            module: dappsStaking
+            method: BondAndStake
+        - handler: handleUnbondAndUnstake
+          kind: substrate/EventHandler
+          filter:
+            module: dappsStaking
+            method: UnbondAndUnstake
+        - handler: handleReward
+          kind: substrate/EventHandler
+          filter:
+            module: dappsStaking
+            method: Reward
