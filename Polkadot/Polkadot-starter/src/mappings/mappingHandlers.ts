@@ -8,9 +8,12 @@ import { Balance } from "@polkadot/types/interfaces";
 
 export async function handleBlock(block: SubstrateBlock): Promise<void> {
   //Create a new starterEntity with ID using block hash
-  let record = new StarterEntity(block.block.header.hash.toString());
+  let record = new StarterEntity(
+      block.block.header.hash.toString(),
+      block.block.header.number.toNumber()
+  );
+
   //Record block number
-  record.field1 = block.block.header.number.toNumber();
   await record.save();
 }
 
