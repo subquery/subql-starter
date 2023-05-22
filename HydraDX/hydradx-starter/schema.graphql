@@ -2,8 +2,10 @@
 # Add the `@index` or `@index(unique: true)` annotation after any non-key field
 # https://academy.subquery.network/build/graphql.html#indexing-by-non-primary-key-field
 
+"""This is an example entity"""
 type StarterEntity @entity {
-  id: ID! #id is a required field
+  """id is a required field"""
+  id: ID!
   field1: Int!
 
   field2: String #filed2 is an optional field
