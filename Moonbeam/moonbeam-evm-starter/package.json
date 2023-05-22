@@ -33,7 +33,7 @@
     "@subql/node": "latest",
     "@subql/testing": "latest",
     "@subql/types": "^1.1.0",
-    "@subql/types-ethereum": "^2.1.0",
+    "@subql/types-ethereum": "latest",
     "typescript": "^4.6.2"
   },
   "exports": {
