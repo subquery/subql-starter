@@ -92,6 +92,7 @@ For the `subql-starter` project, you can try to query with the following code to
 {
   query {
     starterEntities(first: 10) {
+      totalCount
       nodes {
         field1
         field2
