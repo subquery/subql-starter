@@ -20,12 +20,12 @@ dataSources:
         - handler: collatorJoined
           kind: substrate/EventHandler
           filter:
-            module: parachainStaking
+            module: staking
             method: JoinedCollatorCandidates
         - handler: collatorLeft
           kind: substrate/CallHandler
           filter:
-            module: parachainStaking
+            module: staking
             method: leaveCandidates
   - kind: substrate/Moonbeam
     startBlock: 562683
