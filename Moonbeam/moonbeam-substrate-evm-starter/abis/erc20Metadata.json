@@ -1,0 +1,457 @@
+{
+  "source": {
+    "hash": "0x85297d9db0204852b790e8f89a3350a687ba1c7bf9ee93bd2d9953005a4c34be",
+    "language": "ink! 3.4.0",
+    "compiler": "rustc 1.67.0-nightly"
+  },
+  "contract": {
+    "name": "lottery",
+    "version": "0.1.0",
+    "authors": ["Nikhil Ranjan"]
+  },
+  "V3": {
+    "spec": {
+      "constructors": [
+        {
+          "args": [],
+          "docs": [],
+          "label": "new",
+          "payable": false,
+          "selector": "0x9bae9d5e"
+        }
+      ],
+      "docs": [],
+      "events": [
+        {
+          "args": [
+            {
+              "docs": [" The player who entered."],
+              "indexed": false,
+              "label": "player",
+              "type": {
+                "displayName": ["AccountId"],
+                "type": 0
+              }
+            },
+            {
+              "docs": [" The value sent."],
+              "indexed": false,
+              "label": "value",
+              "type": {
+                "displayName": ["Balance"],
+                "type": 6
+              }
+            }
+          ],
+          "docs": [],
+          "label": "Entered"
+        },
+        {
+          "args": [
+            {
+              "docs": [" The winner."],
+              "indexed": false,
+              "label": "winner",
+              "type": {
+                "displayName": ["AccountId"],
+                "type": 0
+              }
+            },
+            {
+              "docs": [" The winning amount."],
+              "indexed": false,
+              "label": "amount",
+              "type": {
+                "displayName": ["Balance"],
+                "type": 6
+              }
+            }
+          ],
+          "docs": [],
+          "label": "Won"
+        }
+      ],
+      "messages": [
+        {
+          "args": [],
+          "docs": [" Returns the current owner of the lottery"],
+          "label": "owner",
+          "mutates": false,
+          "payable": false,
+          "returnType": {
+            "displayName": ["AccountId"],
+            "type": 0
+          },
+          "selector": "0xfeaea4fa"
+        },
+        {
+          "args": [],
+          "docs": [],
+          "label": "pot",
+          "mutates": false,
+          "payable": false,
+          "returnType": {
+            "displayName": ["Balance"],
+            "type": 6
+          },
+          "selector": "0xd096c0d0"
+        },
+        {
+          "args": [],
+          "docs": [" Returns the current state of the lottery"],
+          "label": "is_running",
+          "mutates": false,
+          "payable": false,
+          "returnType": {
+            "displayName": ["bool"],
+            "type": 3
+          },
+          "selector": "0x1b0e6452"
+        },
+        {
+          "args": [],
+          "docs": [" Returns the list of players"],
+          "label": "get_players",
+          "mutates": false,
+          "payable": false,
+          "returnType": {
+            "displayName": ["Vec"],
+            "type": 4
+          },
+          "selector": "0xa3355842"
+        },
+        {
+          "args": [
+            {
+              "label": "caller",
+              "type": {
+                "displayName": ["AccountId"],
+                "type": 0
+              }
+            }
+          ],
+          "docs": [" Retrieve the balance of the account."],
+          "label": "get_balance",
+          "mutates": false,
+          "payable": false,
+          "returnType": {
+            "displayName": ["Option"],
+            "type": 8
+          },
+          "selector": "0xea817e65"
+        },
+        {
+          "args": [],
+          "docs": [" Allows a player to enter the lottery by sending a value"],
+          "label": "enter",
+          "mutates": true,
+          "payable": true,
+          "returnType": {
+            "displayName": ["Result"],
+            "type": 9
+          },
+          "selector": "0x8883954a"
+        },
+        {
+          "args": [],
+          "docs": [],
+          "label": "pick_winner",
+          "mutates": true,
+          "payable": false,
+          "returnType": {
+            "displayName": ["Result"],
+            "type": 9
+          },
+          "selector": "0x1d49cc13"
+        },
+        {
+          "args": [],
+          "docs": [],
+          "label": "start_lottery",
+          "mutates": true,
+          "payable": false,
+          "returnType": {
+            "displayName": ["Result"],
+            "type": 9
+          },
+          "selector": "0x996e2d9b"
+        },
+        {
+          "args": [],
+          "docs": [],
+          "label": "stop_lottery",
+          "mutates": true,
+          "payable": false,
+          "returnType": {
+            "displayName": ["Result"],
+            "type": 9
+          },
+          "selector": "0xcb2815e1"
+        }
+      ]
+    },
+    "storage": {
+      "struct": {
+        "fields": [
+          {
+            "layout": {
+              "cell": {
+                "key": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                "ty": 0
+              }
+            },
+            "name": "owner"
+          },
+          {
+            "layout": {
+              "cell": {
+                "key": "0x0100000000000000000000000000000000000000000000000000000000000000",
+                "ty": 3
+              }
+            },
+            "name": "running"
+          },
+          {
+            "layout": {
+              "cell": {
+                "key": "0x0200000000000000000000000000000000000000000000000000000000000000",
+                "ty": 4
+              }
+            },
+            "name": "players"
+          },
+          {
+            "layout": {
+              "cell": {
+                "key": "0x0300000000000000000000000000000000000000000000000000000000000000",
+                "ty": 5
+              }
+            },
+            "name": "entries"
+          }
+        ]
+      }
+    },
+    "types": [
+      {
+        "id": 0,
+        "type": {
+          "def": {
+            "composite": {
+              "fields": [
+                {
+                  "type": 1,
+                  "typeName": "[u8; 32]"
+                }
+              ]
+            }
+          },
+          "path": ["ink_env", "types", "AccountId"]
+        }
+      },
+      {
+        "id": 1,
+        "type": {
+          "def": {
+            "array": {
+              "len": 32,
+              "type": 2
+            }
+          }
+        }
+      },
+      {
+        "id": 2,
+        "type": {
+          "def": {
+            "primitive": "u8"
+          }
+        }
+      },
+      {
+        "id": 3,
+        "type": {
+          "def": {
+            "primitive": "bool"
+          }
+        }
+      },
+      {
+        "id": 4,
+        "type": {
+          "def": {
+            "sequence": {
+              "type": 0
+            }
+          }
+        }
+      },
+      {
+        "id": 5,
+        "type": {
+          "def": {
+            "composite": {
+              "fields": [
+                {
+                  "name": "offset_key",
+                  "type": 7,
+                  "typeName": "Key"
+                }
+              ]
+            }
+          },
+          "params": [
+            {
+              "name": "K",
+              "type": 0
+            },
+            {
+              "name": "V",
+              "type": 6
+            }
+          ],
+          "path": ["ink_storage", "lazy", "mapping", "Mapping"]
+        }
+      },
+      {
+        "id": 6,
+        "type": {
+          "def": {
+            "primitive": "u128"
+          }
+        }
+      },
+      {
+        "id": 7,
+        "type": {
+          "def": {
+            "composite": {
+              "fields": [
+                {
+                  "type": 1,
+                  "typeName": "[u8; 32]"
+                }
+              ]
+            }
+          },
+          "path": ["ink_primitives", "Key"]
+        }
+      },
+      {
+        "id": 8,
+        "type": {
+          "def": {
+            "variant": {
+              "variants": [
+                {
+                  "index": 0,
+                  "name": "None"
+                },
+                {
+                  "fields": [
+                    {
+                      "type": 6
+                    }
+                  ],
+                  "index": 1,
+                  "name": "Some"
+                }
+              ]
+            }
+          },
+          "params": [
+            {
+              "name": "T",
+              "type": 6
+            }
+          ],
+          "path": ["Option"]
+        }
+      },
+      {
+        "id": 9,
+        "type": {
+          "def": {
+            "variant": {
+              "variants": [
+                {
+                  "fields": [
+                    {
+                      "type": 10
+                    }
+                  ],
+                  "index": 0,
+                  "name": "Ok"
+                },
+                {
+                  "fields": [
+                    {
+                      "type": 11
+                    }
+                  ],
+                  "index": 1,
+                  "name": "Err"
+                }
+              ]
+            }
+          },
+          "params": [
+            {
+              "name": "T",
+              "type": 10
+            },
+            {
+              "name": "E",
+              "type": 11
+            }
+          ],
+          "path": ["Result"]
+        }
+      },
+      {
+        "id": 10,
+        "type": {
+          "def": {
+            "tuple": []
+          }
+        }
+      },
+      {
+        "id": 11,
+        "type": {
+          "def": {
+            "variant": {
+              "variants": [
+                {
+                  "index": 0,
+                  "name": "LotteryNotRunning"
+                },
+                {
+                  "index": 1,
+                  "name": "CallerNotOwner"
+                },
+                {
+                  "index": 2,
+                  "name": "NoValueSent"
+                },
+                {
+                  "index": 3,
+                  "name": "ErrTransfer"
+                },
+                {
+                  "index": 4,
+                  "name": "PlayerAlreadyInLottery"
+                },
+                {
+                  "index": 5,
+                  "name": "NoEntries"
+                }
+              ]
+            }
+          },
+          "path": ["lottery", "lottery", "Error"]
+        }
+      }
+    ]
+  }
+}

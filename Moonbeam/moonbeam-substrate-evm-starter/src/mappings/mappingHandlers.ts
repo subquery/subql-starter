@@ -1,37 +1,134 @@
-import {SubstrateEvent, SubstrateExtrinsic} from "@subql/types";
-import {Erc20Transfer, Collator} from "../types";
-import { MoonbeamEvent } from '@subql/contract-processors/dist/moonbeam';
-import { BigNumber } from '@ethersproject/bignumber';
+import { Approval, DApp, DAppReward, Transaction } from "../types";
+import { WasmCall, WasmEvent } from "@subql/substrate-wasm-processor";
+import { Balance, AccountId } from "@polkadot/types/interfaces/runtime";
+import { Option } from "@polkadot/types-codec";
+import { SubstrateEvent } from "@subql/types";
 
-export async function collatorJoined(event: SubstrateEvent): Promise<void> {
+// Setup types from ABI
+type ApproveCallArgs = [AccountId, Balance];
+type TransferEventArgs = [Option<AccountId>, Option<AccountId>, Balance];
 
-    const address = event.extrinsic.extrinsic.signer.toString();
+export async function handleWasmCall(
+  call: WasmCall<ApproveCallArgs>
+): Promise<void> {
+  logger.info(`Processing WASM Call at ${call.blockNumber}`);
+  const approval = new Approval(`${call.blockNumber}-${call.idx}`);
+  approval.hash = call.hash;
+  approval.owner = call.from.toString();
+  approval.contractAddress = call.dest.toString();
+  if (typeof call.data !== "string") {
+    const [spender, value] = call.data.args;
+    approval.spender = spender.toString();
+    approval.value = value.toBigInt();
+  } else {
+    logger.info(`Decode call failed ${call.hash}`);
+  }
+  await approval.save();
+}
 
-    const collator = Collator.create({
-        id: address,
-        joinedDate: event.block.timestamp
+export async function handleWasmEvent(
+  event: WasmEvent<TransferEventArgs>
+): Promise<void> {
+  logger.info(`Processing WASM Even at ${event.blockNumber}`);
+  const [from, to, value] = event.args;
+  const transaction = Transaction.create({
+    id: `${event.blockNumber}-${event.eventIndex}`,
+    transactionHash: event.transactionHash,
+    value: value.toBigInt(),
+    from: from.toString(),
+    to: to.toString(),
+    contractAddress: event.contract.toString(),
+  });
+
+  await transaction.save();
+}
+
+export async function handleNewContract(event: SubstrateEvent): Promise<void> {
+  logger.info(
+    `Processing new Dapp Staking Contract event at ${event.block.block.header.number}`
+  );
+  const {
+    event: {
+      data: [accountId, smartContract],
+    },
+  } = event;
+  // Retrieve the record by its ID
+  let dapp: DApp = await DApp.get(smartContract.toString());
+  if (!dapp) {
+    dapp = DApp.create({
+      id: smartContract.toString(),
+      accountID: accountId.toString(),
+      totalStake: BigInt(0),
     });
 
-    await collator.save();
-
+    await dapp.save();
+  }
 }
 
-export async function collatorLeft(call: SubstrateExtrinsic): Promise<void> {
-
-    const address = call.extrinsic.signer.toString();
-    await Collator.remove(address);
-}
-
-export async function erc20Transfer(event: MoonbeamEvent<[string, string, BigNumber] & { from: string, to: string, value: BigNumber, }>): Promise<void> {
-    const transfer = Erc20Transfer.create({
-        id: event.transactionHash,
-        from: event.args.from,
-        to: event.args.to,
-        amount: event.args.value.toBigInt(),
-        contractAddress: event.address,
+export async function handleBondAndStake(event: SubstrateEvent): Promise<void> {
+  logger.info(
+    `Processing new Dapp Staking Bond and Stake event at ${event.block.block.header.number}`
+  );
+  const {
+    event: {
+      data: [accountId, smartContract, balanceOf],
+    },
+  } = event;
+  // Retrieve the dapp by its ID
+  let dapp: DApp = await DApp.get(smartContract.toString());
+  if (!dapp) {
+    dapp = DApp.create({
+      id: smartContract.toString(),
+      accountID: accountId.toString(),
+      totalStake: BigInt(0),
     });
+  }
 
-    await transfer.save();
+  dapp.totalStake += (balanceOf as Balance).toBigInt();
+  await dapp.save();
 }
 
+export async function handleUnbondAndUnstake(
+  event: SubstrateEvent
+): Promise<void> {
+  logger.info(
+    `Processing new Dapp Staking Bond and Unstake event at ${event.block.block.header.number}`
+  );
+  const {
+    event: {
+      data: [accountId, smartContract, balanceOf],
+    },
+  } = event;
+  // Retrieve the dapp by its ID
+  let dapp: DApp = await DApp.get(smartContract.toString());
+  if (!dapp) {
+    dapp = DApp.create({
+      id: smartContract.toString(),
+      accountID: accountId.toString(),
+      totalStake: BigInt(0),
+    });
+  }
 
+  dapp.totalStake -= (balanceOf as Balance).toBigInt();
+  await dapp.save();
+}
+
+export async function handleReward(event: SubstrateEvent): Promise<void> {
+  logger.info(
+    `Processing new Dapp Staking Reward event at ${event.block.block.header.number}`
+  );
+  const {
+    event: {
+      data: [accountID, smartContract, eraIndex, balanceOf],
+    },
+  } = event;
+  // Retrieve the record by its ID
+  const dAppReward: DAppReward = DAppReward.create({
+    id: `${event.block.block.header.number.toNumber()}-${event.idx}`,
+    dAppId: smartContract.toString(),
+    accountID: accountID.toString(),
+    eraIndex: parseInt(eraIndex.toString()),
+    balanceOf: (balanceOf as Balance).toBigInt(),
+  });
+  await dAppReward.save();
+}
