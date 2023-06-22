@@ -1,0 +1,16 @@
+type Erc20Transfer @entity {
+
+  id: ID! #id is a required field
+
+  from: String!
+  to: String!
+
+  contractAddress: String!
+  amount: BigInt!
+}
+
+type Collator @entity {
+  id: ID! #collator address
+
+  joinedDate: Date!
+}
