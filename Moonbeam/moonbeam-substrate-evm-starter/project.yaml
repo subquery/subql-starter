@@ -1,16 +1,35 @@
-specVersion: 0.2.0
+specVersion: 1.0.0
 name: moonbuilders-demo
-version: 1.0.0
-description: ''
-repository: 'git@github.com:stwiname/moonbuilders-demo.git'
+version: 0.0.1
+runner:
+  node:
+    name: "@subql/node"
+    version: "*"
+  query:
+    name: "@subql/query"
+    version: "*"
+description: 'A basic Substrate EVM example project with an event and call handler. Read more
+  about this at https://academy.subquery.network/build/substrate-wasm.html. This
+  project can be use as a starting point for developing your SubQuery project'
+repository: 'https://github.com/subquery/subql-starter.git'
 schema:
   file: ./schema.graphql
 network:
-  genesisHash: '0x401a1f9dca3da46f5c4091016c8a2f26dcea05865116b286f60f668207d1474b'
-  endpoint: 'wss://moonriver.api.onfinality.io/public-ws'
-  dictionary: 'https://api.subquery.network/sq/subquery/moonriver-dictionary'
+  # The genesis hash of the network (hash of block 0)
+  chainId: "0xfe58ea77779b7abda7da4ec526d14db9b1e9cd40a217c34892af80a9b332b76d"
+  # This endpoint must be a public non-pruned archive node
+  # Public nodes may be rate limited, which can affect indexing speed
+  # When developing your project we suggest getting a private API key
+  # You can get them from OnFinality for free https://app.onfinality.io
+  # https://documentation.onfinality.io/support/the-enhanced-api-service
+  endpoint:
+    [
+      "wss://moonbeam.api.onfinality.io/public-ws",
+      "wss://wss.api.moonbeam.network",
+    ]
+  dictionary: "https://api.subquery.network/sq/subquery/moonbeam-dictionary"
   chaintypes:
-    file: "./types.yaml"
+    file: ./dist/chaintypes.js
 dataSources:
   - kind: substrate/Runtime
     startBlock: 69218
@@ -21,27 +40,27 @@ dataSources:
           kind: substrate/EventHandler
           filter:
             module: staking
-            method: JoinedCollatorCandidates
+            method: joinCandidates
         - handler: collatorLeft
           kind: substrate/CallHandler
           filter:
             module: staking
-            method: leaveCandidates
+            method: executeLeaveCandidates
   - kind: substrate/Moonbeam
-    startBlock: 562683
+     # This is the datasource for Moonbeam's EVM processor
+    startBlock: 3281780
     processor:
-      file: './node_modules/@subql/contract-processors/dist/moonbeam.js'
+      file: ./node_modules/@subql/frontier-evm-processor/dist/bundle.js
       options:
-        # Must be a key of assets
         abi: erc20
-        address: '0x6bd193ee6d2104f14f94e2ca6efefae561a4334b'
+        contract: "0x322E86852e492a7Ee17f28a78c663da38FB33bfb" # Mainnet
     assets:
       erc20:
-        file: './erc20.abi.json'
+        file: ./erc20.abi.json
     mapping:
       file: ./dist/index.js
       handlers:
-        - handler: erc20Transfer
+        - handler: handleErc20Transfer
           kind: substrate/MoonbeamEvent
           filter:
             topics:
