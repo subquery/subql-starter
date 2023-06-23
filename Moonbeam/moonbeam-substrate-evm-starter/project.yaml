@@ -54,7 +54,7 @@ dataSources:
       options:
         # Must be a key of assets
         abi: erc20
-        # Contract address (or recipient if transfer) to filter, if `null` should be for contract creation
+        # Contract address of $FRAX
         address: "0x322E86852e492a7Ee17f28a78c663da38FB33bfb"
     assets:
       erc20:
