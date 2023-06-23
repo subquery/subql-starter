@@ -16,6 +16,8 @@ import { BigNumber } from "ethers";
 
 export async function collatorJoined(event: SubstrateEvent): Promise<void> {
 
+  logger.info(`Processing SubstrateEvent at ${event.block.block.header.number}`);
+
   const address = event.extrinsic.extrinsic.signer.toString();
 
   const collator = Collator.create({
