@@ -1,4 +1,4 @@
-import { subqlTest } from "@subql/testing";
+/*import { subqlTest } from "@subql/testing";
 import { Transfer,Token,Contract,Owner } from "../types";
 
 let newToken= new Token("1");
@@ -32,4 +32,4 @@ subqlTest(
       }),
     ],
     'handleTransfer',
-  );
+  );*/

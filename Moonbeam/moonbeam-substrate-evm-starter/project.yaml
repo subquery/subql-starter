@@ -1,5 +1,5 @@
 specVersion: 1.0.0
-name: subql-nft
+name: moonbeam-substrate-evm-starter
 version: 1.0.0
 runner:
   node:
@@ -9,8 +9,10 @@ runner:
     name: "@subql/query"
     version: "*"
 description: >-
-  A basic ERC721 indexer on moonbeam
-repository: "https://github.com/subquery/tutorials-frontier-evm-starter"
+  A basic Substrate EVM example project with an event and call handler. Read more
+  about this at https://academy.subquery.network/build/substrate-evm.html. This
+  project can be use as a starting point for developing your SubQuery project
+repository: "https://github.com/subquery/subql-starter.git"
 schema:
   file: ./schema.graphql
 network:
@@ -28,22 +30,39 @@ network:
   chaintypes:
     file: ./dist/chaintypes.js
 dataSources:
+  - kind: substrate/Runtime
+  # This is the datasource for Moonbeam's Native Substrate processor
+    startBlock: 209451
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleCollatorJoined
+          kind: substrate/CallHandler
+          filter:
+            module: staking
+            method: joinCandidates
+        - handler: handleCollatorLeft
+          kind: substrate/CallHandler
+          filter:
+            module: staking
+            method: executeLeaveCandidates
+
   - kind: substrate/FrontierEvm
     startBlock: 209451
     processor:
       file: "./node_modules/@subql/frontier-evm-processor/dist/bundle.js"
       options:
         # Must be a key of assets
-        abi: erc721
+        abi: erc20
         # Contract address (or recipient if transfer) to filter, if `null` should be for contract creation
-        address: "0x8fBE243D898e7c88A6724bB9eB13d746614D23d6"
+        address: "0x322E86852e492a7Ee17f28a78c663da38FB33bfb"
     assets:
-      erc721:
-        file: ./erc721.abi.json
+      erc20:
+        file: ./erc20.abi.json
     mapping:
       file: ./dist/index.js
       handlers:
-        - handler: handleTransfer
+        - handler: handleErc20Transfer
           kind: substrate/FrontierEvmEvent
           filter:
             topics:
