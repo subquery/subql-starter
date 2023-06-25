@@ -24,15 +24,15 @@ network:
   # You can get them from OnFinality for free https://app.onfinality.io
   # https://documentation.onfinality.io/support/the-enhanced-api-service
   endpoint:
-    - wss://moonbeam.api.onfinality.io/public-ws
-    - wss://wss.api.moonbeam.network
+    - https://moonbeam.blastapi.io/bc88ffcb-8768-4dc8-aee4-5bbb4e285a73
+    - wss://moonbeam.blastapi.io/bc88ffcb-8768-4dc8-aee4-5bbb4e285a73
   dictionary: "https://api.subquery.network/sq/subquery/moonbeam-dictionary"
   chaintypes:
     file: ./dist/chaintypes.js
 dataSources:
   - kind: substrate/Runtime
   # This is the datasource for Moonbeam's Native Substrate processor
-    startBlock: 1
+    startBlock: 189831
     mapping:
       file: ./dist/index.js
       handlers:

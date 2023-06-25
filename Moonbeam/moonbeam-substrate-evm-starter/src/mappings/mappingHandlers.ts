@@ -14,28 +14,30 @@ global.atob = require("atob");
 global.Blob = require('node-blob');
 import { BigNumber } from "ethers";
 
-export async function collatorJoined(event: SubstrateEvent): Promise<void> {
+export async function handleCollatorJoined(call: SubstrateExtrinsic): Promise<void> {
 
-  logger.info(`Processing SubstrateEvent at ${event.block.block.header.number}`);
+  logger.info(`Processing SubstrateEvent at ${call.block.block.header.number}`);
 
-  const address = event.extrinsic.extrinsic.signer.toString();
+  const address = call.extrinsic.signer.toString();
 
   const collator = Collator.create({
       id: address,
-      joinedDate: event.block.timestamp
+      joinedDate: call.block.timestamp
   });
 
   await collator.save();
 
 }
 
-export async function collatorLeft(call: SubstrateExtrinsic): Promise<void> {
+export async function handleCollatorLeft(call: SubstrateExtrinsic): Promise<void> {
+
+  logger.info(`Processing SubstrateCall at ${call.block.block.header.number}`);
 
   const address = call.extrinsic.signer.toString();
   await Collator.remove(address);
 }
 
-export async function erc20Transfer(event: FrontierEvmEvent<[string, string, BigNumber] & { from: string, to: string, value: BigNumber, }>): Promise<void> {
+export async function handleErc20Transfer(event: FrontierEvmEvent<[string, string, BigNumber] & { from: string, to: string, value: BigNumber, }>): Promise<void> {
   const transfer = Erc20Transfer.create({
       id: event.transactionHash,
       from: event.args.from,

@@ -1,13 +1,21 @@
 import {subqlTest} from "@subql/testing";
 import {Collator, Erc20Transfer} from "../types";
 
-/*
-// https://academy.subquery.network/build/testing.html
+
 subqlTest(
-  "testName", // test name
-  1000003, // block height to process
-  [], // dependent entities
-  [], // expected entities
-  "handleEvent" //handler name
+  "newCollator test", // test name
+  1, // block height to process
+  [
+    Collator.create({
+      id: "1",
+      joinedDate: new Date(1000),
+    }),
+  ], // dependent entities
+  [
+    Collator.create({
+      id: "1",
+      joinedDate: new Date(1000),
+    })
+  ], // expected entities
+  "handleCollatorJoined" //handler name
 );
-*/
