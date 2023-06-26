@@ -33,7 +33,7 @@
     "@polkadot/api": "^10",
     "@subql/cli": "latest",
     "@subql/frontier-evm-processor": "latest",
-    "@subql/node": "latest",
+    "@subql/node": "^2.8.0",
     "@subql/testing": "latest",
     "@subql/types": "^1.1.0",
     "typescript": "^4.6.2"

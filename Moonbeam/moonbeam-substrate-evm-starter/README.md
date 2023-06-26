@@ -1,6 +1,6 @@
 # SubQuery - Starter Package
 
-A basic Frontier EVM example project with an event and call handler. Read more about this at https://university.subquery.network/build/substrate-evm.html. This project can be use as a starting point for developing your SubQuery project
+A basic Frontier EVM + Substrate example project with an event handler for the FrontierEVM and call handler for Substrate calls. Read more about this at https://academy.subquery.network/quickstart/quickstart_chains/polkadot-moonbeam.html. This project can be used as a starting point for developing your SubQuery project
 
 The Starter Package is an example that you can use as a starting point for developing your SubQuery project.
 A SubQuery package defines which data The SubQuery will index from the Substrate blockchain, and how it will store it.

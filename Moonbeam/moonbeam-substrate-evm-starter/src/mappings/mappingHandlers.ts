@@ -15,7 +15,7 @@ global.Blob = require('node-blob');
 import { BigNumber } from "ethers";
 
 export async function handleCollatorJoined(call: SubstrateExtrinsic): Promise<void> {
-
+  //We added a logger to the top of this function, in order to see the block number of the event we are processing.
   logger.info(`Processing SubstrateEvent at ${call.block.block.header.number}`);
 
   const address = call.extrinsic.signer.toString();
@@ -30,7 +30,7 @@ export async function handleCollatorJoined(call: SubstrateExtrinsic): Promise<vo
 }
 
 export async function handleCollatorLeft(call: SubstrateExtrinsic): Promise<void> {
-
+  //We added a logger to the top of this function, in order to see the block number of the event we are processing.
   logger.info(`Processing SubstrateCall at ${call.block.block.header.number}`);
 
   const address = call.extrinsic.signer.toString();
@@ -38,6 +38,8 @@ export async function handleCollatorLeft(call: SubstrateExtrinsic): Promise<void
 }
 
 export async function handleErc20Transfer(event: FrontierEvmEvent<[string, string, BigNumber] & { from: string, to: string, value: BigNumber, }>): Promise<void> {
+  //We added a logger to the top of this function, in order to see the block number of the event we are processing.
+  logger.info(`Processing MoonbeamEvent at ${event.blockNumber.toString()}`);
   const transfer = Erc20Transfer.create({
       id: event.transactionHash,
       from: event.args.from,
