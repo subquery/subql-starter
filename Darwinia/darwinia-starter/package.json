@@ -25,7 +25,6 @@
     "@subql/cli": "latest",
     "@subql/types": "latest",
     "typescript": "^4.1.3",
-    "@darwinia/types": "latest",
     "@subql/testing": "latest",
     "@subql/node": "latest"
   },
