@@ -34,12 +34,19 @@ dataSources:
     mapping:
       file: ./dist/index.js
       handlers:
-        - handler: handleBlock
-          kind: substrate/BlockHandler
-        - handler: handleEvent
+        - handler: handleAttestationCreated
           kind: substrate/EventHandler
           filter:
-            module: balances
-            method: Deposit
-        - handler: handleCall
-          kind: substrate/CallHandler
+            module: attestation
+            method: AttestationCreated
+        - handler: handleAttestationRevoked
+          kind: substrate/EventHandler
+          filter:
+            module: attestation
+            method: AttestationRevoked
+        # We could not find any events for this module in the blocks explored
+        # - handler: handleAttestationRemoved
+        #   kind: substrate/EventHandler
+        #   filter:
+        #     module: attestation
+        #     method: AttestationRemoved
