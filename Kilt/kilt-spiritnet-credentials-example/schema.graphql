@@ -4,12 +4,12 @@
 
 type Attestation @entity {
   id: ID! #id is ClaimHashOf
-  createdDate: Date!
-  createdBlock: BigInt!
+  createdDate: Date! #date of creation of the attestation
+  createdBlock: BigInt! #block of creation of the attestation
   creator: String! # Account address
   creationClaimHash: String!
-  attestationId: String!
-  hash: String!
+  attestationId: String! #Id of the attester
+  hash: String! #extrensic hash
   delegationID: String
   revokedDate: Date
   revokedBlock: BigInt
@@ -17,6 +17,7 @@ type Attestation @entity {
 }
 
 type Aggregation @entity {
+  # This is an entity allowing us to calculate all the attesations created and revoked in one day
   id: ID ! # AAAA-MM-DD
   attestationsCreated: Int!
   attestationsRevoked: Int!
