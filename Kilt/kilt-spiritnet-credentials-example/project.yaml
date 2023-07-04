@@ -30,7 +30,7 @@ network:
     file: ./dist/chaintypes.js
 dataSources:
   - kind: substrate/Runtime
-    startBlock: 4096588
+    startBlock: 1
     mapping:
       file: ./dist/index.js
       handlers:
@@ -44,6 +44,7 @@ dataSources:
           filter:
             module: attestation
             method: AttestationRevoked
+        # We could not find any events for this module in the blocks explored
         # - handler: handleAttestationRemoved
         #   kind: substrate/EventHandler
         #   filter:

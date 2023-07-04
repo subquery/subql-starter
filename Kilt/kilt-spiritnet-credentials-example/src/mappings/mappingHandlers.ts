@@ -1,5 +1,5 @@
 import { SubstrateEvent } from "@subql/types";
-import { Attestation } from "../types";
+import { Aggregation, Attestation } from "../types";
 import assert from "assert";
 
 export async function handleAttestationCreated(
@@ -16,16 +16,19 @@ export async function handleAttestationCreated(
   } = event;
 
   const attestation = Attestation.create({
-    id: attesterID.toString(),
+    id: claimHash.toString(),
     createdDate: event.block.timestamp,
     createdBlock: event.block.block.header.number.toBigInt(),
     creator: event.extrinsic.extrinsic.signer.toString(),
     creationClaimHash: claimHash.toString(),
     hash: hash.toString(),
+    attestationId: attesterID.toString(),
     delegationID: delegationID ? delegationID.toString() : null,
   });
 
   await attestation.save();
+
+  await handleDailyUpdate(event.block.timestamp, "CREATED");
 }
 
 export async function handleAttestationRevoked(
@@ -41,7 +44,7 @@ export async function handleAttestationRevoked(
     },
   } = event;
 
-  const attestation = await Attestation.get(accountID.toString());
+  const attestation = await Attestation.get(claimHash.toString());
 
   assert(attestation, "Can't find an attestation");
   attestation.revokedDate = event.block.timestamp;
@@ -49,4 +52,27 @@ export async function handleAttestationRevoked(
   attestation.revokedClaimHash = claimHash.toString();
 
   await attestation.save();
+
+  await handleDailyUpdate(event.block.timestamp, "REVOKED");
+}
+
+export async function handleDailyUpdate( date: Date, type: "CREATED" | "REVOKED"): Promise<void>{
+  const id = date.toISOString().slice(0, 10);
+  let aggregation = await Aggregation.get(id);
+  if (!aggregation) {
+    aggregation = Aggregation.create({
+      id,
+      attestationsCreated: 0,
+      attestationsRevoked: 0,
+    });
+  }
+  if (type === "CREATED") {
+    aggregation.attestationsCreated++;
+  }
+
+  else if (type === "REVOKED") {
+    aggregation.attestationsRevoked++;
+  }
+
+  await aggregation.save();
 }

@@ -1,6 +1,6 @@
 # SubQuery - Starter Package
 
-The Starter Package is an example that you can use as a starting point for developing your SubQuery project.
+The Starter Package is an example that provides a very simple SubQuery project that aggregates attestations from the Kilt Spiritnet network.
 A SubQuery package defines which data The SubQuery will index from the Substrate blockchain, and how it will store it.
 
 ## Preparation
@@ -89,15 +89,23 @@ Finally, you should see a GraphQL playground is showing in the explorer and the 
 For the `subql-starter` project, you can try to query with the following code to get a taste of how it works.
 
 ```graphql
-{
-  query {
-    starterEntities(first: 10) {
-      nodes {
-        field1
-        field2
-        field3
+query {
+    attestations (first: 10, orderBy: CREATED_DATE_DESC) {
+        nodes {
+            id
+          	createdDate
+          	attestationId
+          	hash
+          	delegationID
+          	revokedDate
+        }
+    }	
+  	aggregations(orderBy: ID_DESC){
+      nodes{
+        id
+        attestationsCreated
+        attestationsRevoked
       }
     }
-  }
 }
 ```

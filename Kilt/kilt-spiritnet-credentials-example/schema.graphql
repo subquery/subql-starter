@@ -3,14 +3,21 @@
 # https://academy.subquery.network/build/graphql.html#indexing-by-non-primary-key-field
 
 type Attestation @entity {
-  id: ID! #id is attesterID
+  id: ID! #id is ClaimHashOf
   createdDate: Date!
   createdBlock: BigInt!
   creator: String! # Account address
   creationClaimHash: String!
+  attestationId: String!
   hash: String!
   delegationID: String
   revokedDate: Date
   revokedBlock: BigInt
   revokedClaimHash: String
+}
+
+type Aggregation @entity {
+  id: ID ! # AAAA-MM-DD
+  attestationsCreated: Int!
+  attestationsRevoked: Int!
 }
