@@ -91,15 +91,14 @@ Finally, you should see a GraphQL playground is showing in the explorer and the 
 For the `subql-starter` project, you can try to query with the following code to get a taste of how it works.
 
 ```graphql
-{
-  query {
-    starterEntities(first: 10) {
-      nodes {
-        field1
-        field2
-        field3
-      }
+query {
+    erc20transfers (first: 10, orderBy: AMOUNT_DESC) {
+    	nodes {
+        id
+        value
+        from
+        to
+        }
     }
-  }
 }
 ```
