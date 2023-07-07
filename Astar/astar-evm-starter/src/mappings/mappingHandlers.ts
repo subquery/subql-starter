@@ -4,6 +4,7 @@ import {
   FrontierEvmCall,
 } from "@subql/frontier-evm-processor";
 import { BigNumber } from "ethers";
+import assert from "assert";
 
 // Setup types from ABI
 type TransferEventArgs = [string, string, BigNumber] & {
@@ -20,6 +21,8 @@ type ApproveCallArgs = [string, BigNumber] & {
 export async function handleEvmEvent(
   event: FrontierEvmEvent<TransferEventArgs>
 ): Promise<void> {
+  assert(event.transactionHash, "No transactionHash")
+
   const transaction = Transaction.create({
     id: `${event.blockNumber}-${event.transactionHash}-${event.logIndex}`,
     value: event.args?.value.toBigInt(),
@@ -35,6 +38,9 @@ export async function handleEvmEvent(
 export async function handleEvmCall(
   event: FrontierEvmCall<ApproveCallArgs>
 ): Promise<void> {
+  assert(event.args, "No event.args")
+  assert(event.to, "No event.to")
+
   const approval = Approval.create({
     id: event.hash,
     owner: event.from,

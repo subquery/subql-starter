@@ -30,10 +30,11 @@
   "devDependencies": {
     "@polkadot/api": "^10",
     "@subql/cli": "latest",
-    "@subql/types": "latest",
-    "typescript": "^4.6.2",
+    "@subql/node": "latest",
     "@subql/testing": "latest",
-    "@subql/node": "latest"
+    "@subql/types": "latest",
+    "@subql/types-ethereum": "latest",
+    "typescript": "^4.6.2"
   },
   "exports": {
     "chaintypes": "./src/chaintypes.ts"

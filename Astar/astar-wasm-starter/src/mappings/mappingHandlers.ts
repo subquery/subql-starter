@@ -3,6 +3,7 @@ import { WasmCall, WasmEvent } from "@subql/substrate-wasm-processor";
 import { Balance, AccountId } from "@polkadot/types/interfaces/runtime";
 import { Option } from "@polkadot/types-codec";
 import { SubstrateEvent } from "@subql/types";
+import assert from "assert";
 
 // Setup types from ABI
 type ApproveCallArgs = [AccountId, Balance];
@@ -12,23 +13,31 @@ export async function handleWasmCall(
   call: WasmCall<ApproveCallArgs>
 ): Promise<void> {
   logger.info(`Processing WASM Call at ${call.blockNumber}`);
-  const approval = new Approval(`${call.blockNumber}-${call.idx}`);
-  approval.hash = call.hash;
-  approval.owner = call.from.toString();
-  approval.contractAddress = call.dest.toString();
+
   if (typeof call.data !== "string") {
     const [spender, value] = call.data.args;
-    approval.spender = spender.toString();
+
+    const approval = Approval.create({
+      id: `${call.blockNumber}-${call.idx}`,
+      hash: call.hash,
+      owner: call.from.toString(),
+      contractAddress: call.from.toString(),
+      spender: spender.toString(),
+    });
+
     approval.value = value.toBigInt();
+
+    await approval.save();
+
   } else {
     logger.info(`Decode call failed ${call.hash}`);
   }
-  await approval.save();
 }
 
 export async function handleWasmEvent(
   event: WasmEvent<TransferEventArgs>
 ): Promise<void> {
+  assert(event.args, "No event.args")
   logger.info(`Processing WASM Even at ${event.blockNumber}`);
   const [from, to, value] = event.args;
   const transaction = Transaction.create({
@@ -53,7 +62,8 @@ export async function handleNewContract(event: SubstrateEvent): Promise<void> {
     },
   } = event;
   // Retrieve the record by its ID
-  let dapp: DApp = await DApp.get(smartContract.toString());
+  let dapp: DApp | undefined = await DApp.get(smartContract.toString());
+
   if (!dapp) {
     dapp = DApp.create({
       id: smartContract.toString(),
@@ -75,7 +85,7 @@ export async function handleBondAndStake(event: SubstrateEvent): Promise<void> {
     },
   } = event;
   // Retrieve the dapp by its ID
-  let dapp: DApp = await DApp.get(smartContract.toString());
+  let dapp: DApp | undefined = await DApp.get(smartContract.toString());
   if (!dapp) {
     dapp = DApp.create({
       id: smartContract.toString(),
@@ -100,7 +110,7 @@ export async function handleUnbondAndUnstake(
     },
   } = event;
   // Retrieve the dapp by its ID
-  let dapp: DApp = await DApp.get(smartContract.toString());
+  let dapp: DApp | undefined = await DApp.get(smartContract.toString());
   if (!dapp) {
     dapp = DApp.create({
       id: smartContract.toString(),

@@ -21,8 +21,8 @@
   "author": "SubQuery Pte. Limited",
   "license": "Apache-2.0",
   "dependencies": {
-    "@acala-network/type-definitions": "^4.1.1",
-    "@subql/acala-evm-processor": "^0.0.1-0"
+    "@acala-network/type-definitions": "5.0.2",
+    "@subql/acala-evm-processor": "latest"
   },
   "devDependencies": {
     "@polkadot/api": "^10",
