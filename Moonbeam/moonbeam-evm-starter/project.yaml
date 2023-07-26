@@ -41,7 +41,7 @@ dataSources:
         # Must be a key of assets
         abi: erc20
         # Contract address (or recipient if transfer) to filter, if `null` should be for contract creation
-        address: "0xe3e43888fa7803cdc7bea478ab327cf1a0dc11a7"
+        address: "0xe3e43888fa7803cdc7bea478ab327cf1a0dc11a7" # FLARE token https://moonscan.io/token/0xe3e43888fa7803cdc7bea478ab327cf1a0dc11a7
     assets:
       erc20:
         file: ./erc20.abi.json
