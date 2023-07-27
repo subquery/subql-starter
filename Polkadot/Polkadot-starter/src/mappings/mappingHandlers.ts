@@ -3,49 +3,65 @@ import {
   SubstrateEvent,
   SubstrateBlock,
 } from "@subql/types";
-import { StarterEntity } from "../types";
+import { Account, Transfer } from "../types";
 import { Balance } from "@polkadot/types/interfaces";
-import assert from "assert";
+import { decodeAddress } from "@polkadot/util-crypto";
 
 export async function handleBlock(block: SubstrateBlock): Promise<void> {
-  //Create a new starterEntity with ID using block hash
-  let record = StarterEntity.create({
-      id: block.block.header.hash.toString(),
-      field1: block.block.header.number.toNumber()
-  });
-  //Record block number
-  await record.save();
-}
-
-export async function handleEvent(event: SubstrateEvent): Promise<void> {
-  const {
-    event: {
-      data: [account, balance],
-    },
-  } = event;
-  //Retrieve the record by its ID
-  const record = await StarterEntity.get(
-    event.block.block.header.hash.toString()
-  );
-
-  if (record) {
-    record.field2 = account.toString();
-    //Big integer type Balance of a transfer event
-    record.field3 = (balance as Balance).toBigInt();
-    await record.save();
-  }
+  // Do something with each block handler here
 }
 
 export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
-  const record = await StarterEntity.get(
-    extrinsic.block.block.header.hash.toString()
+  // Do something with a call handler here
+}
+
+export async function handleEvent(event: SubstrateEvent): Promise<void> {
+  logger.info(
+    `New transfer event found at block ${event.block.block.header.number.toString()}`
   );
 
-  if (record) {
-    //Date type timestamp
-    record.field4 = extrinsic.block.timestamp;
-    //Boolean type
-    record.field5 = true;
-    await record.save();
+  // Get data from the event
+  // The balances.transfer event has the following payload \[from, to, value\]
+  // logger.info(JSON.stringify(event));
+  const {
+    event: {
+      data: [from, to, amount],
+    },
+  } = event;
+
+  const blockNumber: number = event.block.block.header.number.toNumber();
+
+  const fromAccount = await checkAndGetAccount(from.toString(), blockNumber);
+  const toAccount = await checkAndGetAccount(to.toString(), blockNumber);
+
+  // Create the new transfer entity
+  const transfer = Transfer.create({
+    id: `${event.block.block.header.number.toNumber()}-${event.idx}`,
+    blockNumber,
+    date: event.block.timestamp,
+    fromId: fromAccount.id,
+    toId: toAccount.id,
+    amount: (amount as Balance).toBigInt(),
+  });
+
+  fromAccount.lastTransferBlock = blockNumber;
+  toAccount.lastTransferBlock = blockNumber;
+
+  await Promise.all([fromAccount.save(), toAccount.save(), transfer.save()]);
+}
+
+async function checkAndGetAccount(
+  id: string,
+  blockNumber: number
+): Promise<Account> {
+  let account = await Account.get(id.toLowerCase());
+  if (!account) {
+    // We couldn't find the account
+    account = Account.create({
+      id: id.toLowerCase(),
+      publicKey: decodeAddress(id).toString().toLowerCase(),
+      firstTransferBlock: blockNumber,
+    });
   }
+  return account;
 }
