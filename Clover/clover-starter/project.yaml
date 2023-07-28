@@ -8,7 +8,7 @@ runner:
   query:
     name: "@subql/query"
     version: "*"
-description: This SubQuery project can be use as a starting point for Clover network
+description: This project can be used as a starting point for developing your SubQuery project. It indexes all transfers on Clover network
 repository: "https://github.com/subquery/clover-subql-starters"
 schema:
   file: ./schema.graphql

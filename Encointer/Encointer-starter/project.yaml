@@ -8,9 +8,7 @@ runner:
   query:
     name: "@subql/query"
     version: "*"
-description: >-
-  This project can be used as a starting point for developing your SubQuery
-  project
+description: This project can be used as a starting point for developing your SubQuery project. It indexes all transfers on Encointer
 repository: "https://github.com/subquery/subql-starter"
 schema:
   file: ./schema.graphql

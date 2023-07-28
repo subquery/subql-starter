@@ -8,7 +8,7 @@ runner:
   query:
     name: "@subql/query"
     version: "*"
-description: This SubQuery project can be use as a starting point for Contextfree network
+description: This project can be used as a starting point for developing your SubQuery project. It indexes all transfers on Contextfree network
 repository: "https://github.com/subquery/contextfree-subql-starter"
 schema:
   file: ./schema.graphql

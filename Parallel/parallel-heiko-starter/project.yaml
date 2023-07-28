@@ -9,7 +9,7 @@ runner:
     name: "@subql/query"
     version: "*"
 description: >-
-  This SubQuery project can be use as a starting point for parallel-heiko
+  This project can be used as a starting point for developing your SubQuery project. It indexes all transfers on parallel-heiko
   network
 repository: "https://github.com/subquery/parallel-heiko-subql-starter"
 schema:

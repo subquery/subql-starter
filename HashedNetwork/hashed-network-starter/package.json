@@ -1,7 +1,7 @@
 {
   "name": "hashed-network-starter",
   "version": "0.0.4",
-  "description": "This SubQuery project can be use as a starting point for Hashed Network",
+  "description": "This project can be used as a starting point for developing your SubQuery project. It indexes all transfers on Hashed Network",
   "main": "dist/index.js",
   "scripts": {
     "build": "subql build",

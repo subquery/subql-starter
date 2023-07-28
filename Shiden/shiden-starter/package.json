@@ -1,7 +1,7 @@
 {
   "name": "shiden-starter",
   "version": "0.0.5",
-  "description": "This SubQuery project can be use as a starting point for shiden network",
+  "description": "This project can be used as a starting point for developing your SubQuery project. It indexes all transfers on shiden network",
   "main": "dist/index.js",
   "scripts": {
     "build": "subql build",

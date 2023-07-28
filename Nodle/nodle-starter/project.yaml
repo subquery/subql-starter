@@ -8,7 +8,7 @@ runner:
   query:
     name: "@subql/query"
     version: "*"
-description: This project can be use as a starting point for nodle network.
+description: This project can be used as a starting point for developing your SubQuery project. It indexes all transfers on Nodle network
 repository: "https://github.com/subquery/nodle-subql-starter"
 schema:
   file: ./schema.graphql
