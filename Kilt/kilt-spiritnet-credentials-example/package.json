@@ -1,7 +1,7 @@
 {
   "name": "kilt-spiritnet-starter",
   "version": "1.0.0",
-  "description": "This project can be used as a starting point for developing your SubQuery project",
+  "description": "This project can be used as a starting point for developing your SubQuery project. It aggregates attestations from the Kilt Spiritnet network",
   "main": "dist/index.js",
   "scripts": {
     "build": "subql build",

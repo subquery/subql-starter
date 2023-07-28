@@ -21,13 +21,12 @@
   "author": "SubQuery Team",
   "license": "MIT",
   "devDependencies": {
-    "@polkadot/api": "^10",
     "@subql/types": "latest",
-    "typescript": "^4.1.3",
-    "@subql/cli": "latest",
-    "node-fetch": "2.6.7",
     "@subql/testing": "latest",
-    "@subql/node": "latest"
+    "@subql/node": "latest",
+    "@polkadot/api": "^10",
+    "typescript": "^4.1.3",
+    "@subql/cli": "latest"
   },
   "resolutions": {
     "ipfs-unixfs": "6.0.6"

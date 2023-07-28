@@ -1,7 +1,7 @@
 {
   "name": "humanode-starter",
   "version": "1.0.0",
-  "description": "This project can be used as a starting point for developing your SubQuery project",
+  "description": "This project can be used as a starting point for developing your SubQuery project. It indexes all transfers, bioauthentication events, and online validator nodes from Humanode chain",
   "main": "dist/index.js",
   "scripts": {
     "build": "subql build",

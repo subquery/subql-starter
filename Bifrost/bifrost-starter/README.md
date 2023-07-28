@@ -2,7 +2,7 @@
 
 [SubQuery](https://subquery.network) is a fast, flexible, and reliable open-source data indexer that provides you with custom APIs for your web3 project across all of our supported networks. To learn about how to get started with SubQuery, [visit our docs](https://academy.subquery.network).
 
-**This SubQuery project indexes basic Deposit events within the balances pallet and all extrinsic calls on the Bifrost Network**
+**This SubQuery project indexes all asset transfers using the balances pallet on the Bifrost Network**
 
 ## Start
 
@@ -41,15 +41,29 @@ For this project, you can try to query with the following GraphQL code to get a 
 ```graphql
 {
   query {
-    starterEntities(first: 5, orderBy: ID_DESC) {
+    transfers(first: 5, orderBy: BLOCK_NUMBER_DESC) {
       totalCount
       nodes {
         id
-        field1
-        field2
-        field3
-        field4
-        field5
+        date
+        blockNumber
+        toId
+        fromId
+        amount
+      }
+    }
+    accounts(first: 5, orderBy: SENT_TRANSFERS_COUNT_DESC) {
+      nodes {
+        id
+        sentTransfers(first: 5, orderBy: BLOCK_NUMBER_DESC) {
+          totalCount
+          nodes {
+            id
+            toId
+            amount
+          }
+        }
+        lastTransferBlock
       }
     }
   }

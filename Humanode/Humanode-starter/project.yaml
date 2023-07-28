@@ -1,6 +1,6 @@
 specVersion: 1.0.0
 name: humanode-starter
-version: 0.0.1
+version: 1.0.0
 runner:
   node:
     name: "@subql/node"
@@ -8,9 +8,7 @@ runner:
   query:
     name: "@subql/query"
     version: "*"
-description: >-
-  This project can be used as a starting point for developing your SubQuery
-  project
+description: "This project can be used as a starting point for developing your SubQuery project. It indexes all transfers, bioauthentication events, and online validator nodes from Humanode chain"
 repository: "https://github.com/subquery/subql-starter"
 schema:
   file: ./schema.graphql

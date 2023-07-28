@@ -1,6 +1,6 @@
 specVersion: 1.0.0
 name: encointer-starter
-version: 0.0.1
+version: 1.0.0
 runner:
   node:
     name: "@subql/node"
@@ -8,9 +8,7 @@ runner:
   query:
     name: "@subql/query"
     version: "*"
-description: >-
-  This project can be used as a starting point for developing your SubQuery
-  project
+description: This project can be used as a starting point for developing your SubQuery project. It indexes all transfers on Encointer
 repository: "https://github.com/subquery/subql-starter"
 schema:
   file: ./schema.graphql
@@ -33,12 +31,17 @@ dataSources:
     mapping:
       file: ./dist/index.js
       handlers:
-        - handler: handleBlock
-          kind: substrate/BlockHandler
+        # - handler: handleBlock
+        #   kind: substrate/BlockHandler
+        # - handler: handleCall
+        #   kind: substrate/CallHandler
+        #   filter:
+        #     method:
+        #       module: balances
+        #       method: Deposit
+        #       success: true
         - handler: handleEvent
           kind: substrate/EventHandler
           filter:
             module: balances
-            method: Deposit
-        - handler: handleCall
-          kind: substrate/CallHandler
+            method: Transfer
