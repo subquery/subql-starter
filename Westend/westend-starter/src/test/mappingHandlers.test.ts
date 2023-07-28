@@ -1,15 +1,11 @@
 import { subqlTest } from "@subql/testing";
-import { StarterEntity } from "../types";
+
+// See https://academy.subquery.network/build/testing.html
 
 subqlTest(
-    "handleBlock test",
-    598,
-    [],
-    [
-      StarterEntity.create({
-        id: '0xe5d285e29ac5709ce6037b93bb0031d551e5836f32aa884948a5cccc40da7bb3', 
-        field1: 598,
-      }),
-    ],
-    'handleBlock',
-  );
+  "handleTransfer test", // Test name
+  191, // Block height to test at
+  [], // Dependent entities
+  [], // Expected entities
+  "handleEvent" // handler name
+);
