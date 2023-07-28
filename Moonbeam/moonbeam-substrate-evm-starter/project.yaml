@@ -1,6 +1,6 @@
 specVersion: 1.0.0
 name: moonbeam-substrate-evm-starter
-version: 0.0.1
+version: 1.0.0
 runner:
   node:
     name: "@subql/node"
@@ -31,7 +31,7 @@ network:
     file: ./dist/chaintypes.js
 dataSources:
   - kind: substrate/Runtime
-  # This is the datasource for Moonbeam's Native Substrate processor
+    # This is the datasource for Moonbeam's Native Substrate processor
     startBlock: 1
     mapping:
       file: ./dist/index.js
