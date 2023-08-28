@@ -7,13 +7,13 @@ import { Account, Transfer } from "../types";
 import { Balance } from "@polkadot/types/interfaces";
 import { decodeAddress } from "@polkadot/util-crypto";
 
-export async function handleBlock(block: SubstrateBlock): Promise<void> {
-  // Do something with each block handler here
-}
-
-export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
-  // Do something with a call handler here
-}
+// export async function handleBlock(block: SubstrateBlock): Promise<void> {
+//   // Do something with each block handler here
+// }
+//
+// export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
+//   // Do something with a call handler here
+// }
 
 export async function handleEvent(event: SubstrateEvent): Promise<void> {
   logger.info(
