@@ -22,13 +22,12 @@
   "license": "MIT",
   "devDependencies": {
     "@polkadot/api": "^10",
-    "@subql/cli": "^3.6.2-11",
+    "@subql/cli": "latest",
     "@subql/testing": "latest",
     "@subql/types": "latest",
     "typescript": "^5.2.2"
   },
   "resolutions": {
-    "ipfs-unixfs": "6.0.6",
-    "@subql/common": "^3.0.1"
+    "ipfs-unixfs": "6.0.6"
   }
 }

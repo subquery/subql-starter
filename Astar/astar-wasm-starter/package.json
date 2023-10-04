@@ -26,10 +26,10 @@
   "devDependencies": {
     "@polkadot/api": "^10",
     "@subql/cli": "latest",
-    "@subql/types": "^1.1.0",
-    "typescript": "^4.6.2",
+    "@subql/node": "latest",
     "@subql/testing": "latest",
-    "@subql/node": "latest"
+    "@subql/types": "latest",
+    "typescript": "^5.2.2"
   },
   "dependencies": {
     "@subql/substrate-wasm-processor": "latest"

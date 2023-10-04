@@ -23,7 +23,7 @@
   "devDependencies": {
     "@polkadot/api": "^10",
     "@subql/types": "latest",
-    "typescript": "^4.1.3",
+    "typescript": "^5.2.2",
     "@subql/cli": "latest",
     "@acala-network/type-definitions": "latest",
     "@subql/testing": "latest",
