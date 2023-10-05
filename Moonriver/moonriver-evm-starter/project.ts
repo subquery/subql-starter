@@ -60,9 +60,7 @@ const project: SubstrateProject<FrontierEvmDatasource> = {
           address: '0x6bd193ee6d2104f14f94e2ca6efefae561a4334b' // Solarbeam token https://moonriver.moonscan.io/address/0x6bd193ee6d2104f14f94e2ca6efefae561a4334b
         }
       },
-      assets: {
-        erc20: { file: './erc20.abi.json' },
-      },
+      assets: new Map([['erc20', { file: './erc20.abi.json' }]]),
       mapping: {
         file: './dist/index.js',
         handlers: [

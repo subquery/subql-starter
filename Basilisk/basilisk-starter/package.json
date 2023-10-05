@@ -1,5 +1,5 @@
 {
-  "name": "basilisk-subql-starter",
+  "name": "basilisk-starter",
   "version": "0.0.5",
   "description": "This project can be used as a starting point for developing your SubQuery project. It indexes all transfers on basilisk network",
   "main": "dist/index.js",

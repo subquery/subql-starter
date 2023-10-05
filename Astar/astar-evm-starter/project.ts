@@ -57,9 +57,7 @@ const project: SubstrateProject<FrontierEvmDatasource> = {
           // address: '0x0000000000000000000000000000000000000000' // A specific contract to index
         }
       },
-      assets: {
-        erc20: { file: './erc20.abi.json' },
-      },
+      assets: new Map([['erc20', { file: './erc20.abi.json' }]]),
       mapping: {
         file: './dist/index.js',
         handlers: [

@@ -60,9 +60,7 @@ const project: SubstrateProject<FrontierEvmDatasource> = {
           address: '0xe3e43888fa7803cdc7bea478ab327cf1a0dc11a7' // FLARE token https://moonscan.io/token/0xe3e43888fa7803cdc7bea478ab327cf1a0dc11a7
         }
       },
-      assets: {
-        erc20: { file: './erc20.abi.json' },
-      },
+      assets: new Map([['erc20', { file: './erc20.abi.json' }]]),
       mapping: {
         file: './dist/index.js',
         handlers: [

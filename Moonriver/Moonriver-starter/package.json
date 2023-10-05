@@ -1,5 +1,5 @@
 {
-  "name": "moonbeam-starter",
+  "name": "moonriver-starter",
   "version": "0.0.4",
   "description": "This project can be used as a starting point for developing your SubQuery project. It indexes all transfers on Moonbeam network",
   "main": "dist/index.js",

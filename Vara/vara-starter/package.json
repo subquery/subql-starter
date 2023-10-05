@@ -1,5 +1,5 @@
 {
-  "name": "vera-starter",
+  "name": "vara-starter",
   "version": "1.0.0",
   "description": "This project can be used as a starting point for developing your SubQuery project. It indexes all transfers on VARA",
   "main": "dist/index.js",

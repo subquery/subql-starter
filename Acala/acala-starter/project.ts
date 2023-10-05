@@ -40,8 +40,8 @@ const project: SubstrateProject = {
       "wss://acala-rpc-0.aca-api.network",
     ],
     dictionary: 'https://api.subquery.network/sq/subquery/acala-dictionary',
-    chainTypes: {
-      files: './dist/chaintypes.js',
+    chaintypes: {
+      file: './dist/chaintypes.js',
     }
   },
   dataSources: [

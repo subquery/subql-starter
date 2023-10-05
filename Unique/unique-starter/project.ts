@@ -35,7 +35,7 @@ const project: SubstrateProject = {
      * You can get them from OnFinality for free https://app.onfinality.io
      * https://documentation.onfinality.io/support/the-enhanced-api-service
      */
-    eendpoint: ["wss://asia-ws.unique.network", "wss://ws.unique.network"],
+    endpoint: ["wss://asia-ws.unique.network", "wss://ws.unique.network"],
     // Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
     // dictionary: "https://api.subquery.network/sq/subquery/unique-dictionary",
   },

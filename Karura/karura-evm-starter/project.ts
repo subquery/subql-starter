@@ -57,9 +57,7 @@ const project: SubstrateProject<AcalaEvmDatasource> = {
           address: "0x0000000000000000000100000000000000000000"
         }
       },
-      assets: {
-        erc20: { file: './erc20.abi.json' },
-      },
+      assets: new Map([['erc20', { file: './erc20.abi.json' }]]),
       mapping: {
         file: './dist/index.js',
         handlers: [
