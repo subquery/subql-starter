@@ -54,3 +54,5 @@ Thumbs.db
 *.mov
 *.wmv
 
+.data
+.eslintcache
