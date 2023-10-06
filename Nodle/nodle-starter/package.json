@@ -1,5 +1,5 @@
 {
-  "name": "nodle-subql-starter",
+  "name": "nodle-starter",
   "version": "0.0.5",
   "description": "This project can be used as a starting point for developing your SubQuery project. It indexes all transfers on Nodle network",
   "main": "dist/index.js",
@@ -23,7 +23,7 @@
   "devDependencies": {
     "@polkadot/api": "^10",
     "@subql/types": "latest",
-    "typescript": "^4.1.3",
+    "typescript": "^5.2.2",
     "@subql/cli": "latest",
     "@subql/testing": "latest",
     "@subql/node": "latest"

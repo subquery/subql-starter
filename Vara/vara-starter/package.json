@@ -1,5 +1,5 @@
 {
-  "name": "vera-starter",
+  "name": "vara-starter",
   "version": "1.0.0",
   "description": "This project can be used as a starting point for developing your SubQuery project. It indexes all transfers on VARA",
   "main": "dist/index.js",
@@ -27,7 +27,7 @@
     "node-fetch": "2.6.7",
     "@subql/testing": "latest",
     "@subql/node": "latest",
-    "typescript": "^4.6.2"
+    "typescript": "^5.2.2"
   },
   "resolutions": {
     "ipfs-unixfs": "6.0.6"
