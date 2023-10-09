@@ -1,0 +1,43 @@
+specVersion: 1.0.0
+name: darwinia-starter
+version: 1.0.0
+runner:
+  node:
+    name: "@subql/node"
+    version: "*"
+  query:
+    name: "@subql/query"
+    version: "*"
+description: This project can be used as a starting point for developing your SubQuery project. It indexes all transfers on Darwinia network
+repository: "https://github.com/subquery/subql-starter"
+schema:
+  file: ./schema.graphql
+network:
+  # The genesis hash of the network (hash of block 0)
+  chainId: "0xf0b8924b12e8108550d28870bc03f7b45a947e1b2b9abf81bfb0b89ecb60570e"
+  # This endpoint must be a public non-pruned archive node
+  # Public nodes may be rate limited, which can affect indexing speed
+  # When developing your project we suggest getting a private API key
+  # You can get them from OnFinality for free https://app.onfinality.io
+  # https://documentation.onfinality.io/support/the-enhanced-api-service
+  endpoint: "wss://rpc.darwinia.network"
+dataSources:
+  - kind: substrate/Runtime
+    startBlock: 1
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        # - handler: handleBlock
+        #   kind: substrate/BlockHandler
+        # - handler: handleCall
+        #   kind: substrate/CallHandler
+        #   filter:
+        #     method:
+        #       module: balances
+        #       method: Deposit
+        #       success: true
+        - handler: handleEvent
+          kind: substrate/EventHandler
+          filter:
+            module: balances
+            method: Transfer

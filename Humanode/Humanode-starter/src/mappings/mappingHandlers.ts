@@ -12,12 +12,12 @@ export async function handleBioauthNewAuthenticationEvent(
     data: [validatorPublicKey],
   } = event;
 
-  const record = new BioauthNewAuthentication(
-    `${block.block.header.number}-${idx}`
-  );
-  record.blockNumber = block.block.header.number.toNumber();
-  record.timestamp = block.timestamp;
-  record.validatorPublicKey = validatorPublicKey.toString();
+  const record = BioauthNewAuthentication.create({
+    id: `${block.block.header.number}-${idx}`,
+    blockNumber: block.block.header.number.toNumber(),
+    timestamp: block.timestamp,
+    validatorPublicKey: validatorPublicKey.toString(),
+  });
   await record.save();
 }
 
@@ -30,10 +30,13 @@ export async function handleImonlineSomeOfflineEvent(
     data: [offline],
   } = event;
 
-  const record = new ImOnlineSomeOffline(`${block.block.header.number}-${idx}`);
-  record.blockNumber = block.block.header.number.toNumber();
-  record.timestamp = block.timestamp;
-  record.accountIds = [];
+  const record = ImOnlineSomeOffline.create({
+    id: `${block.block.header.number}-${idx}`,
+    blockNumber: block.block.header.number.toNumber(),
+    timestamp: block.timestamp,
+    accountIds: [],
+  });
+
   for (const identification of offline as Vec<Codec>) {
     const [accountId, _fullIdentification] = identification as any as [
       Codec,
