@@ -40,8 +40,8 @@ const project: SubstrateProject = {
       "wss://fullnode.altair.centrifuge.io",
     ],
     chaintypes: {
-      file: './dist/chaintypes.js'
-    }
+      file: "./dist/chaintypes.js",
+    },
   },
   dataSources: [
     {
@@ -69,7 +69,7 @@ const project: SubstrateProject = {
             handler: "handleEvent",
             filter: {
               module: "balances",
-              method: "Deposit",
+              method: "Transfer",
             },
           },
         ],

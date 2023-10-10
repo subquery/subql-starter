@@ -63,7 +63,7 @@ const project: SubstrateProject = {
             handler: "handleEvent",
             filter: {
               module: "balances",
-              method: "Deposit",
+              method: "Transfer",
             },
           },
         ],
