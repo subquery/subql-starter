@@ -33,7 +33,6 @@
     "@subql/node": "latest"
   },
   "exports": {
-    "acalaEvm": "./node_modules/@subql/acala-evm-processor/dist/index.js",
     "chaintypes": "./src/chaintypes.ts"
   }
 }
