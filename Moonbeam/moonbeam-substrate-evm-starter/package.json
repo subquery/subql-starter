@@ -39,7 +39,6 @@
     "typescript": "^5.2.2"
   },
   "exports": {
-    "frontierEvm": "./node_modules/@subql/frontier-evm-processor/dist/index.js",
     "chaintypes": "./src/chaintypes.ts"
   }
 }
