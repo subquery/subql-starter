@@ -46,7 +46,8 @@
     "Unique/*",
     "Vara/*",
     "Watr/*",
-    "Westend/*"
+    "Westend/*",
+    "Quartz/*"
   ],
   "scripts": {
     "codegen": "yarn workspaces run codegen",
