@@ -40,7 +40,6 @@ const project: SubstrateProject = {
       "wss://statemine-rpc.polkadot.io",
     ],
     // Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-    dictionary: "https://api.subquery.network/sq/subquery/statemine-dictionary",
   },
   dataSources: [
     {

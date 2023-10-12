@@ -40,10 +40,9 @@ const project: SubstrateProject = {
       "wss://mainnet.polkadex.trade",
     ],
     // Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-    // dictionary: "https://api.subquery.network/sq/subquery/polkadex-dictionary",
     chaintypes: {
-      file: './dist/chaintypes.js'
-    }
+      file: "./dist/chaintypes.js",
+    },
   },
   dataSources: [
     {
