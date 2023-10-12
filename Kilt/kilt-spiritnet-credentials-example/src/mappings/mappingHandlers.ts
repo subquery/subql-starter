@@ -15,6 +15,7 @@ export async function handleAttestationCreated(
     },
   } = event;
 
+  assert(event.extrinsic, 'Missing event.extrinsic')
   const attestation = Attestation.create({
     id: claimHash.toString(),
     createdDate: event.block.timestamp,
@@ -23,7 +24,7 @@ export async function handleAttestationCreated(
     creationClaimHash: claimHash.toString(),
     hash: hash.toString(),
     attestationId: attesterID.toString(),
-    delegationID: delegationID ? delegationID.toString() : null,
+    delegationID: delegationID ? delegationID.toString() : undefined,
   });
 
   await attestation.save();

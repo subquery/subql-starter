@@ -39,7 +39,6 @@
     "Parallel/*",
     "Polkadex/*",
     "Polkadot/*",
-    "Quartz/*",
     "README.md/*",
     "Shiden/*",
     "Statemine/*",
@@ -47,7 +46,8 @@
     "Unique/*",
     "Vara/*",
     "Watr/*",
-    "Westend/*"
+    "Westend/*",
+    "Quartz/*"
   ],
   "scripts": {
     "codegen": "yarn workspaces run codegen",
