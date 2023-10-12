@@ -40,8 +40,8 @@ const project: SubstrateProject = {
       "wss://fullnode.altair.centrifuge.io",
     ],
     chaintypes: {
-      file: './dist/chaintypes.js'
-    }
+      file: "./dist/chaintypes.js",
+    },
   },
   dataSources: [
     {
@@ -78,4 +78,5 @@ const project: SubstrateProject = {
   ],
 };
 
+// Must set default to the project instance
 export default project;

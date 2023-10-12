@@ -41,8 +41,8 @@ const project: SubstrateProject = {
     ],
     dictionary: "https://api.subquery.network/sq/subquery/moonbeam-dictionary",
     chaintypes: {
-      file: './dist/chaintypes.js'
-    }
+      file: "./dist/chaintypes.js",
+    },
   },
   dataSources: [
     {
@@ -79,4 +79,5 @@ const project: SubstrateProject = {
   ],
 };
 
+// Must set default to the project instance
 export default project;

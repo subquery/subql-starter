@@ -40,10 +40,11 @@ const project: SubstrateProject = {
       "wss://bifrost-rpc.liebi.com/ws",
     ],
     // Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-    dictionary: "https://api.subquery.network/sq/subquery/bifrost-parachain-dictionary",
+    dictionary:
+      "https://api.subquery.network/sq/subquery/bifrost-parachain-dictionary",
     chaintypes: {
-      file: './dist/chaintypes.js'
-    }
+      file: "./dist/chaintypes.js",
+    },
   },
   dataSources: [
     {
@@ -80,4 +81,5 @@ const project: SubstrateProject = {
   ],
 };
 
+// Must set default to the project instance
 export default project;

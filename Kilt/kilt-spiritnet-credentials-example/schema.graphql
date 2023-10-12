@@ -18,7 +18,7 @@ type Attestation @entity {
 
 type Aggregation @entity {
   # This is an entity allowing us to calculate all the attesations created and revoked in one day
-  id: ID ! # AAAA-MM-DD
+  id: ID! # AAAA-MM-DD
   attestationsCreated: Int!
   attestationsRevoked: Int!
 }

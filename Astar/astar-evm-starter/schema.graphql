@@ -6,7 +6,6 @@ type Transaction @entity {
   from: String
   blockHeight: String
   contractAddress: String!
-
 }
 
 type Approval @entity {

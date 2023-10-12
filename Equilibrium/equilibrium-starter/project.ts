@@ -35,12 +35,15 @@ const project: SubstrateProject = {
      * You can get them from OnFinality for free https://app.onfinality.io
      * https://documentation.onfinality.io/support/the-enhanced-api-service
      */
-    endpoint: ["wss://equilibrium-rpc.dwellir.com", "wss://node.pol.equilibrium.io"],
+    endpoint: [
+      "wss://equilibrium-rpc.dwellir.com",
+      "wss://node.pol.equilibrium.io",
+    ],
     // Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
     // dictionary: "https://api.subquery.network/sq/subquery/equilibrium-dictionary",
     chaintypes: {
-      file: './dist/chaintypes.js'
-    }
+      file: "./dist/chaintypes.js",
+    },
   },
   dataSources: [
     {
@@ -77,4 +80,5 @@ const project: SubstrateProject = {
   ],
 };
 
+// Must set default to the project instance
 export default project;

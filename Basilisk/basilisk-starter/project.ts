@@ -35,12 +35,14 @@ const project: SubstrateProject = {
      * You can get them from OnFinality for free https://app.onfinality.io
      * https://documentation.onfinality.io/support/the-enhanced-api-service
      */
-    endpoint:
-    ["wss://basilisk.api.onfinality.io/public-ws", "wss://rpc.basilisk.cloud"],
+    endpoint: [
+      "wss://basilisk.api.onfinality.io/public-ws",
+      "wss://rpc.basilisk.cloud",
+    ],
     dictionary: "https://api.subquery.network/sq/subquery/basilisk-dictionary",
     chaintypes: {
-      file: './dist/chaintypes.js'
-    }
+      file: "./dist/chaintypes.js",
+    },
   },
   dataSources: [
     {
@@ -77,4 +79,5 @@ const project: SubstrateProject = {
   ],
 };
 
+// Must set default to the project instance
 export default project;

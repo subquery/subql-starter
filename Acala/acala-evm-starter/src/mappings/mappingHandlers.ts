@@ -17,13 +17,13 @@ type ApproveCallArgs = [string, BigNumber] & {
 export async function handleAcalaEvmEvent(
   event: AcalaEvmEvent<TransferEventArgs>
 ): Promise<void> {
-  assert(event.args, "Missing event.args")
+  assert(event.args, "Missing event.args");
   const transaction = Transaction.create({
     id: event.transactionHash,
     value: event.args.value.toBigInt(),
     to: event.args.from,
     from: event.args.to,
-    contractAddress: event.address
+    contractAddress: event.address,
   });
   await transaction.save();
 }
@@ -31,14 +31,14 @@ export async function handleAcalaEvmEvent(
 export async function handleAcalaEvmCall(
   event: AcalaEvmCall<ApproveCallArgs>
 ): Promise<void> {
-  assert(event.args, "Missing event.args")
+  assert(event.args, "Missing event.args");
 
   const approval = Approval.create({
     id: event.hash,
     value: event.args._value.toBigInt(),
     owner: event.from,
     spender: event.args._spender,
-    contractAddress: event.to as string
+    contractAddress: event.to as string,
   });
 
   await approval.save();

@@ -4,15 +4,14 @@ import {
   SubstrateProject,
 } from "@subql/types";
 
-import { AcalaEvmDatasource } from '@subql/acala-evm-processor';
+import { AcalaEvmDatasource } from "@subql/acala-evm-processor";
 
 // Can expand the Datasource processor types via the genreic param
 const project: SubstrateProject<AcalaEvmDatasource> = {
   specVersion: "1.0.0",
   version: "0.0.1",
   name: "acala-evm-starter",
-  description:
-    "A basic Acala EVM example",
+  description: "A basic Acala EVM example",
   runner: {
     node: {
       name: "@subql/node",
@@ -41,43 +40,45 @@ const project: SubstrateProject<AcalaEvmDatasource> = {
       "wss://acala-polkadot.api.onfinality.io/public-ws",
       "wss://acala-rpc-0.aca-api.network",
     ],
-    dictionary: 'https://explorer.subquery.network/subquery/subquery/acala-dictionary',
+    dictionary:
+      "https://explorer.subquery.network/subquery/subquery/acala-dictionary",
   },
   dataSources: [
     {
-      kind: 'substrate/AcalaEvm',
+      kind: "substrate/AcalaEvm",
       startBlock: 1000000,
       processor: {
-        file: './node_modules/@subql/acala-evm-processor/dist/bundle.js',
+        file: "./node_modules/@subql/acala-evm-processor/dist/bundle.js",
         options: {
-          abi: 'erc20',
-          address: "0x0000000000000000000100000000000000000000" // ACA Token https://blockscout.acala.network/address/0x0000000000000000000100000000000000000000
-        }
+          abi: "erc20",
+          address: "0x0000000000000000000100000000000000000000", // ACA Token https://blockscout.acala.network/address/0x0000000000000000000100000000000000000000
+        },
       },
-      assets: new Map([['erc20', { file: './erc20.abi.json' }]]),
+      assets: new Map([["erc20", { file: "./erc20.abi.json" }]]),
       mapping: {
-        file: './dist/index.js',
+        file: "./dist/index.js",
         handlers: [
           {
-            handler: 'handleAcalaEvmEvent',
-            kind: 'substrate/AcalaEvmEvent',
+            handler: "handleAcalaEvmEvent",
+            kind: "substrate/AcalaEvmEvent",
             filter: {
               topics: [
-                'Transfer(address indexed from,address indexed to,uint256 value)'
-              ]
-            }
+                "Transfer(address indexed from,address indexed to,uint256 value)",
+              ],
+            },
           },
           {
-            handler: 'handleAcalaEvmCall',
-            kind: 'substrate/AcalaEvmCall',
+            handler: "handleAcalaEvmCall",
+            kind: "substrate/AcalaEvmCall",
             filter: {
-              function: 'approve(address to,uint256 value)'
-            }
-          }
-        ]
+              function: "approve(address to,uint256 value)",
+            },
+          },
+        ],
       },
     },
   ],
 };
 
+// Must set default to the project instance
 export default project;

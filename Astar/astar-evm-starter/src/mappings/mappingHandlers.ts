@@ -21,7 +21,7 @@ type ApproveCallArgs = [string, BigNumber] & {
 export async function handleEvmEvent(
   event: FrontierEvmEvent<TransferEventArgs>
 ): Promise<void> {
-  assert(event.transactionHash, "No transactionHash")
+  assert(event.transactionHash, "No transactionHash");
 
   const transaction = Transaction.create({
     id: `${event.blockNumber}-${event.transactionHash}-${event.logIndex}`,
@@ -30,7 +30,7 @@ export async function handleEvmEvent(
     to: event.args?.to,
     blockHeight: event.blockNumber.toString(),
     contractAddress: event.address,
-    transactionHash: event.transactionHash
+    transactionHash: event.transactionHash,
   });
   await transaction.save();
 }
@@ -38,8 +38,8 @@ export async function handleEvmEvent(
 export async function handleEvmCall(
   event: FrontierEvmCall<ApproveCallArgs>
 ): Promise<void> {
-  assert(event.args, "No event.args")
-  assert(event.to, "No event.to")
+  assert(event.args, "No event.args");
+  assert(event.to, "No event.to");
 
   const approval = Approval.create({
     id: event.hash,

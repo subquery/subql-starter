@@ -35,9 +35,7 @@ const project: SubstrateProject = {
      * You can get them from OnFinality for free https://app.onfinality.io
      * https://documentation.onfinality.io/support/the-enhanced-api-service
      */
-    endpoint: [
-      "wss://westend.api.onfinality.io/public-ws"
-    ],
+    endpoint: ["wss://westend.api.onfinality.io/public-ws"],
     // Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
     dictionary: "https://api.subquery.network/sq/subquery/westend-dictionary",
   },
@@ -76,4 +74,5 @@ const project: SubstrateProject = {
   ],
 };
 
+// Must set default to the project instance
 export default project;

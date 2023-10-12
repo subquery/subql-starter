@@ -35,12 +35,15 @@ const project: SubstrateProject = {
      * You can get them from OnFinality for free https://app.onfinality.io
      * https://documentation.onfinality.io/support/the-enhanced-api-service
      */
-    endpoint: ["wss://efinity.api.onfinality.io/public-ws", "wss://rpc.efinity.io"],
+    endpoint: [
+      "wss://efinity.api.onfinality.io/public-ws",
+      "wss://rpc.efinity.io",
+    ],
     // Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
     // dictionary: "https://api.subquery.network/sq/subquery/efinity-dictionary",
     chaintypes: {
-      file: './dist/chaintypes.js'
-    }
+      file: "./dist/chaintypes.js",
+    },
   },
   dataSources: [
     {
@@ -77,4 +80,5 @@ const project: SubstrateProject = {
   ],
 };
 
+// Must set default to the project instance
 export default project;

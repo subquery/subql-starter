@@ -28,7 +28,6 @@ export async function handleWasmCall(
     approval.value = value.toBigInt();
 
     await approval.save();
-
   } else {
     logger.info(`Decode call failed ${call.hash}`);
   }
@@ -37,7 +36,7 @@ export async function handleWasmCall(
 export async function handleWasmEvent(
   event: WasmEvent<TransferEventArgs>
 ): Promise<void> {
-  assert(event.args, "No event.args")
+  assert(event.args, "No event.args");
   logger.info(`Processing WASM Even at ${event.blockNumber}`);
   const [from, to, value] = event.args;
   const transaction = Transaction.create({

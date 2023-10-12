@@ -37,12 +37,12 @@ const project: SubstrateProject = {
      */
     endpoint: [
       "wss://astar.api.onfinality.io/public-ws",
-      "wss://rpc.astar.network"
+      "wss://rpc.astar.network",
     ],
     dictionary: "https://api.subquery.network/sq/subquery/astar-dictionary",
     chaintypes: {
-      file: './dist/chaintypes.js'
-    }
+      file: "./dist/chaintypes.js",
+    },
   },
   dataSources: [
     {
@@ -79,4 +79,5 @@ const project: SubstrateProject = {
   ],
 };
 
+// Must set default to the project instance
 export default project;

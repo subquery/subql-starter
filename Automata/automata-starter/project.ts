@@ -35,11 +35,14 @@ const project: SubstrateProject = {
      * You can get them from OnFinality for free https://app.onfinality.io
      * https://documentation.onfinality.io/support/the-enhanced-api-service
      */
-    endpoint: ["wss://automata.api.onfinality.io/public-ws", "wss://api.ata.network"],
+    endpoint: [
+      "wss://automata.api.onfinality.io/public-ws",
+      "wss://api.ata.network",
+    ],
     dictionary: "https://api.subquery.network/sq/subquery/automata-dictionary",
     chaintypes: {
-      file: './dist/chaintypes.js'
-    }
+      file: "./dist/chaintypes.js",
+    },
   },
   dataSources: [
     {
@@ -76,4 +79,5 @@ const project: SubstrateProject = {
   ],
 };
 
+// Must set default to the project instance
 export default project;

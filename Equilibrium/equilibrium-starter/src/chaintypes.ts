@@ -11,13 +11,11 @@ const definitions: OverrideBundleDefinition = {
   //       [cur]: {
   //         customAccount: createCustomAccount(cur, (currency: string, api?: ApiInterfaceRx) => {
   //           let assetsEnabled = true;
-
   //           try {
   //             api?.registry.createType('AssetIdInnerType' as any);
   //           } catch (_) {
   //             assetsEnabled = false;
   //           }
-
   //           return assetsEnabled ? { 0: u64FromCurrency(currency) } : currency;
   //         })
   //       }
@@ -25,9 +23,7 @@ const definitions: OverrideBundleDefinition = {
   //     {}
   //   )
   // },
-
   // instances: equilibrium.instances,
-
   // types: [
   //   {
   //     minmax: [0, 264],

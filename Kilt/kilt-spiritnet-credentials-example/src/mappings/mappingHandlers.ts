@@ -15,7 +15,7 @@ export async function handleAttestationCreated(
     },
   } = event;
 
-  assert(event.extrinsic, 'Missing event.extrinsic')
+  assert(event.extrinsic, "Missing event.extrinsic");
   const attestation = Attestation.create({
     id: claimHash.toString(),
     createdDate: event.block.timestamp,
@@ -57,7 +57,10 @@ export async function handleAttestationRevoked(
   await handleDailyUpdate(event.block.timestamp, "REVOKED");
 }
 
-export async function handleDailyUpdate( date: Date, type: "CREATED" | "REVOKED"): Promise<void>{
+export async function handleDailyUpdate(
+  date: Date,
+  type: "CREATED" | "REVOKED"
+): Promise<void> {
   const id = date.toISOString().slice(0, 10);
   let aggregation = await Aggregation.get(id);
   if (!aggregation) {
@@ -69,9 +72,7 @@ export async function handleDailyUpdate( date: Date, type: "CREATED" | "REVOKED"
   }
   if (type === "CREATED") {
     aggregation.attestationsCreated++;
-  }
-
-  else if (type === "REVOKED") {
+  } else if (type === "REVOKED") {
     aggregation.attestationsRevoked++;
   }
 
