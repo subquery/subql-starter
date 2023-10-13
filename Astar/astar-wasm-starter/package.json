@@ -29,10 +29,8 @@
     "@subql/node": "latest",
     "@subql/testing": "latest",
     "@subql/types": "latest",
+    "@subql/substrate-wasm-processor": "^1.0.0",
     "typescript": "^5.2.2"
-  },
-  "dependencies": {
-    "@subql/substrate-wasm-processor": "latest"
   },
   "exports": {
     "chaintypes": "src/chaintypes.ts"
