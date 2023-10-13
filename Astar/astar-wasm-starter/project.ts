@@ -41,6 +41,7 @@ const project: SubstrateProject<WasmDatasource> = {
   },
   dataSources: [
     {
+      // This is the datasource for Astar's Native Substrate processor
       kind: SubstrateDatasourceKind.Runtime,
       startBlock: 87073,
       mapping: {
@@ -82,9 +83,8 @@ const project: SubstrateProject<WasmDatasource> = {
       },
     },
     {
-      // This is the datasource for Astar's Native Substrate processor
-      kind: "substrate/Wasm",
       // This is the datasource for Astar's Wasm processor
+      kind: "substrate/Wasm",
       startBlock: 3281780,
       processor: {
         file: "./node_modules/@subql/substrate-wasm-processor/dist/bundle.js",

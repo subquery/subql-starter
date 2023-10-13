@@ -45,6 +45,7 @@ const project: SubstrateProject<AcalaEvmDatasource> = {
   },
   dataSources: [
     {
+      // This is the datasource for Acala's EVM processor
       kind: "substrate/AcalaEvm",
       startBlock: 1000000,
       processor: {

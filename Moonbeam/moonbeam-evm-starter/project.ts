@@ -50,6 +50,7 @@ const project: SubstrateProject<FrontierEvmDatasource> = {
   },
   dataSources: [
     {
+      // This is the datasource for Moonbeam's Native Substrate processor
       kind: "substrate/FrontierEvm",
       startBlock: 752073,
       processor: {
