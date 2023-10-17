@@ -109,7 +109,7 @@ const project: SubstrateProject<WasmDatasource> = {
           },
           {
             handler: "handleWasmCall",
-            kind: "substrate/WasmEvent",
+            kind: "substrate/WasmCall",
             filter: {
               selector: "0x681266a0",
               method: "approve",
