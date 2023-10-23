@@ -1,0 +1,8 @@
+specVersion: 1.0.0
+query:
+  name: "@subql/query"
+  version: "*"
+projects:
+  - project-kusama.yaml
+  - project-polkadot.yaml
+  - project-assethub.yaml

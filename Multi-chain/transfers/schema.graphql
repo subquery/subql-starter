@@ -1,0 +1,28 @@
+type GenericSubstrateAccount @entity {
+  id: ID! # Generic Substrate Address always starts with the number 5
+}
+
+type Account
+  @entity { # This is a network specific address of the particular account
+  id: ID! # network account address
+  genericSubstrateAccount: GenericSubstrateAccount!
+  network: String!
+}
+
+type Transfer @entity {
+  id: ID! #this primary key is the network + block number + the event id
+  amount: BigInt
+  blockNumber: BigInt
+  network: String!
+  from: Account! #Sending Address
+  to: Account! # receiving address
+  fromGenericSubstrateAccount: GenericSubstrateAccount! # we add this due to current query filter not allow search pk from from/to Account attribute
+  toGenericSubstrateAccount: GenericSubstrateAccount!
+}
+
+type AccountBalance @entity {
+  id: ID! # Account + blockHeight
+  account: Account!
+  balance: BigInt
+  blockNumber: BigInt
+}
