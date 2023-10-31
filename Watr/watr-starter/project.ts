@@ -35,7 +35,10 @@ const project: SubstrateProject = {
      * You can get them from OnFinality for free https://app.onfinality.io
      * https://documentation.onfinality.io/support/the-enhanced-api-service
      */
-    endpoint: ["wss://rpc.dev.watr.org", "wss://rpc.watr.org"],
+    endpoint: ["wss://watr-rpc.watr-api.network"],
+    chaintypes: {
+      file: "./dist/chaintypes.js",
+    },
   },
   dataSources: [
     {
