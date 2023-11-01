@@ -27,7 +27,7 @@ const project: SubstrateProject = {
   network: {
     /* The genesis hash of the network (hash of block 0) */
     chainId:
-      "0xb53c620c41860278fa3068a5367c8eedceefce8a7c29237d830bc09a71737b5d",
+      "0x161db6cdc5896fe55ef12b4778fe78dd65d7af43f65c601786b88d7a93ebc58a",
     /**
      * This endpoint must be a public non-pruned archive node
      * Public nodes may be rate limited, which can affect indexing speed
@@ -35,7 +35,10 @@ const project: SubstrateProject = {
      * You can get them from OnFinality for free https://app.onfinality.io
      * https://documentation.onfinality.io/support/the-enhanced-api-service
      */
-    endpoint: ["wss://rpc.dev.watr.org", "wss://rpc.watr.org"],
+    endpoint: ["wss://watr-rpc.watr-api.network"],
+    chaintypes: {
+      file: "./dist/chaintypes.js",
+    },
   },
   dataSources: [
     {
