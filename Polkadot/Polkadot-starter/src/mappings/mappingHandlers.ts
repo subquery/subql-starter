@@ -1,3 +1,4 @@
+import assert from 'assert';
 import {
   SubstrateExtrinsic,
   SubstrateEvent,
@@ -25,9 +26,12 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
   // logger.info(JSON.stringify(event));
   const {
     event: {
-      data: [from, to, amount],
+      data: [to, amount],
     },
   } = event;
+
+  const from = event.extrinsic?.extrinsic.signer;
+  assert(from, "Signer is missing");
 
   const blockNumber: number = event.block.block.header.number.toNumber();
 
