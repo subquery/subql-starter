@@ -41,29 +41,28 @@ const project: SubstrateProject = {
     {
       kind: SubstrateDatasourceKind.Runtime,
       startBlock: 1,
+      endBlock: 1,
       mapping: {
         file: "./dist/index.js",
         handlers: [
-          /*{
+          {
             kind: SubstrateHandlerKind.Block,
-            handler: "handleBlock",
+            handler: "handleGenesisBlock",
+          },
+        ],
+      },
+    },
+    {
+      kind: SubstrateDatasourceKind.Runtime,
+      startBlock: 10,
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            kind: SubstrateHandlerKind.Block,
+            handler: "handleModuloBlock100",
             filter: {
               modulo: 100,
-            },
-          },*/
-          /*{
-            kind: SubstrateHandlerKind.Call,
-            handler: "handleCall",
-            filter: {
-              module: "balances",
-            },
-          },*/
-          {
-            kind: SubstrateHandlerKind.Event,
-            handler: "handleEvent",
-            filter: {
-              module: "balances",
-              method: "Deposit",
             },
           },
         ],

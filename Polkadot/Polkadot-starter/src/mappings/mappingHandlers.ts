@@ -8,8 +8,14 @@ import { Account, Transfer } from "../types";
 import { Balance } from "@polkadot/types/interfaces";
 import { decodeAddress } from "@polkadot/util-crypto";
 
-export async function handleBlock(block: SubstrateBlock): Promise<void> {
+export async function handleGenesisBlock(block: SubstrateBlock): Promise<void> {
   // Do something with each block handler here
+  logger.info(`handleGenesisBlock processing block ${block.block.header.number.toNumber()}`)
+}
+
+
+export async function handleModuloBlock100(block: SubstrateBlock): Promise<void> {
+  logger.info(`handleModuloBlock100 processing block ${block.block.header.number.toNumber()}`)
 }
 
 export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
