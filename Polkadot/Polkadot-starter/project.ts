@@ -35,7 +35,7 @@ const project: SubstrateProject = {
      * You can get them from OnFinality for free https://app.onfinality.io
      * https://documentation.onfinality.io/support/the-enhanced-api-service
      */
-    endpoint: "wss://polkadot.api.onfinality.io/public-ws",
+    endpoint: "wss://rpc-polkadot.luckyfriday.io",
   },
   dataSources: [
     {
@@ -54,15 +54,15 @@ const project: SubstrateProject = {
     },
     {
       kind: SubstrateDatasourceKind.Runtime,
-      startBlock: 10,
+      startBlock: 2,
       mapping: {
         file: "./dist/index.js",
         handlers: [
           {
             kind: SubstrateHandlerKind.Block,
-            handler: "handleModuloBlock100",
+            handler: "handleModuloBlock250",
             filter: {
-              modulo: 100,
+              modulo: 250,
             },
           },
         ],

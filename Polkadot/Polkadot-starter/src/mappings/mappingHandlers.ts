@@ -14,8 +14,8 @@ export async function handleGenesisBlock(block: SubstrateBlock): Promise<void> {
 }
 
 
-export async function handleModuloBlock100(block: SubstrateBlock): Promise<void> {
-  logger.info(`handleModuloBlock100 processing block ${block.block.header.number.toNumber()}`)
+export async function handleModuloBlock250(block: SubstrateBlock): Promise<void> {
+  logger.info(`handleModuloBlock250 processing block ${block.block.header.number.toNumber()}`)
 }
 
 export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
