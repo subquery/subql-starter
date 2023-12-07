@@ -40,8 +40,6 @@ const project: SubstrateProject<AcalaEvmDatasource> = {
       "wss://acala-polkadot.api.onfinality.io/public-ws",
       "wss://acala-rpc-0.aca-api.network",
     ],
-    dictionary:
-      "https://explorer.subquery.network/subquery/subquery/acala-dictionary",
   },
   dataSources: [
     {

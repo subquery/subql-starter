@@ -23,7 +23,6 @@ network:
       "wss://statemint.api.onfinality.io/public-ws",
       "wss://statemint-rpc.polkadot.io",
     ]
-  dictionary: "https://api.subquery.network/sq/subquery/statemint-dictionary"
 dataSources:
   - kind: substrate/Runtime
     startBlock: 1

@@ -39,9 +39,6 @@ const project: SubstrateProject = {
       "wss://nodle-parachain.api.onfinality.io/public-ws",
       "wss://eden-rpc.dwellir.com",
     ],
-    // Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-    dictionary:
-      "https://api.subquery.network/sq/subquery/nodle-parachain-dictionary",
     chaintypes: {
       file: "./dist/chaintypes.js",
     },

@@ -39,8 +39,6 @@ const project: SubstrateProject = {
       "wss://equilibrium-rpc.dwellir.com",
       "wss://node.pol.equilibrium.io",
     ],
-    // Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-    // dictionary: "https://api.subquery.network/sq/subquery/equilibrium-dictionary",
     chaintypes: {
       file: "./dist/chaintypes.js",
     },

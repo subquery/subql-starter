@@ -39,9 +39,6 @@ const project: SubstrateProject = {
       "wss://spiritnet.api.onfinality.io/public-ws",
       "wss://spiritnet.kilt.io",
     ],
-    // Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-    dictionary:
-      "https://api.subquery.network/sq/subquery/kilt-spiritnet-dictionary",
     chaintypes: {
       file: "./dist/chaintypes.js",
     },

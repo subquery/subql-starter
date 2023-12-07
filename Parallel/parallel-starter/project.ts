@@ -39,8 +39,6 @@ const project: SubstrateProject = {
       "wss://parallel.api.onfinality.io/public-ws",
       "wss://rpc.parallel.fi",
     ],
-    // Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-    dictionary: "https://api.subquery.network/sq/subquery/parallel-dictionary",
     chaintypes: {
       file: "./dist/chaintypes.js",
     },

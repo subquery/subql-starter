@@ -39,8 +39,6 @@ const project: SubstrateProject = {
       "wss://statemint.api.onfinality.io/public-ws",
       "wss://statemint-rpc.polkadot.io",
     ],
-    // Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-    dictionary: "https://api.subquery.network/sq/subquery/statemint-dictionary",
   },
   dataSources: [
     {

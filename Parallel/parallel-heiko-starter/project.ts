@@ -39,8 +39,6 @@ const project: SubstrateProject = {
       "wss://parallel-heiko.api.onfinality.io/public-ws",
       "wss://heiko-rpc.parallel.fi",
     ],
-    // Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-    // dictionary: "https://api.subquery.network/sq/subquery/parallel-heiko-dictionary",
     chaintypes: {
       file: "./dist/chaintypes.js",
     },

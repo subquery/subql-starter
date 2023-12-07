@@ -37,8 +37,6 @@ const project: SubstrateProject = {
      */
     // This endpoint might not be publicly available
     endpoint: ["wss://ws.calamari.systems"],
-    // Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-    dictionary: "https://api.subquery.network/sq/subquery/calamari-dictionary",
     chaintypes: {
       file: "./dist/chaintypes.js",
     },

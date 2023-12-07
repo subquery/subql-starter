@@ -39,7 +39,6 @@ const project: SubstrateProject = {
       "wss://moonbeam.api.onfinality.io/public-ws",
       "wss://wss.api.moonbeam.network",
     ],
-    dictionary: "https://api.subquery.network/sq/subquery/moonbeam-dictionary",
     chaintypes: {
       file: "./dist/chaintypes.js",
     },

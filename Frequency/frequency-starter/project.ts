@@ -36,8 +36,6 @@ const project: SubstrateProject = {
      * https://documentation.onfinality.io/support/the-enhanced-api-service
      */
     endpoint: ["wss://0.rpc.frequency.xyz", "wss://1.rpc.frequency.xyz"],
-    // Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-    // dictionary: "https://api.subquery.network/sq/subquery/frequency-dictionary"
     chaintypes: {
       file: "./dist/chaintypes.js",
     },

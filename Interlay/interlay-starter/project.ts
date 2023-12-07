@@ -39,8 +39,6 @@ const project: SubstrateProject = {
       "wss://interlay.api.onfinality.io/public-ws",
       "wss://api.interlay.io/parachain",
     ],
-    // Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-    // dictionary: "https://api.subquery.network/sq/subquery/interlay-dictionary",
     chaintypes: {
       file: "./dist/chaintypes.js",
     },

@@ -39,7 +39,6 @@ const project: SubstrateProject = {
       "wss://automata.api.onfinality.io/public-ws",
       "wss://api.ata.network",
     ],
-    dictionary: "https://api.subquery.network/sq/subquery/automata-dictionary",
     chaintypes: {
       file: "./dist/chaintypes.js",
     },

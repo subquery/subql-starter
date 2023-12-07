@@ -40,8 +40,6 @@ const project: SubstrateProject<AcalaEvmDatasource> = {
       "wss://karura.api.onfinality.io/public-ws",
       "wss://karura-rpc-0.aca-api.network",
     ],
-    dictionary:
-      "https://explorer.subquery.network/subquery/subquery/karura-dictionary",
     chaintypes: {
       file: "./dist/chaintypes.js",
     },

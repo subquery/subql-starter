@@ -36,8 +36,6 @@ const project: SubstrateProject = {
      * https://documentation.onfinality.io/support/the-enhanced-api-service
      */
     endpoint: ["wss://polkadot.kylin-node.co.uk"],
-    // Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-    // dictionary: "https://api.subquery.network/sq/subquery/kylin-dictionary"
     chaintypes: {
       file: "./dist/chaintypes.js",
     },

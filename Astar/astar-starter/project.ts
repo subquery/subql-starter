@@ -39,7 +39,6 @@ const project: SubstrateProject = {
       "wss://astar.api.onfinality.io/public-ws",
       "wss://rpc.astar.network",
     ],
-    dictionary: "https://api.subquery.network/sq/subquery/astar-dictionary",
     chaintypes: {
       file: "./dist/chaintypes.js",
     },

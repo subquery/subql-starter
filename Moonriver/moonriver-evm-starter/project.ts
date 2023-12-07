@@ -42,8 +42,6 @@ const project: SubstrateProject<FrontierEvmDatasource> = {
       "wss://moonriver.api.onfinality.io/public-ws",
       "wss://wss.api.moonriver.moonbeam.network",
     ],
-    // Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-    dictionary: "https://api.subquery.network/sq/subquery/moonriver-dictionary",
     chaintypes: {
       file: "./dist/chaintypes.js",
     },

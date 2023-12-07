@@ -39,8 +39,6 @@ const project: SubstrateProject = {
       "wss://efinity.api.onfinality.io/public-ws",
       "wss://rpc.efinity.io",
     ],
-    // Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-    // dictionary: "https://api.subquery.network/sq/subquery/efinity-dictionary",
     chaintypes: {
       file: "./dist/chaintypes.js",
     },

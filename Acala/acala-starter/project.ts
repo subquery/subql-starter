@@ -39,7 +39,6 @@ const project: SubstrateProject = {
       "wss://acala-polkadot.api.onfinality.io/public-ws",
       "wss://acala-rpc-0.aca-api.network",
     ],
-    dictionary: "https://api.subquery.network/sq/subquery/acala-dictionary",
     chaintypes: {
       file: "./dist/chaintypes.js",
     },

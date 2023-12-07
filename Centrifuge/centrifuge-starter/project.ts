@@ -39,8 +39,6 @@ const project: SubstrateProject = {
       "wss://centrifuge-parachain.api.onfinality.io/public-ws",
       "wss://fullnode.centrifuge.io",
     ],
-    // Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-    // dictionary: "https://api.subquery.network/sq/subquery/centrifuge-parachain-dictionary",
     chaintypes: {
       file: "./dist/chaintypes.js",
     },

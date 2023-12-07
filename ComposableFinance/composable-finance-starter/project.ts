@@ -39,8 +39,6 @@ const project: SubstrateProject = {
       "wss://composable.api.onfinality.io/public-ws",
       "wss://rpc.composable.finance",
     ],
-    // Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-    // dictionary: "https://api.subquery.network/sq/subquery/composable-finance-dictionary",
   },
   dataSources: [
     {

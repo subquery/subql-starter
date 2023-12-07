@@ -39,8 +39,6 @@ const project: SubstrateProject = {
       "wss://khala.api.onfinality.io/public-ws",
       "wss://khala-api.phala.network/ws",
     ],
-    // Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-    dictionary: "https://api.subquery.network/sq/subquery/khala-dictionary",
     chaintypes: {
       file: "./dist/chaintypes.js",
     },

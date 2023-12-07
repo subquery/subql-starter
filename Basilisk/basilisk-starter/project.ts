@@ -39,7 +39,6 @@ const project: SubstrateProject = {
       "wss://basilisk.api.onfinality.io/public-ws",
       "wss://rpc.basilisk.cloud",
     ],
-    dictionary: "https://api.subquery.network/sq/subquery/basilisk-dictionary",
     chaintypes: {
       file: "./dist/chaintypes.js",
     },

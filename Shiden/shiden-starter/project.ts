@@ -39,8 +39,6 @@ const project: SubstrateProject = {
       "wss://shiden.api.onfinality.io/public-ws",
       "wss://rpc.shiden.astar.network",
     ],
-    // Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-    dictionary: "https://api.subquery.network/sq/subquery/shiden-dictionary",
     chaintypes: {
       file: "./dist/chaintypes.js",
     },

@@ -39,8 +39,6 @@ const project: SubstrateProject = {
       "wss://karura.api.onfinality.io/public-ws",
       "wss://karura-rpc-0.aca-api.network",
     ],
-    // Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-    dictionary: "https://api.subquery.network/sq/subquery/karura-dictionary",
     chaintypes: {
       file: "./dist/chaintypes.js",
     },
