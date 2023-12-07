@@ -29,11 +29,12 @@ const project: SubstrateProject = {
     chainId:
       "0xf2584690455deda322214e97edfffaf4c1233b6e4625e39478496b3e2f5a44c5",
     /**
-     * This endpoint must be a public non-pruned archive node
+     * These endpoint(s) should be public non-pruned archive node
+     * We recommend providing more than one endpoint for improved reliability, performance, and uptime
      * Public nodes may be rate limited, which can affect indexing speed
      * When developing your project we suggest getting a private API key
-     * You can get them from OnFinality for free https://app.onfinality.io
-     * https://documentation.onfinality.io/support/the-enhanced-api-service
+     * If you use a rate limited endpoint, adjust the --batch-size and --workers parameters
+     * These settings can be found in your docker-compose.yaml, they will slow indexing but prevent your project being rate limited
      */
     endpoint: ["wss://polkadot.kylin-node.co.uk"],
     chaintypes: {
