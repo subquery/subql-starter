@@ -29,18 +29,17 @@ const project: SubstrateProject = {
     chainId:
       "0xbaf5aabe40646d11f0ee8abbdc64f4a4b7674925cba08e4a05ff9ebed6e2126b",
     /**
-     * This endpoint must be a public non-pruned archive node
+     * These endpoint(s) should be public non-pruned archive node
+     * We recommend providing more than one endpoint for improved reliability, performance, and uptime
      * Public nodes may be rate limited, which can affect indexing speed
      * When developing your project we suggest getting a private API key
-     * You can get them from OnFinality for free https://app.onfinality.io
-     * https://documentation.onfinality.io/support/the-enhanced-api-service
+     * If you use a rate limited endpoint, adjust the --batch-size and --workers parameters
+     * These settings can be found in your docker-compose.yaml, they will slow indexing but prevent your project being rate limited
      */
     endpoint: [
       "wss://karura.api.onfinality.io/public-ws",
       "wss://karura-rpc-0.aca-api.network",
     ],
-    // Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-    dictionary: "https://api.subquery.network/sq/subquery/karura-dictionary",
     chaintypes: {
       file: "./dist/chaintypes.js",
     },

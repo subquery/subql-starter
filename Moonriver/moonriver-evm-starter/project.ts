@@ -32,18 +32,17 @@ const project: SubstrateProject<FrontierEvmDatasource> = {
     chainId:
       "0x401a1f9dca3da46f5c4091016c8a2f26dcea05865116b286f60f668207d1474b",
     /**
-     * This endpoint must be a public non-pruned archive node
+     * These endpoint(s) should be public non-pruned archive node
+     * We recommend providing more than one endpoint for improved reliability, performance, and uptime
      * Public nodes may be rate limited, which can affect indexing speed
      * When developing your project we suggest getting a private API key
-     * You can get them from OnFinality for free https://app.onfinality.io
-     * https://documentation.onfinality.io/support/the-enhanced-api-service
+     * If you use a rate limited endpoint, adjust the --batch-size and --workers parameters
+     * These settings can be found in your docker-compose.yaml, they will slow indexing but prevent your project being rate limited
      */
     endpoint: [
       "wss://moonriver.api.onfinality.io/public-ws",
       "wss://wss.api.moonriver.moonbeam.network",
     ],
-    // Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-    dictionary: "https://api.subquery.network/sq/subquery/moonriver-dictionary",
     chaintypes: {
       file: "./dist/chaintypes.js",
     },

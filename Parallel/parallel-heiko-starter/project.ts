@@ -29,18 +29,17 @@ const project: SubstrateProject = {
     chainId:
       "0x64a1c658a48b2e70a7fb1ad4c39eea35022568c20fc44a6e2e3d0a57aee6053b",
     /**
-     * This endpoint must be a public non-pruned archive node
+     * These endpoint(s) should be public non-pruned archive node
+     * We recommend providing more than one endpoint for improved reliability, performance, and uptime
      * Public nodes may be rate limited, which can affect indexing speed
      * When developing your project we suggest getting a private API key
-     * You can get them from OnFinality for free https://app.onfinality.io
-     * https://documentation.onfinality.io/support/the-enhanced-api-service
+     * If you use a rate limited endpoint, adjust the --batch-size and --workers parameters
+     * These settings can be found in your docker-compose.yaml, they will slow indexing but prevent your project being rate limited
      */
     endpoint: [
       "wss://parallel-heiko.api.onfinality.io/public-ws",
       "wss://heiko-rpc.parallel.fi",
     ],
-    // Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-    // dictionary: "https://api.subquery.network/sq/subquery/parallel-heiko-dictionary",
     chaintypes: {
       file: "./dist/chaintypes.js",
     },
