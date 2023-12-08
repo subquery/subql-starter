@@ -18,7 +18,7 @@ services:
       retries: 5
 
   subquery-node-polkadot:
-    image: onfinality/subql-node:latest
+    image: subquerynetwork/subql-node:latest
     depends_on:
       "postgres":
         condition: service_healthy
@@ -47,7 +47,7 @@ services:
       retries: 10
 
   subquery-node-kusama:
-    image: onfinality/subql-node:latest
+    image: subquerynetwork/subql-node:latest
     depends_on:
       "postgres":
         condition: service_healthy
@@ -76,7 +76,7 @@ services:
       retries: 10
 
   graphql-engine:
-    image: onfinality/subql-query:latest
+    image: subquerynetwork/subql-query:latest
     ports:
       - 3000:3000
     depends_on:
@@ -93,7 +93,7 @@ services:
       - --name=multi-transfers
       - --playground
   subquery-node-project-assethub:
-    image: onfinality/subql-node:latest
+    image: subquerynetwork/subql-node:latest
     depends_on:
       postgres:
         condition: service_healthy
