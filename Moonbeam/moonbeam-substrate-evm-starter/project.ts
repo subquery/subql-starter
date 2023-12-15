@@ -40,8 +40,8 @@ const project: SubstrateProject<FrontierEvmDatasource> = {
      * These settings can be found in your docker-compose.yaml, they will slow indexing but prevent your project being rate limited
      */
     endpoint: [
-      "wss://astar.api.onfinality.io/public-ws",
-      "wss://rpc.astar.network",
+      "wss://moonbeam.api.onfinality.io/public-ws",
+      "wss://wss.api.moonbeam.network",
     ],
     chaintypes: {
       file: "./dist/chaintypes.js",
