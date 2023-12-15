@@ -30,7 +30,7 @@ const project: SubstrateProject<FrontierEvmDatasource> = {
   network: {
     /* The genesis hash of the network (hash of block 0) */
     chainId:
-      "0x9eb76c5184c4ab8679d2d5d819fdf90b9c001403e9e17da2e14b6d8aec4029c6",
+      "0xfe58ea77779b7abda7da4ec526d14db9b1e9cd40a217c34892af80a9b332b76d",
     /**
      * These endpoint(s) should be public non-pruned archive node
      * We recommend providing more than one endpoint for improved reliability, performance, and uptime
