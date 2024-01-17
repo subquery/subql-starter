@@ -30,7 +30,7 @@ const project: SubstrateProject<FrontierEvmDatasource> = {
   network: {
     /* The genesis hash of the network (hash of block 0) */
     chainId:
-      "0x9eb76c5184c4ab8679d2d5d819fdf90b9c001403e9e17da2e14b6d8aec4029c6",
+      "0xfe58ea77779b7abda7da4ec526d14db9b1e9cd40a217c34892af80a9b332b76d",
     /**
      * These endpoint(s) should be public non-pruned archive node
      * We recommend providing more than one endpoint for improved reliability, performance, and uptime
@@ -40,8 +40,8 @@ const project: SubstrateProject<FrontierEvmDatasource> = {
      * These settings can be found in your docker-compose.yaml, they will slow indexing but prevent your project being rate limited
      */
     endpoint: [
-      "wss://astar.api.onfinality.io/public-ws",
-      "wss://rpc.astar.network",
+      "wss://moonbeam.api.onfinality.io/public-ws",
+      "wss://wss.api.moonbeam.network",
     ],
     chaintypes: {
       file: "./dist/chaintypes.js",
