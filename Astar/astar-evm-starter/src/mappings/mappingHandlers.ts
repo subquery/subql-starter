@@ -19,7 +19,7 @@ type ApproveCallArgs = [string, BigNumber] & {
 };
 
 export async function handleEvmEvent(
-  event: FrontierEvmEvent<TransferEventArgs>
+  event: FrontierEvmEvent<TransferEventArgs>,
 ): Promise<void> {
   assert(event.transactionHash, "No transactionHash");
 
@@ -36,7 +36,7 @@ export async function handleEvmEvent(
 }
 
 export async function handleEvmCall(
-  event: FrontierEvmCall<ApproveCallArgs>
+  event: FrontierEvmCall<ApproveCallArgs>,
 ): Promise<void> {
   assert(event.args, "No event.args");
   assert(event.to, "No event.to");

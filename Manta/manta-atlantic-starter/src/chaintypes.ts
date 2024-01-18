@@ -1,7 +1,7 @@
 // Copyright 2017-2024 @polkadot/apps-config authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { OverrideBundleDefinition } from '@polkadot/types/types';
+import type { OverrideBundleDefinition } from "@polkadot/types/types";
 
 // structs need to be in order
 /* eslint-disable sort-keys */
@@ -11,20 +11,17 @@ const definitions: OverrideBundleDefinition = {
     {
       // on all versions
       minmax: [0, undefined],
-      types:
-      {
+      types: {
         CurrencyId: {
-          _enum: [
-            'MA'
-          ]
+          _enum: ["MA"],
         },
-        CurrencyIdOf: 'CurrencyId',
-        Amount: 'i128',
-        AmountOf: 'Amount',
-        AccountInfo: 'AccountInfoWithDualRefCount'
-      }
-    }
-  ]
+        CurrencyIdOf: "CurrencyId",
+        Amount: "i128",
+        AmountOf: "Amount",
+        AccountInfo: "AccountInfoWithDualRefCount",
+      },
+    },
+  ],
 };
 
 export default definitions;

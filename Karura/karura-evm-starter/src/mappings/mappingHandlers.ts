@@ -16,7 +16,7 @@ type ApproveCallArgs = [string, BigNumber] & {
 };
 
 export async function handleAcalaEvmEvent(
-  event: AcalaEvmEvent<TransferEventArgs>
+  event: AcalaEvmEvent<TransferEventArgs>,
 ): Promise<void> {
   assert(event.args, "No event args");
   const transaction = Transaction.create({
@@ -31,7 +31,7 @@ export async function handleAcalaEvmEvent(
 }
 
 export async function handleAcalaEvmCall(
-  event: AcalaEvmCall<ApproveCallArgs>
+  event: AcalaEvmCall<ApproveCallArgs>,
 ): Promise<void> {
   assert(event.args, "No event.args");
   assert(event.to, "No event.to");

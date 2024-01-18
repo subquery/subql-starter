@@ -7,7 +7,7 @@ import {
 } from "../types";
 import { Balance, AccountId } from "@polkadot/types/interfaces";
 import { decodeAddress, encodeAddress } from "@polkadot/util-crypto";
-import {FrameSystemAccountInfo} from "@polkadot/types/lookup";
+import { FrameSystemAccountInfo } from "@polkadot/types/lookup";
 
 // We have two handlers here to allow us to save the correct source network of the transfer
 export async function handlePolkadotEvent(e: SubstrateEvent): Promise<void> {
@@ -20,7 +20,7 @@ export async function handleKusamaEvent(e: SubstrateEvent): Promise<void> {
 
 async function handleEvent(
   event: SubstrateEvent,
-  network: "polkadot" | "kusama"
+  network: "polkadot" | "kusama",
 ): Promise<void> {
   // The balances.transfer event has the following payload \[from, to, value\] that we can access
   const fromAddress = event.event.data[0] as AccountId;
@@ -30,11 +30,11 @@ async function handleEvent(
   // 42 is the encode code for a generic Substrate address
   const fromGenericAddress: string = encodeAddress(
     decodeAddress(fromAddress.toString()),
-    42
+    42,
   );
   const toGenericAddress: string = encodeAddress(
     decodeAddress(toAddress.toString()),
-    42
+    42,
   );
 
   await Promise.all([
@@ -45,11 +45,11 @@ async function handleEvent(
   // We prefix the ID with the network name to prevent ID collisions across networks
   const transfer = new Transfer(
     `${network}-${event.block.block.header.number.toNumber()}-${event.idx}`,
-      network,
-      toAddress.toString(),
-      fromAddress.toString(),
-      fromGenericAddress,
-      toGenericAddress,
+    network,
+    toAddress.toString(),
+    fromAddress.toString(),
+    fromGenericAddress,
+    toGenericAddress,
   );
   transfer.blockNumber = event.block.block.header.number.toBigInt();
   transfer.amount = (amount as Balance).toBigInt();
@@ -63,12 +63,12 @@ async function handleEvent(
 async function ensureAccount(
   accountId: string,
   publicKey: string,
-  network: "polkadot" | "kusama"
+  network: "polkadot" | "kusama",
 ): Promise<void> {
   const account = await Account.get(accountId);
   if (!account) {
     await ensureGenericSubstrateAddress(publicKey);
-    const newAccount = new Account(accountId,publicKey,network);
+    const newAccount = new Account(accountId, publicKey, network);
     await newAccount.save();
   }
 }
@@ -85,8 +85,10 @@ async function updateBalance(account: string, blockHeight: bigint) {
     let {
       data: { free: previousFree },
       nonce: previousNonce,
-    } = await api.query.system.account(account) as unknown as FrameSystemAccountInfo;
-    const newBalance = new AccountBalance(`${account}-${blockHeight}`,account);
+    } = (await api.query.system.account(
+      account,
+    )) as unknown as FrameSystemAccountInfo;
+    const newBalance = new AccountBalance(`${account}-${blockHeight}`, account);
     newBalance.balance = previousFree.toBigInt();
     newBalance.blockNumber = blockHeight;
     await newBalance.save();

@@ -17,7 +17,7 @@ const bundle = {
         // the cast here is needed to make the build happy,
         // however the output is actually correct as well...
         ...typesFromDefs(
-          typeDefs as unknown as Record<string, { types: Record<string, any> }>
+          typeDefs as unknown as Record<string, { types: Record<string, any> }>,
         ),
         TokensAccountData: {
           free: "Balance",

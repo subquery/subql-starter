@@ -10,7 +10,7 @@ type ApproveCallArgs = [AccountId, Balance];
 type TransferEventArgs = [Option<AccountId>, Option<AccountId>, Balance];
 
 export async function handleWasmCall(
-  call: WasmCall<ApproveCallArgs>
+  call: WasmCall<ApproveCallArgs>,
 ): Promise<void> {
   logger.info(`Processing WASM Call at ${call.blockNumber}`);
 
@@ -34,7 +34,7 @@ export async function handleWasmCall(
 }
 
 export async function handleWasmEvent(
-  event: WasmEvent<TransferEventArgs>
+  event: WasmEvent<TransferEventArgs>,
 ): Promise<void> {
   assert(event.args, "No event.args");
   logger.info(`Processing WASM Even at ${event.blockNumber}`);
@@ -53,7 +53,7 @@ export async function handleWasmEvent(
 
 export async function handleNewContract(event: SubstrateEvent): Promise<void> {
   logger.info(
-    `Processing new Dapp Staking Contract event at ${event.block.block.header.number}`
+    `Processing new Dapp Staking Contract event at ${event.block.block.header.number}`,
   );
   const {
     event: {
@@ -76,7 +76,7 @@ export async function handleNewContract(event: SubstrateEvent): Promise<void> {
 
 export async function handleBondAndStake(event: SubstrateEvent): Promise<void> {
   logger.info(
-    `Processing new Dapp Staking Bond and Stake event at ${event.block.block.header.number}`
+    `Processing new Dapp Staking Bond and Stake event at ${event.block.block.header.number}`,
   );
   const {
     event: {
@@ -98,10 +98,10 @@ export async function handleBondAndStake(event: SubstrateEvent): Promise<void> {
 }
 
 export async function handleUnbondAndUnstake(
-  event: SubstrateEvent
+  event: SubstrateEvent,
 ): Promise<void> {
   logger.info(
-    `Processing new Dapp Staking Bond and Unstake event at ${event.block.block.header.number}`
+    `Processing new Dapp Staking Bond and Unstake event at ${event.block.block.header.number}`,
   );
   const {
     event: {
@@ -124,7 +124,7 @@ export async function handleUnbondAndUnstake(
 
 export async function handleReward(event: SubstrateEvent): Promise<void> {
   logger.info(
-    `Processing new Dapp Staking Reward event at ${event.block.block.header.number}`
+    `Processing new Dapp Staking Reward event at ${event.block.block.header.number}`,
   );
   const {
     event: {
