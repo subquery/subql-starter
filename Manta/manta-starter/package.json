@@ -1,5 +1,5 @@
 {
-  "name": "manta-starter",
+  "name": "manta-atlantic-starter",
   "version": "0.0.5",
   "description": "This project can be used as a starting point for developing your SubQuery project. It indexes all transfers on Manta network",
   "main": "dist/index.js",
