@@ -8,9 +8,9 @@ import {
 const project: SubstrateProject = {
   specVersion: "1.0.0",
   version: "0.0.1",
-  name: "manta-starter",
+  name: "manta-atlantic-starter",
   description:
-    "This project can be used as a starting point for developing your SubQuery project. It indexes all transfers on Manta network",
+    "This project can be used as a starting point for developing your SubQuery project. It indexes all transfers on Manta Atlantic network",
   runner: {
     node: {
       name: "@subql/node",
@@ -36,9 +36,7 @@ const project: SubstrateProject = {
      * If you use a rate limited endpoint, adjust the --batch-size and --workers parameters
      * These settings can be found in your docker-compose.yaml, they will slow indexing but prevent your project being rate limited
      */
-    endpoint: [
-      "wss://ws.manta.systems",
-    ],
+    endpoint: ["wss://ws.manta.systems"],
     chaintypes: {
       file: "./dist/chaintypes.js",
     },
