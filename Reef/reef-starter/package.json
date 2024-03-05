@@ -29,6 +29,6 @@
     "@subql/node": "latest"
   },
   "exports": {
-    "chaintypes": "src/chaintypes.ts"
+    "chaintypes": "src/chaintypes.json"
   }
 }
