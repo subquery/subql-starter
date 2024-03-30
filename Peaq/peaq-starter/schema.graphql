@@ -1,0 +1,17 @@
+type Transaction @entity {
+  id: ID! # Unique identifier
+  transactionHash: String!
+  value: BigInt
+  to: String
+  from: String
+  blockHeight: String
+  contractAddress: String!
+}
+
+type Approval @entity {
+  id: ID! # Unique identifier
+  value: BigInt
+  owner: String!
+  spender: String!
+  contractAddress: String!
+}

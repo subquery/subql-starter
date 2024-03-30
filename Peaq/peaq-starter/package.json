@@ -1,0 +1,42 @@
+{
+  "name": "peaq-starter",
+  "version": "1.0.0",
+  "description": "A basic Frontier EVM example project with an event and call handler. Read more about this at https://university.subquery.network/create/frontier/. This project can be use as a starting point for developing your SubQuery project",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "subql build",
+    "codegen": "subql codegen",
+    "start:docker": "docker-compose pull && docker-compose up --remove-orphans",
+    "dev": "subql codegen && subql build && docker-compose pull && docker-compose up --remove-orphans",
+    "prepack": "rm -rf dist && npm run build",
+    "test": "subql build && subql-node test"
+  },
+  "homepage": "https://github.com/subquery/subql-starter",
+  "repository": "github:subquery/subql-starter",
+  "files": [
+    "dist",
+    "schema.graphql",
+    "project.yaml"
+  ],
+  "author": "SubQuery Team",
+  "license": "Apache-2.0",
+  "resolutions": {
+    "ipfs-unixfs": "6.0.6"
+  },
+  "devDependencies": {
+    "@polkadot/api": "^10",
+    "@subql/cli": "latest",
+    "@subql/frontier-evm-processor": "latest",
+    "@subql/node": "latest",
+    "@subql/testing": "latest",
+    "@subql/types": "latest",
+    "@subql/types-ethereum": "latest",
+    "typescript": "^5.2.2"
+  },
+  "exports": {
+    "chaintypes": "src/chaintypes.ts"
+  },
+  "dependencies": {
+    "assert": "^2.0.0"
+  }
+}
