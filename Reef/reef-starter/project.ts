@@ -36,9 +36,9 @@ const project: SubstrateProject = {
      * If you use a rate limited endpoint, adjust the --batch-size and --workers parameters
      * These settings can be found in your docker-compose.yaml, they will slow indexing but prevent your project being rate limited
      */
-    endpoint: ["wss://rpc.reefscan.com/ws", "wss://rpc.reefscan.info/ws"],
+    endpoint: ["wss://rpc.reefscan.com/ws"],
     chaintypes: {
-      file: "./dist/chaintypes.js",
+      file: "./src/chaintypes.json",
     },
   },
   dataSources: [

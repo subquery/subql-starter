@@ -125,7 +125,9 @@
   },
   "CurrencyIdOf": "CurrencyId",
   "AuthoritysOriginId": {
-    "_enum": ["Root"]
+    "_enum": [
+      "Root"
+    ]
   },
   "TradingPair": "(CurrencyId,  CurrencyId)",
   "AsOriginId": "AuthoritysOriginId",
@@ -206,7 +208,11 @@
     }
   },
   "LockDuration": {
-    "_enum": ["OneMonth", "OneYear", "TenYears"]
+    "_enum": [
+      "OneMonth",
+      "OneYear",
+      "TenYears"
+    ]
   },
   "EraIndex": "u32",
   "Era": {
