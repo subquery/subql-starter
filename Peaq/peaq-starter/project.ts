@@ -12,7 +12,7 @@ const project: SubstrateProject<FrontierEvmDatasource> = {
   version: "0.0.1",
   name: "peaq-starter",
   description: `A basic Frontier EVM example project with an event and call handler. Read more
-    about this at https://university.subquery.network/create/frontier/. This
+    about this at https://academy.subquery.network/create/frontier/. This
     project can be use as a starting point for developing your SubQuery project`,
   runner: {
     node: {
