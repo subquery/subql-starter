@@ -1,7 +1,7 @@
 {
-  "name": "humanode-starter",
+  "name": "peaq-starter",
   "version": "1.0.0",
-  "description": "This project can be used as a starting point for developing your SubQuery project. It indexes all transfers, bioauthentication events, and online validator nodes from Humanode chain",
+  "description": "A basic Frontier EVM example project with an event and call handler. Read more about this at https://academy.subquery.network/create/frontier/. This project can be use as a starting point for developing your SubQuery project",
   "main": "dist/index.js",
   "scripts": {
     "build": "subql build",
@@ -19,17 +19,21 @@
     "project.yaml"
   ],
   "author": "SubQuery Team",
-  "license": "MIT",
-  "devDependencies": {
-    "@polkadot/api": "^10",
-    "@subql/types": "latest",
-    "typescript": "^5.2.2",
-    "@subql/cli": "latest",
-    "node-fetch": "2.6.7",
-    "@subql/testing": "latest",
-    "@subql/node": "latest"
-  },
+  "license": "Apache-2.0",
   "resolutions": {
     "ipfs-unixfs": "6.0.6"
+  },
+  "devDependencies": {
+    "@polkadot/api": "^10",
+    "@subql/cli": "latest",
+    "@subql/frontier-evm-processor": "latest",
+    "@subql/node": "latest",
+    "@subql/testing": "latest",
+    "@subql/types": "latest",
+    "@subql/types-ethereum": "latest",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "assert": "^2.0.0"
   }
 }

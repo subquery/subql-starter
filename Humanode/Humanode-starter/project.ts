@@ -4,13 +4,14 @@ import {
   SubstrateProject,
 } from "@subql/types";
 
+import { FrontierEvmDatasource } from "@subql/frontier-evm-processor";
+
 // Can expand the Datasource processor types via the genreic param
-const project: SubstrateProject = {
+const project: SubstrateProject<FrontierEvmDatasource> = {
   specVersion: "1.0.0",
   version: "0.0.1",
   name: "humanode-starter",
-  description:
-    "This project can be used as a starting point for developing your SubQuery project. It indexes all transfers, bioauthentication events, and online validator nodes from Humanode chain",
+  description: `This project can be used as a starting point for developing your SubQuery project. It indexes all transfers, bioauthentication events, and online validator nodes from Humanode chain. Moreover, it indexes the approvals and transfers of HMND token.`,
   runner: {
     node: {
       name: "@subql/node",
@@ -39,6 +40,39 @@ const project: SubstrateProject = {
     endpoint: ["wss://explorer-rpc-ws.mainnet.stages.humanode.io"],
   },
   dataSources: [
+    {
+      kind: "substrate/FrontierEvm",
+      startBlock: 1,
+      processor: {
+        file: "./node_modules/@subql/frontier-evm-processor/dist/bundle.js",
+        options: {
+          abi: "erc20",
+          address: "0x0000000000000000000000000000000000000802", // A specific contract to index
+        },
+      },
+      assets: new Map([["erc20", { file: "./erc20.abi.json" }]]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            handler: "handleEvmEvent",
+            kind: "substrate/FrontierEvmEvent",
+            filter: {
+              topics: [
+                "Transfer(address indexed from,address indexed to,uint256 value)",
+              ],
+            },
+          },
+          {
+            handler: "handleEvmCall",
+            kind: "substrate/FrontierEvmCall",
+            filter: {
+              function: "approve(address to,uint256 value)",
+            },
+          },
+        ],
+      },
+    },
     {
       kind: SubstrateDatasourceKind.Runtime,
       startBlock: 1,
