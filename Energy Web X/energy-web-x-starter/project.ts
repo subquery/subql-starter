@@ -8,9 +8,9 @@ import {
 const project: SubstrateProject = {
   specVersion: "1.0.0",
   version: "0.0.1",
-  name: "altair-starter",
+  name: "energy-web-x-starter",
   description:
-    "This project can be used as a starting point for developing your SubQuery project. It indexes all transfers on Altair network",
+    "This project can be used as a starting point for developing your SubQuery project",
   runner: {
     node: {
       name: "@subql/node",
@@ -27,7 +27,7 @@ const project: SubstrateProject = {
   network: {
     /* The genesis hash of the network (hash of block 0) */
     chainId:
-      "0xaa3876c1dc8a1afcc2e9a685a49ff7704cfd36ad8c90bf2702b9d1b00cc40011",
+      "0x5a51e04b88a4784d205091aa7bada002f3e5da3045e5b05655ee4db2589c33b5",
     /**
      * These endpoint(s) should be public non-pruned archive node
      * We recommend providing more than one endpoint for improved reliability, performance, and uptime
@@ -36,13 +36,7 @@ const project: SubstrateProject = {
      * If you use a rate limited endpoint, adjust the --batch-size and --workers parameters
      * These settings can be found in your docker-compose.yaml, they will slow indexing but prevent your project being rate limited
      */
-    endpoint: [
-      "wss://altair.api.onfinality.io/public-ws",
-      "wss://fullnode.altair.centrifuge.io",
-    ],
-    chaintypes: {
-      file: "./dist/chaintypes.js",
-    },
+    endpoint: "wss://public-rpc.mainnet.energywebx.com",
   },
   dataSources: [
     {
