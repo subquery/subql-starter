@@ -41,42 +41,39 @@ For this project, you can try to query with the following GraphQL code to get a 
 ```graphql
 {
   query {
-    transactions(first: 1, orderBy: VALUE_DESC) {
-      totalCount
+    eRC20TokenTransfers(first: 3) {
       nodes {
         id
-        transactionHash
-        blockHeight
         from
         to
         value
         contractAddress
       }
     }
-  }
-  approvals(first: 1) {
-    nodes {
-      id
-      owner
-      spender
-      value
-      contractAddress
+    eRC20Approvals(first: 3) {
+      nodes {
+        id
+        value
+        owner
+        spender
+        contractAddress
+      }
     }
-  }
-  bioauthNewAuthentications(first: 1) {
-    nodes {
-      id
-      validatorPublicKey
-      timestamp
-      blockNumber
+    bioauthNewAuthentications(first: 1) {
+      nodes {
+        id
+        validatorPublicKey
+        timestamp
+        blockNumber
+      }
     }
-  }
-  imOnlineSomeOfflines(first: 1) {
-    nodes {
-      id
-      accountIds
-      timestamp
-      blockNumber
+    imOnlineSomeOfflines(first: 1) {
+      nodes {
+        id
+        accountIds
+        timestamp
+        blockNumber
+      }
     }
   }
 }
@@ -88,41 +85,52 @@ Afterward, anticipate receiving a result resembling this:
 {
   "data": {
     "query": {
-      "transactions": {
+      "eRC20TokenTransfers": {
         "nodes": [
           {
-            "id": "7487952-0x030d4ab19a9fa75e093bcbc400f1a10a6e377e52f673bfd1cd490572e9874282-0",
-            "transactionHash": "0x030d4ab19a9fa75e093bcbc400f1a10a6e377e52f673bfd1cd490572e9874282",
-            "blockHeight": "7487952",
-            "from": "0xf591da380c911C7bE9Ba48bD14c451bF784886F7",
-            "to": "0xe48Cc340B8f1AC0a326577B3c2d1Fe5229ebb1c2",
-            "value": "9800000000000000000000",
+            "id": "0x1272f33847946221216ba1cb4ce9171ea0da551780ab632988e5b2f7a65d6ff6",
+            "from": "0x8C20a3F5C9A5926d4C83592c25317f602b385441",
+            "to": "0xF52838e033a20295b69F8fBf75b00E0E5a482b4b",
+            "value": "1000000000000000000",
+            "contractAddress": "0x0000000000000000000000000000000000000802"
+          },
+          {
+            "id": "0x581084e04b4d939db3c1cb5dc2b009c4755a73af0b8929fe9eb3a24c7a1eddaa",
+            "from": "0x8C20a3F5C9A5926d4C83592c25317f602b385441",
+            "to": "0xF52838e033a20295b69F8fBf75b00E0E5a482b4b",
+            "value": "5499999999999999725",
+            "contractAddress": "0x0000000000000000000000000000000000000802"
+          },
+          {
+            "id": "0x60590c52429ecec6145a801622cea200e9454eb79d2ebf229bcf59c2e3c7c21a",
+            "from": "0x8C20a3F5C9A5926d4C83592c25317f602b385441",
+            "to": "0xF52838e033a20295b69F8fBf75b00E0E5a482b4b",
+            "value": "10000000000000000000",
             "contractAddress": "0x0000000000000000000000000000000000000802"
           }
         ]
-      }
-    },
-    "approvals": {
-      "nodes": [
-        {
-          "id": "0x909a9c2d5eead83eeba78f8b4cfd789cf1b2fcfc543a33b63a792fe4a8a53b37",
-          "owner": "0xd5b2bceeaaaccb2bf152207f7e8c4abcaa7d5881",
-          "spender": "0x8C20a3F5C9A5926d4C83592c25317f602b385441",
-          "value": "100000000000000000000",
-          "contractAddress": "0x0000000000000000000000000000000000000802"
-        }
-      ]
-    },
-    "bioauthNewAuthentications": {
-      "nodes": [
-        {
-          "id": "7489527-1",
-          "validatorPublicKey": "hmsxpGvLUfSbUZxUYFZF9dNm3Jf9xUBdhN1p229qAr4xiktFP",
-          "timestamp": "2024-04-26T13:34:18",
-          "blockNumber": 7489527
-        }
-      ]
-    },
+      },
+      "eRC20Approvals": {
+        "nodes": [
+          {
+            "id": "0x5fbb64a3341b2abf82cbaf89ba2f0d1855803852dd7ead903fd979a4a765b4d6",
+            "value": "194067188645000000000",
+            "owner": "0xF52838e033a20295b69F8fBf75b00E0E5a482b4b",
+            "spender": "0x8C20a3F5C9A5926d4C83592c25317f602b385441",
+            "contractAddress": "0x0000000000000000000000000000000000000802"
+          }
+        ]
+      },
+      "bioauthNewAuthentications": {
+        "nodes": [
+          {
+            "id": "4792181-1",
+            "validatorPublicKey": "hmpRQiS4p7pPr44ibxr25kQ6VqgWGL7whRJ3xx2dsZDJSQ932",
+            "timestamp": "2023-10-18T09:38:12",
+            "blockNumber": 4792181
+          }
+        ]
+      },
     "imOnlineSomeOfflines": {
       "nodes": [
         {

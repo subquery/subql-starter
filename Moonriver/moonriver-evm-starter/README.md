@@ -2,7 +2,7 @@
 
 [SubQuery](https://subquery.network) is a fast, flexible, and reliable open-source data indexer that provides you with custom APIs for your web3 project across all of our supported networks. To learn about how to get started with SubQuery, [visit our docs](https://academy.subquery.network).
 
-**This SubQuery project indexes all transfers and approval events for the [SolarBeam token](https://moonriver.moonscan.io/address/0x6bd193ee6d2104f14f94e2ca6efefae561a4334b) (`0x6bd193ee6d2104f14f94e2ca6efefae561a4334b`) on Moonriver's EVM**
+**This SubQuery project indexes all transfers and approval events for the [SolarBeam token](https://moonriver.moonscan.io/address/0x6bd193ee6d2104f14f94e2ca6efefae561a4334b) (`0x6bd193ee6d2104f14f94e2ca6efefae561a4334b`) on Moonriver's EVM as well as transfers related to Substrate**
 
 ## Start
 
@@ -41,8 +41,7 @@ For this project, you can try to query with the following GraphQL code to get a 
 ```graphql
 {
   query {
-    transactions(first: 5, orderBy: VALUE_DESC) {
-      totalCount
+    eRC20TokenTransfers(first: 3) {
       nodes {
         id
         from
@@ -51,14 +50,23 @@ For this project, you can try to query with the following GraphQL code to get a 
         contractAddress
       }
     }
-  }
-  approvals(first: 5) {
-    nodes {
-      id
-      owner
-      spender
-      value
-      contractAddress
+    eRC20Approvals(first: 3) {
+      nodes {
+        id
+        value
+        owner
+        spender
+        contractAddress
+      }
+    }
+    substrateTransfers(first: 3) {
+      nodes {
+        id
+        from
+        to
+        amount
+        date
+      }
     }
   }
 }

@@ -24,17 +24,14 @@
     "ipfs-unixfs": "6.0.6"
   },
   "devDependencies": {
-    "@polkadot/api": "^10",
     "@subql/cli": "latest",
-    "@subql/frontier-evm-processor": "latest",
-    "@subql/node": "latest",
-    "@subql/testing": "latest",
     "@subql/types": "latest",
-    "@subql/types-ethereum": "latest",
-    "typescript": "^5.2.2"
-  },
-  "exports": {
-    "chaintypes": "src/chaintypes.ts"
+    "@subql/testing": "latest",
+    "@subql/node-ethereum": "latest",
+    "ethers": "^5.7.2",
+    "@polkadot/api": "^10",
+    "typescript": "^5.2.2",
+    "@subql/node": "latest"
   },
   "dependencies": {
     "assert": "^2.0.0"

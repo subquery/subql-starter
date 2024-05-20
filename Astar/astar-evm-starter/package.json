@@ -1,7 +1,7 @@
 {
   "name": "astar-evm-starter",
   "version": "1.0.0",
-  "description": "A basic Frontier EVM example project with an event and call handler. Read more about this at https://university.subquery.network/create/frontier/. This project can be use as a starting point for developing your SubQuery project",
+  "description": "A basic EVM example project with an event and call handler. Read more about this at https://academy.subquery.network/build/substrate-evm.html. This project can be use as a starting point for developing your SubQuery project",
   "main": "dist/index.js",
   "scripts": {
     "build": "subql build",
@@ -24,19 +24,20 @@
     "ipfs-unixfs": "6.0.6"
   },
   "devDependencies": {
-    "@polkadot/api": "^10",
     "@subql/cli": "latest",
-    "@subql/frontier-evm-processor": "latest",
-    "@subql/node": "latest",
-    "@subql/testing": "latest",
     "@subql/types": "latest",
-    "@subql/types-ethereum": "latest",
-    "typescript": "^5.2.2"
+    "@subql/testing": "latest",
+    "@subql/node-ethereum": "latest",
+    "ethers": "^5.7.2",
+    "@polkadot/api": "^10",
+    "typescript": "^5.2.2",
+    "@subql/node": "latest"
   },
   "exports": {
     "chaintypes": "src/chaintypes.ts"
   },
   "dependencies": {
-    "assert": "^2.0.0"
+    "assert": "^2.0.0",
+    "@subql/types-ethereum": "latest"
   }
 }
