@@ -4,6 +4,8 @@
 
 **This SubQuery project indexes all transfers and approval events for the [Solarflare token](https://moonscan.io/token/0xe3e43888fa7803cdc7bea478ab327cf1a0dc11a7) (`0xe3e43888fa7803cdc7bea478ab327cf1a0dc11a7`) on Moonbeam's EVM as well as transfers related to Substrate**
 
+**In order to index both Substrate and EVM, we run this as a [multi-chain project](https://academy.subquery.network/build/multi-chain.html). You may decide to delete one manifest (`.yaml`) file in order to run this as a single chain project.** 
+
 ## Start
 
 First, install SubQuery CLI globally on your terminal by using NPM `npm install -g @subql/cli`
