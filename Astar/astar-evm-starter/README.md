@@ -2,7 +2,9 @@
 
 [SubQuery](https://subquery.network) is a fast, flexible, and reliable open-source data indexer that provides you with custom APIs for your web3 project across all of our supported networks. To learn about how to get started with SubQuery, [visit our docs](https://academy.subquery.network).
 
-**This SubQuery project indexes all transfers and approval events for all ERC20 tokens on Astar's EVM as well as transfers related to Substrate**
+**This SubQuery project indexes all transfers and approval events for all ERC20 tokens on Astar's EVM as well as transfers related to Substrate.**
+
+**In order to index both Substrate and EVM, we run this as a [multi-chain project](https://academy.subquery.network/build/multi-chain.html). You may decide to delete one manifest (`.yaml`) file in order to run this as a single chain project.** 
 
 ## Start
 
