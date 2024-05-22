@@ -1,17 +1,28 @@
-type Transaction @entity {
-  id: ID! # Unique identifier
-  transactionHash: String!
-  value: BigInt
-  to: String
-  from: String
-  blockHeight: String
+# To improve query performance, we strongly suggest adding indexes to any field that you plan to filter or sort by
+# Add the `@index` or `@index(unique: true)` annotation after any non-key field
+# https://academy.subquery.network/build/graphql.html#indexing-by-non-primary-key-field
+
+type ERC20TokenTransfer @entity {
+  id: ID!
+  value: BigInt!
+  to: String!
+  from: String!
   contractAddress: String!
 }
 
-type Approval @entity {
-  id: ID! # Unique identifier
-  value: BigInt
+type ERC20Approval @entity {
+  id: ID!
+  value: BigInt!
   owner: String!
   spender: String!
   contractAddress: String!
+}
+
+type SubstrateTransfer @entity {
+  id: ID!
+  amount: BigInt!
+  blockNumber: Int!
+  date: Date!
+  from: String!
+  to: String!
 }

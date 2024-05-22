@@ -2,7 +2,9 @@
 
 [SubQuery](https://subquery.network) is a fast, flexible, and reliable open-source data indexer that provides you with custom APIs for your web3 project across all of our supported networks. To learn about how to get started with SubQuery, [visit our docs](https://academy.subquery.network).
 
-**This SubQuery project indexes all transfers and approval events for the [Solarflare token](https://moonscan.io/token/0xe3e43888fa7803cdc7bea478ab327cf1a0dc11a7) (`0xe3e43888fa7803cdc7bea478ab327cf1a0dc11a7`) on Moonbeam's EVM**
+**This SubQuery project indexes all transfers and approval events for the [Solarflare token](https://moonscan.io/token/0xe3e43888fa7803cdc7bea478ab327cf1a0dc11a7) (`0xe3e43888fa7803cdc7bea478ab327cf1a0dc11a7`) on Moonbeam's EVM as well as transfers related to Substrate**
+
+**In order to index both Substrate and EVM, we run this as a [multi-chain project](https://academy.subquery.network/build/multi-chain.html). You may decide to delete one manifest (`.yaml`) file in order to run this as a single chain project.** 
 
 ## Start
 
@@ -41,8 +43,7 @@ For this project, you can try to query with the following GraphQL code to get a 
 ```graphql
 {
   query {
-    transactions(first: 5, orderBy: VALUE_DESC) {
-      totalCount
+    eRC20TokenTransfers(first: 3) {
       nodes {
         id
         from
@@ -51,14 +52,23 @@ For this project, you can try to query with the following GraphQL code to get a 
         contractAddress
       }
     }
-  }
-  approvals(first: 5) {
-    nodes {
-      id
-      owner
-      spender
-      value
-      contractAddress
+    eRC20Approvals(first: 3) {
+      nodes {
+        id
+        value
+        owner
+        spender
+        contractAddress
+      }
+    }
+    substrateTransfers(first: 3) {
+      nodes {
+        id
+        from
+        to
+        amount
+        date
+      }
     }
   }
 }

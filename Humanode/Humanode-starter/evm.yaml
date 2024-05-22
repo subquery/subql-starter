@@ -1,0 +1,41 @@
+# // Auto-generated , DO NOT EDIT
+specVersion: 1.0.0
+version: 0.0.1
+name: humanode-starter
+description: >-
+  This project can be use as a starting point for developing your new Ethereum
+  SubQuery project
+runner:
+  node:
+    name: "@subql/node-ethereum"
+    version: ">=3.0.0"
+  query:
+    name: "@subql/query"
+    version: "*"
+schema:
+  file: ./schema.graphql
+network:
+  chainId: "5234"
+  endpoint:
+    - wss://explorer-rpc-ws.mainnet.stages.humanode.io
+dataSources:
+  - kind: ethereum/Runtime
+    startBlock: 1
+    options:
+      abi: erc20
+      address: "0x0000000000000000000000000000000000000802"
+    assets:
+      erc20:
+        file: ./abis/erc20.abi.json
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleEVMLog
+          kind: ethereum/LogHandler
+          filter:
+            topics:
+              - Transfer(address indexed from,address indexed to,uint256 value)
+        - handler: handleEVMTransaction
+          kind: ethereum/TransactionHandler
+          filter:
+            function: approve(address to,uint256 value)

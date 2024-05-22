@@ -1,16 +1,14 @@
-type Transaction @entity {
+type ERC20TokenTransfer @entity {
   id: ID!
-  transactionHash: String!
-  value: BigInt
-  to: String
-  from: String
-  blockHeight: String
+  value: BigInt!
+  to: String!
+  from: String!
   contractAddress: String!
 }
 
-type Approval @entity {
+type ERC20Approval @entity {
   id: ID!
-  value: BigInt
+  value: BigInt!
   owner: String!
   spender: String!
   contractAddress: String!

@@ -1,0 +1,34 @@
+# // Auto-generated , DO NOT EDIT
+specVersion: 1.0.0
+version: 0.0.1
+name: moonbeam-starter
+description: >-
+  This project can be used as a starting point for developing your SubQuery
+  project. It indexes all transfers on Moonbeam network
+runner:
+  node:
+    name: '@subql/node'
+    version: '>=3.0.1'
+  query:
+    name: '@subql/query'
+    version: '*'
+schema:
+  file: ./schema.graphql
+network:
+  chainId: '0xfe58ea77779b7abda7da4ec526d14db9b1e9cd40a217c34892af80a9b332b76d'
+  endpoint:
+    - wss://moonbeam.api.onfinality.io/public-ws
+    - wss://wss.api.moonbeam.network
+  chaintypes:
+    file: ./dist/chaintypes.js
+dataSources:
+  - kind: substrate/Runtime
+    startBlock: 1
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - kind: substrate/EventHandler
+          handler: handleEvent
+          filter:
+            module: balances
+            method: Transfer

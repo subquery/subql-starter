@@ -1,0 +1,31 @@
+# // Auto-generated , DO NOT EDIT
+specVersion: 1.0.0
+version: 0.0.1
+name: peaq-starter
+description: >-
+  This project can be used as a starting point for developing your SubQuery
+  project
+runner:
+  node:
+    name: "@subql/node"
+    version: ">=3.0.1"
+  query:
+    name: "@subql/query"
+    version: "*"
+schema:
+  file: ./schema.graphql
+network:
+  chainId: "0xd2a5d385932d1f650dae03ef8e2748983779ee342c614f80854d32b8cd8fa48c"
+  endpoint:
+    - wss://mpfn1.peaq.network
+dataSources:
+  - kind: substrate/Runtime
+    startBlock: 1
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - kind: substrate/EventHandler
+          handler: handleEvent
+          filter:
+            module: balances
+            method: Transfer

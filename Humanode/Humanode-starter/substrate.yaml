@@ -1,0 +1,36 @@
+# // Auto-generated , DO NOT EDIT
+specVersion: 1.0.0
+version: 0.0.1
+name: humanode-starter
+description: >-
+  This project can be used as a starting point for developing your SubQuery
+  project
+runner:
+  node:
+    name: "@subql/node"
+    version: ">=3.0.1"
+  query:
+    name: "@subql/query"
+    version: "*"
+schema:
+  file: ./schema.graphql
+network:
+  chainId: "0xc56fa32442b2dad76f214b3ae07998e4ca09736e4813724bfb0717caae2c8bee"
+  endpoint:
+    - wss://explorer-rpc-ws.mainnet.stages.humanode.io
+dataSources:
+  - kind: substrate/Runtime
+    startBlock: 1
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - kind: substrate/EventHandler
+          handler: handleBioauthNewAuthenticationEvent
+          filter:
+            module: bioauth
+            method: NewAuthentication
+        - kind: substrate/EventHandler
+          handler: handleImonlineSomeOfflineEvent
+          filter:
+            module: imOnline
+            method: SomeOffline
