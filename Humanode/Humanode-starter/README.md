@@ -2,7 +2,9 @@
 
 [SubQuery](https://subquery.network) is a fast, flexible, and reliable open-source data indexer that provides you with custom APIs for your web3 project across all of our supported networks. To learn about how to get started with SubQuery, [visit our docs](https://academy.subquery.network).
 
-This project can be used as a starting point for developing your SubQuery project. It indexes all transfers, bioauthentication events, and online validator nodes from Humanode chain. Moreover, it indexes the approvals and transfers of HMND token.
+**This project can be used as a starting point for developing your SubQuery project. It indexes all transfers, bioauthentication events, and online validator nodes from Humanode chain. Moreover, it indexes the approvals and transfers of HMND token.**
+
+**In order to index both Substrate and EVM, we run this as a [multi-chain project](https://academy.subquery.network/build/multi-chain.html). You may decide to delete one manifest (`.yaml`) file in order to run this as a single chain project.** 
 
 ## Start
 
