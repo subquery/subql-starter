@@ -38,7 +38,7 @@ const project: SubstrateProject = {
      */
     endpoint: ["wss://rpc-testnet.avail.tools/ws"],
     chaintypes: {
-      file: "./types.json",
+      file: "./dist/chaintypes.js",
     },
     bypassBlocks: ["272000-280500"],
   },
