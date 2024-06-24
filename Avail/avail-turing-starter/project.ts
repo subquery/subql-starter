@@ -38,7 +38,7 @@ const project: SubstrateProject = {
      */
     endpoint: ["wss://turing-rpc.avail.so/ws"],
     chaintypes: {
-      file: "./types.json",
+      file: "./dist/chaintypes.js",
     },
   },
   dataSources: [

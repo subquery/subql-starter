@@ -27,5 +27,8 @@
     "@subql/cli": "latest",
     "@subql/testing": "latest",
     "@subql/node": "latest"
+  },
+  "exports": {
+    "chaintypes": "src/chaintypes.ts"
   }
 }
