@@ -26,7 +26,7 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
   // logger.info(JSON.stringify(event));
   const {
     event: {
-      data: [to, amount],
+      data: [, to, amount],
     },
   } = event;
 
