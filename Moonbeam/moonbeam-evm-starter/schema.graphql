@@ -22,7 +22,7 @@ type SubstrateTransfer @entity {
   id: ID!
   amount: BigInt!
   blockNumber: Int!
-  date: Date!
+  date: Date
   from: String!
   to: String!
 }
