@@ -11,7 +11,7 @@ type Transaction @entity {
   value: BigInt
   from: String!
   to: String!
-  contractAddress: String!
+  contractAddress: String
 }
 
 type Approval @entity {
@@ -21,7 +21,7 @@ type Approval @entity {
   hash: String
   owner: String!
   spender: String!
-  contractAddress: String!
+  contractAddress: String
 }
 
 type DApp @entity {

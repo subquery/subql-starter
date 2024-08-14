@@ -21,12 +21,12 @@
   "author": "SubQuery Team",
   "license": "MIT",
   "devDependencies": {
-    "@polkadot/api": "^11",
+    "@polkadot/api": "^12",
     "@subql/cli": "latest",
     "@subql/testing": "latest",
     "@subql/types": "latest",
     "typescript": "^5.2.2",
-    "@subql/common-substrate": "^4.0.1"
+    "@subql/common-substrate": "latest"
   },
   "resolutions": {
     "ipfs-unixfs": "6.0.6"

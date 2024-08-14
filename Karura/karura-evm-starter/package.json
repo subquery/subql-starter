@@ -25,7 +25,7 @@
     "@subql/acala-evm-processor": "latest"
   },
   "devDependencies": {
-    "@polkadot/api": "^10",
+    "@polkadot/api": "^12",
     "@subql/cli": "latest",
     "@subql/types": "latest",
     "typescript": "^5.2.2",

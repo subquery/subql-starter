@@ -28,8 +28,9 @@ export async function handleAttestationCreated(
   });
 
   await attestation.save();
-
-  await handleDailyUpdate(event.block.timestamp, "CREATED");
+  if(event.block.timestamp){
+    await handleDailyUpdate(event.block.timestamp, "CREATED");
+  }
 }
 
 export async function handleAttestationRevoked(
@@ -53,8 +54,9 @@ export async function handleAttestationRevoked(
   attestation.revokedClaimHash = claimHash.toString();
 
   await attestation.save();
-
-  await handleDailyUpdate(event.block.timestamp, "REVOKED");
+  if(event.block.timestamp){
+    await handleDailyUpdate(event.block.timestamp, "REVOKED");
+  }
 }
 
 export async function handleDailyUpdate(

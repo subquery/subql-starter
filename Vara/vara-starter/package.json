@@ -21,7 +21,7 @@
   "author": "SubQuery Team",
   "license": "MIT",
   "devDependencies": {
-    "@polkadot/api": "^10",
+    "@polkadot/api": "^12",
     "@subql/types": "latest",
     "@subql/cli": "latest",
     "node-fetch": "2.6.7",

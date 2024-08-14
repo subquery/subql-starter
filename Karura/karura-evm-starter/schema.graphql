@@ -10,7 +10,7 @@ type Transaction @entity {
 
   from: String!
 
-  contractAddress: String!
+  contractAddress: String
 }
 
 type Approval @entity {
@@ -21,5 +21,5 @@ type Approval @entity {
 
   spender: String!
 
-  contractAddress: String!
+  contractAddress: String
 }

@@ -28,7 +28,7 @@
     "@subql/acala-evm-processor": "latest"
   },
   "devDependencies": {
-    "@polkadot/api": "^10",
+    "@polkadot/api": "^12",
     "@subql/cli": "latest",
     "@subql/node": "latest",
     "@subql/testing": "latest",

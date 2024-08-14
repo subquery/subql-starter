@@ -7,7 +7,7 @@ type Transaction @entity {
   value: BigInt!
   to: String!
   from: String!
-  contractAddress: String!
+  contractAddress: String
 }
 
 type Approval @entity {
@@ -15,5 +15,5 @@ type Approval @entity {
   value: BigInt!
   owner: String!
   spender: String!
-  contractAddress: String!
+  contractAddress: String
 }
