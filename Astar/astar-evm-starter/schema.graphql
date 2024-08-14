@@ -15,7 +15,7 @@ type ERC20Approval @entity {
   value: BigInt!
   owner: String!
   spender: String!
-  contractAddress: String!
+  contractAddress: String
 }
 
 type SubstrateTransfer @entity {
