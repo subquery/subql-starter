@@ -4,7 +4,7 @@
 
 type Attestation @entity {
   id: ID! #id is ClaimHashOf
-  createddate: Date #date of creation of the attestation
+  createdDate: Date #date of creation of the attestation
   createdBlock: BigInt! #block of creation of the attestation
   creator: String! # Account address
   creationClaimHash: String!
