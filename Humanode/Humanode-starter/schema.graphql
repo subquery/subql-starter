@@ -3,7 +3,7 @@ type ERC20TokenTransfer @entity {
   value: BigInt!
   to: String!
   from: String!
-  contractAddress: String!
+  contractAddress: String
 }
 
 type ERC20Approval @entity {
@@ -11,19 +11,19 @@ type ERC20Approval @entity {
   value: BigInt!
   owner: String!
   spender: String!
-  contractAddress: String!
+  contractAddress: String
 }
 
 type BioauthNewAuthentication @entity {
   id: ID!
   blockNumber: Int!
   validatorPublicKey: String!
-  timestamp: Date!
+  timestamp: Date
 }
 
 type ImOnlineSomeOffline @entity {
   id: ID!
   blockNumber: Int!
   accountIds: [String]!
-  timestamp: Date!
+  timestamp: Date
 }

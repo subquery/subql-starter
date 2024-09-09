@@ -21,11 +21,11 @@
   "author": "SubQuery Team",
   "license": "MIT",
   "devDependencies": {
-    "@polkadot/api": "^10",
+    "@polkadot/api": "^12",
     "@subql/types": "latest",
     "typescript": "^5.2.2",
     "@subql/cli": "latest",
-    "@unique-nft/types": "latest",
+    "@unique-nft/types": "0.2.0",
     "@subql/testing": "latest",
     "@subql/node": "latest"
   },

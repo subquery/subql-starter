@@ -18,7 +18,7 @@ type Transfer @entity {
   """
   The date of the transfer
   """
-  date: Date!
+  date: Date
   """
   The account that transfers are made from
   """

@@ -11,6 +11,7 @@
     "rootDir": "src",
     "target": "es2017",
     "strict": true,
+    "skipLibCheck": true
   },
   "include": [
     "src/**/*",
