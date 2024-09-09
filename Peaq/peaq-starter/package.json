@@ -24,16 +24,23 @@
     "ipfs-unixfs": "6.0.6"
   },
   "devDependencies": {
-    "@subql/cli": "latest",
-    "@subql/types": "latest",
-    "@subql/testing": "latest",
-    "@subql/node-ethereum": "latest",
-    "ethers": "^5.7.2",
     "@polkadot/api": "^12",
-    "typescript": "^5.2.2",
-    "@subql/node": "latest"
+    "@subql/cli": "latest",
+    "@subql/node": "latest",
+    "@subql/node-ethereum": "latest",
+    "@subql/testing": "latest",
+    "@subql/types": "latest",
+    "ethers": "^5.7.2",
+    "typescript": "^5.2.2"
   },
   "dependencies": {
-    "assert": "^2.0.0"
+    "@ethersproject/abi": "^5.7.0",
+    "@ethersproject/providers": "^5.7.2",
+    "@polkadot/api-augment": "^12.4.2",
+    "@polkadot/types": "^12.4.2",
+    "@subql/types-core": "^1.1.1",
+    "@subql/types-ethereum": "^3.13.1",
+    "assert": "^2.0.0",
+    "tslib": "^2.7.0"
   }
 }
