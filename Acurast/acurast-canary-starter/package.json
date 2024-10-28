@@ -1,0 +1,31 @@
+{
+  "name": "acurast-canary-starter",
+  "version": "0.0.5",
+  "description": "This project can be used as a starting point for developing your SubQuery project. It indexes all transfers on Acurast Canary network",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "subql build",
+    "codegen": "subql codegen",
+    "start:docker": "docker-compose pull && docker-compose up --remove-orphans",
+    "dev": "subql codegen && subql build && docker-compose pull && docker-compose up --remove-orphans",
+    "prepack": "rm -rf dist && npm run build",
+    "test": "subql build && subql-node test"
+  },
+  "homepage": "https://github.com/subquery/acurast-canary-subql-starter",
+  "repository": "github:subquery/acurast-canary-subql-starter",
+  "files": [
+    "dist",
+    "schema.graphql",
+    "project.yaml"
+  ],
+  "author": "SubQuery Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@polkadot/api": "^10",
+    "@subql/types": "latest",
+    "typescript": "^5.2.2",
+    "@subql/cli": "latest",
+    "@subql/testing": "latest",
+    "@subql/node": "latest"
+  }
+}
