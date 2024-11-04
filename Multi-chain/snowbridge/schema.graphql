@@ -1,0 +1,17 @@
+type BridgeTransaction @entity {
+  id: ID!
+  transactionOnSource: TransactionDetails
+  transactionOnTarget: TransactionDetails
+  token: String
+  amount: BigInt
+}
+
+type TransactionDetails @jsonField {
+  chain: String
+  id: String
+}
+
+type XCMMessageCache @entity {
+  id: ID!
+  blockEventId: String!
+}

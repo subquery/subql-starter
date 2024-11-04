@@ -1,0 +1,30 @@
+# // Auto-generated , DO NOT EDIT
+specVersion: 1.0.0
+version: 0.0.1
+name: multi-chain-snowbridge-starter
+description: >-
+  This project indexes bi-directional cross-chain transactions between Snowbridge (Ethereum <-> Asset Hub)
+runner:
+  node:
+    name: "@subql/node-ethereum"
+    version: ">=3.0.0"
+  query:
+    name: "@subql/query"
+    version: "*"
+schema:
+  file: ./schema.graphql
+network:
+  chainId: "1"
+  endpoint:
+    - https://ethereum.rpc.subquery.network/public
+dataSources:
+  - kind: ethereum/Runtime
+    startBlock: 21099363
+    options:
+      address: '0x27ca963c279c93801941e1eb8799c23f407d68e7'
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleEVMLog
+          kind: ethereum/LogHandler
+

@@ -1,0 +1,37 @@
+# // Auto-generated , DO NOT EDIT
+specVersion: 1.0.0
+version: 0.0.1
+name: multi-chain-snowbridge-starter
+description: >-
+  This project indexes bi-directional cross-chain transactions between Snowbridge (Ethereum <-> Asset Hub)
+runner:
+  node:
+    name: "@subql/node"
+    version: ">=3.0.1"
+  query:
+    name: "@subql/query"
+    version: "*"
+schema:
+  file: ./schema.graphql
+network:
+  chainId: "0x68d56f15f85d3136970ec16946040bc1752654e906147f7e43e9d539d7c3de2f"
+  endpoint:
+    - wss://polkadot-asset-hub-rpc.polkadot.io#
+  chaintypes:
+    file: ./dist/chaintypes.js
+dataSources:
+  - kind: substrate/Runtime
+    startBlock: 7470207
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - kind: substrate/EventHandler
+          handler: handleReceived
+          filter:
+            module: messageQueue
+            method: Processed
+        - kind: substrate/EventHandler
+          handler: handleSent
+          filter:
+            module: polkadotXcm
+            method: Sent
