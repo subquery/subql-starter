@@ -38,8 +38,8 @@ async function handleEvent(
   );
 
   await Promise.all([
-    ensureAccount(fromAddress.toString(), fromGenericAddress, network),
-    ensureAccount(toAddress.toString(), toGenericAddress, network),
+    ensureAccount(fromAddress.toString(), fromGenericAddress, network, event.block.block.header.number.toNumber()),
+    ensureAccount(toAddress.toString(), toGenericAddress, network, event.block.block.header.number.toNumber()),
   ]);
 
   // We prefix the ID with the network name to prevent ID collisions across networks
@@ -64,12 +64,18 @@ async function ensureAccount(
   accountId: string,
   publicKey: string,
   network: "polkadot" | "kusama",
+  blockHeight: number,
 ): Promise<void> {
   const account = await Account.get(accountId);
   if (!account) {
     await ensureGenericSubstrateAddress(publicKey);
-    const newAccount = new Account(accountId, publicKey, network);
+    const newAccount = new Account(accountId, publicKey, network, blockHeight);
+    newAccount.lastTransferBlock = blockHeight;
     await newAccount.save();
+  }
+  else {
+    account.lastTransferBlock = blockHeight;
+    await account.save();
   }
 }
 

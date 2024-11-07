@@ -2,11 +2,14 @@ type GenericSubstrateAccount @entity {
   id: ID! # Generic Substrate Address always starts with the number 5
 }
 
-type Account
-  @entity { # This is a network specific address of the particular account
+type Account @entity { 
   id: ID! # network account address
   genericSubstrateAccount: GenericSubstrateAccount!
   network: String!
+  firstTransferBlock: Int!
+  lastTransferBlock: Int
+  sentTransfers: [Transfer] @derivedFrom(field: "from") # These are virtual properties to help us navigate to the correct foreign key of Transfer
+  recievedTransfers: [Transfer] @derivedFrom(field: "to") # These are virtual properties to help us navigate to the correct foreign key of Transfer
 }
 
 type Transfer @entity {
