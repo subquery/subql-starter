@@ -19,7 +19,10 @@ schema:
 network:
   chainId: "0xb0a8d493285c2df73290dfb7e61f870f17b41801197a149ca93654499ea3dafe"
   endpoint:
-    ["wss://kusama.api.onfinality.io/public-ws", "wss://kusama-rpc.polkadot.io"]
+    [
+      "wss://kusama.rpc.subquery.network/public-ws",
+      "wss://kusama-rpc.dwellir.com",
+    ]
 dataSources:
   - kind: substrate/Runtime
     startBlock: 1

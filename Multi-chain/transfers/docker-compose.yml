@@ -18,7 +18,7 @@ services:
       retries: 5
 
   subquery-node-polkadot:
-    image: subquerynetwork/subql-node:latest
+    image: subquerynetwork/subql-node-substrate:latest
     depends_on:
       "postgres":
         condition: service_healthy
@@ -47,7 +47,7 @@ services:
       retries: 10
 
   subquery-node-kusama:
-    image: subquerynetwork/subql-node:latest
+    image: subquerynetwork/subql-node-substrate:latest
     depends_on:
       "postgres":
         condition: service_healthy
@@ -74,26 +74,8 @@ services:
       interval: 3s
       timeout: 5s
       retries: 10
-
-  graphql-engine:
-    image: subquerynetwork/subql-query:latest
-    ports:
-      - 3000:3000
-    depends_on:
-      "postgres":
-        condition: service_healthy
-    restart: unless-stopped
-    environment:
-      DB_USER: postgres
-      DB_PASS: postgres
-      DB_DATABASE: postgres
-      DB_HOST: postgres
-      DB_PORT: 5432
-    command:
-      - --name=multi-transfers
-      - --playground
   subquery-node-project-assethub:
-    image: subquerynetwork/subql-node:latest
+    image: subquerynetwork/subql-node-substrate:latest
     depends_on:
       postgres:
         condition: service_healthy
@@ -120,3 +102,20 @@ services:
       interval: 3s
       timeout: 5s
       retries: 10
+  graphql-engine:
+    image: subquerynetwork/subql-query:latest
+    ports:
+      - 3000:3000
+    depends_on:
+      "postgres":
+        condition: service_healthy
+    restart: unless-stopped
+    environment:
+      DB_USER: postgres
+      DB_PASS: postgres
+      DB_DATABASE: postgres
+      DB_HOST: postgres
+      DB_PORT: 5432
+    command:
+      - --name=multi-transfers
+      - --playground
