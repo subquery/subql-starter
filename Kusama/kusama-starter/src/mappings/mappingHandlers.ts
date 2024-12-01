@@ -7,47 +7,56 @@ import { Account, Transfer } from "../types";
 import { Balance } from "@polkadot/types/interfaces";
 import { decodeAddress } from "@polkadot/util-crypto";
 
+let lastTransfer: Transfer;
+
 export async function handleBlock(block: SubstrateBlock): Promise<void> {
   // Do something with each block handler here
 }
 
 export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
+  logger.info(`Handle extrinsic ${extrinsic.idx}`)
   // Do something with a call handler here
 }
 
 export async function handleEvent(event: SubstrateEvent): Promise<void> {
-  logger.info(
-    `New transfer event found at block ${event.block.block.header.number.toString()}`,
-  );
+  logger.info()
+  // logger.info(
+  //   `New transfer event found at block ${event.block.block.header.number.toString()}`,
+  // );
 
   // Get data from the event
   // The balances.transfer event has the following payload \[from, to, value\]
   // logger.info(JSON.stringify(event));
-  const {
-    event: {
-      data: [from, to, amount],
-    },
-  } = event;
+  // const {
+  //   event: {
+  //     data: [from, to, amount],
+  //   },
+  // } = event;
 
-  const blockNumber: number = event.block.block.header.number.toNumber();
+  // const blockNumber: number = event.block.block.header.number.toNumber();
 
-  const fromAccount = await checkAndGetAccount(from.toString(), blockNumber);
-  const toAccount = await checkAndGetAccount(to.toString(), blockNumber);
+  // const fromAccount = await checkAndGetAccount(from.toString(), blockNumber);
+  // const toAccount = await checkAndGetAccount(to.toString(), blockNumber);
 
-  // Create the new transfer entity
-  const transfer = Transfer.create({
-    id: `${event.block.block.header.number.toNumber()}-${event.idx}`,
-    blockNumber,
-    date: event.block.timestamp,
-    fromId: fromAccount.id,
-    toId: toAccount.id,
-    amount: (amount as Balance).toBigInt(),
-  });
+  // // Create the new transfer entity
+  // const transfer = Transfer.create({
+  //   id: `${event.block.block.header.number.toNumber()}-${event.idx}`,
+  //   blockNumber,
+  //   date: event.block.timestamp,
+  //   fromId: fromAccount.id,
+  //   toId: toAccount.id,
+  //   amount: (amount as Balance).toBigInt(),
+  // });
 
-  fromAccount.lastTransferBlock = blockNumber;
-  toAccount.lastTransferBlock = blockNumber;
+  // fromAccount.lastTransferBlock = blockNumber;
+  // toAccount.lastTransferBlock = blockNumber;
 
-  await Promise.all([fromAccount.save(), toAccount.save(), transfer.save()]);
+  // if (lastTransfer) {
+  //   await Transfer.remove(lastTransfer.id);
+  //   lastTransfer = transfer
+  // }
+
+  // await Promise.all([fromAccount.save(), toAccount.save(), transfer.save()]);
 }
 
 async function checkAndGetAccount(
