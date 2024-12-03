@@ -44,7 +44,7 @@ const project: SubstrateProject = {
   dataSources: [
     {
       kind: SubstrateDatasourceKind.Runtime,
-      startBlock: 25845986,
+      startBlock: 1,
       mapping: {
         file: "./dist/index.js",
         handlers: [
@@ -55,21 +55,21 @@ const project: SubstrateProject = {
               modulo: 100,
             },
           },*/
-          {
+          /*{
             kind: SubstrateHandlerKind.Call,
             handler: "handleCall",
-            // filter: {
-            //   module: "balances",
-            // },
+            filter: {
+              module: "balances",
+            },
+          },*/
+          {
+            kind: SubstrateHandlerKind.Event,
+            handler: "handleEvent",
+            filter: {
+              module: "balances",
+              method: "Transfer",
+            },
           },
-          // {
-          //   kind: SubstrateHandlerKind.Event,
-          //   handler: "handleEvent",
-          //   // filter: {
-          //   //   module: "balances",
-          //   //   method: "Transfer",
-          //   // },
-          // },
         ],
       },
     },
