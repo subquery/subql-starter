@@ -77,7 +77,7 @@ yarn build
 Under the project directory run following command:
 
 ```
-docker-compose pull && docker-compose up
+docker compose pull && docker compose up
 ```
 
 #### Query the project
