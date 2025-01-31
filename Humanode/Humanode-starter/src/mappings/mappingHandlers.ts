@@ -27,7 +27,7 @@ export async function handleEVMLog(log: TransferLog): Promise<void> {
 }
 
 export async function handleEVMTransaction(
-  tx: ApproveTransaction
+  tx: ApproveTransaction,
 ): Promise<void> {
   logger.info(`New Approval transaction at block ${tx.blockNumber}`);
   assert(tx.args, "No tx.args");
@@ -44,7 +44,7 @@ export async function handleEVMTransaction(
 }
 
 export async function handleBioauthNewAuthenticationEvent(
-  substrateEvent: SubstrateEvent
+  substrateEvent: SubstrateEvent,
 ): Promise<void> {
   const { event, block, idx } = substrateEvent;
 
@@ -62,7 +62,7 @@ export async function handleBioauthNewAuthenticationEvent(
 }
 
 export async function handleImonlineSomeOfflineEvent(
-  substrateEvent: SubstrateEvent<[]>
+  substrateEvent: SubstrateEvent<[]>,
 ): Promise<void> {
   const { event, block, idx } = substrateEvent;
 
@@ -80,7 +80,7 @@ export async function handleImonlineSomeOfflineEvent(
   for (const identification of offline as Vec<Codec>) {
     const [accountId, _fullIdentification] = identification as any as [
       Codec,
-      Codec
+      Codec,
     ];
     record.accountIds.push(accountId.toString());
   }

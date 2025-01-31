@@ -7,15 +7,15 @@ description: >-
   project. It indexes all transfers on Moonbeam network
 runner:
   node:
-    name: '@subql/node'
-    version: '>=3.0.1'
+    name: "@subql/node"
+    version: ">=3.0.1"
   query:
-    name: '@subql/query'
-    version: '*'
+    name: "@subql/query"
+    version: "*"
 schema:
   file: ./schema.graphql
 network:
-  chainId: '0xfe58ea77779b7abda7da4ec526d14db9b1e9cd40a217c34892af80a9b332b76d'
+  chainId: "0xfe58ea77779b7abda7da4ec526d14db9b1e9cd40a217c34892af80a9b332b76d"
   endpoint:
     - wss://moonbeam.api.onfinality.io/public-ws
     - wss://wss.api.moonbeam.network

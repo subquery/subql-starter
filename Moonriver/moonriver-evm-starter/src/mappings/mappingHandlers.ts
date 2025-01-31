@@ -21,7 +21,7 @@ export async function handleEVMLog(log: TransferLog): Promise<void> {
 }
 
 export async function handleEVMTransaction(
-  tx: ApproveTransaction
+  tx: ApproveTransaction,
 ): Promise<void> {
   logger.info(`New Approval transaction at block ${tx.blockNumber}`);
   assert(tx.args, "No tx.args");
@@ -39,7 +39,7 @@ export async function handleEVMTransaction(
 
 export async function handleEvent(event: SubstrateEvent): Promise<void> {
   logger.info(
-    `New transfer event found at block ${event.block.block.header.number.toString()}`
+    `New transfer event found at block ${event.block.block.header.number.toString()}`,
   );
   const {
     event: {
