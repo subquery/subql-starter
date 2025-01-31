@@ -25,7 +25,7 @@
     "@subql/cli": "latest",
     "@subql/types": "latest",
     "node-fetch": "2.6.7",
-    "typescript": "^5.2.2",
+    "typescript": "latest",
     "@kiltprotocol/type-definitions": "latest",
     "@subql/testing": "latest",
     "@subql/node": "latest"

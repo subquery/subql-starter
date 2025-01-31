@@ -34,7 +34,7 @@
     "@subql/testing": "latest",
     "@subql/types": "latest",
     "@subql/types-ethereum": "latest",
-    "typescript": "^5.2.2"
+    "typescript": "latest"
   },
   "exports": {
     "chaintypes": "./src/chaintypes.ts"

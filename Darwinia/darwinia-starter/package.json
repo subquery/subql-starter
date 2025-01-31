@@ -24,7 +24,7 @@
     "@polkadot/api": "^14",
     "@subql/cli": "latest",
     "@subql/types": "latest",
-    "typescript": "^5.2.2",
+    "typescript": "latest",
     "@subql/testing": "latest",
     "@subql/node": "latest"
   }

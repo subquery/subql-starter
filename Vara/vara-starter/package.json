@@ -27,7 +27,7 @@
     "node-fetch": "2.6.7",
     "@subql/testing": "latest",
     "@subql/node": "latest",
-    "typescript": "^5.2.2"
+    "typescript": "latest"
   },
   "resolutions": {
     "ipfs-unixfs": "6.0.6"

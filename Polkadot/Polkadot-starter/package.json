@@ -25,7 +25,7 @@
     "@subql/cli": "latest",
     "@subql/testing": "latest",
     "@subql/types": "latest",
-    "typescript": "^5.2.2",
+    "typescript": "latest",
     "@subql/common-substrate": "latest"
   },
   "resolutions": {

@@ -26,7 +26,7 @@
   "devDependencies": {
     "@polkadot/api": "^14",
     "@subql/types": "latest",
-    "typescript": "^5.2.2",
+    "typescript": "latest",
     "@subql/cli": "latest",
     "moonbeam-types-bundle": "^2.0.3",
     "@subql/testing": "latest",

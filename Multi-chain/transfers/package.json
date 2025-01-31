@@ -26,7 +26,7 @@
     "@subql/node": "latest",
     "@subql/cli": "latest",
     "@polkadot/api": "^14",
-    "typescript": "^4.1.3"
+    "typescript": "latest"
   },
   "resolutions": {
     "ipfs-unixfs": "6.0.6"
