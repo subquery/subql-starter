@@ -21,14 +21,15 @@
   "author": "SubQuery Team",
   "license": "MIT",
   "devDependencies": {
-    "@subql/types": "latest",
-    "@subql/testing": "latest",
-    "@subql/node": "latest",
-    "@subql/cli": "latest",
     "@polkadot/api": "^15",
+    "@subql/cli": "latest",
+    "@subql/node": "latest",
+    "@subql/testing": "latest",
+    "@subql/types": "latest",
     "typescript": "latest"
   },
   "resolutions": {
     "ipfs-unixfs": "6.0.6"
-  }
+  },
+  "packageManager": "yarn@3.8.1+sha512.8cfec856814c797ccb480703ca5270824327fac5abce240835e2699e01732229fd22bbeb1bb87047a0069f7698be9b2e3d9a926e6046e851faa9908fdacdeacf"
 }
