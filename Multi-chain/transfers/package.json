@@ -25,7 +25,7 @@
     "@subql/testing": "latest",
     "@subql/node": "latest",
     "@subql/cli": "latest",
-    "@polkadot/api": "^14",
+    "@polkadot/api": "^15",
     "typescript": "latest"
   },
   "resolutions": {

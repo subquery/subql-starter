@@ -21,7 +21,7 @@
   "author": "SubQuery Team",
   "license": "MIT",
   "devDependencies": {
-    "@polkadot/api": "^14",
+    "@polkadot/api": "^15",
     "@subql/types": "latest",
     "typescript": "latest",
     "@subql/cli": "latest",
