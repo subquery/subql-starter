@@ -32,7 +32,7 @@
     "@subql/testing": "latest",
     "@subql/node-ethereum": "latest",
     "ethers": "^5.7.2",
-    "@polkadot/api": "^14",
+    "@polkadot/api": "^15",
     "typescript": "latest",
     "@subql/node": "latest"
   },
